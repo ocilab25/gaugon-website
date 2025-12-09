@@ -11,11 +11,11 @@ export default function Navbar() {
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
-            <Link href="/" className="text-2xl font-bold text-gray-900 tracking-tight">
-              Gaugon
+            <Link href="/" className="flex items-center">
+              <img src="/logo.png" alt="Gaugon" className="h-10 w-auto" />
             </Link>
           </div>
-          
+
           {/* Desktop menu */}
           <div className="hidden md:flex md:items-center md:space-x-10">
             <Link href="/" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">

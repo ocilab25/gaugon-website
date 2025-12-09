@@ -12,6 +12,11 @@ export const metadata: Metadata = {
   description: "Professional AI automation and IT solutions. Automate marketing, customer support, CRM, reporting, and workflows. Trusted by growing businesses.",
   keywords: ["AI automation", "business automation", "IT solutions", "marketing automation", "CRM automation", "workflow automation"],
   authors: [{ name: "Gaugon" }],
+  icons: {
+    icon: "/favicon.png",
+    shortcut: "/favicon.png",
+    apple: "/favicon.png",
+  },
   openGraph: {
     title: "Gaugon | AI Automation & IT Solutions for Business",
     description: "Professional AI automation and IT solutions. Automate marketing, customer support, CRM, reporting, and workflows.",
