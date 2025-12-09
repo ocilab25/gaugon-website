@@ -16,8 +16,6 @@ export default function ServicesPage() {
         "Follow-up sequences that run on their own",
         "Clear view of pipeline performance",
       ],
-      image: "/marketing-automation.jpg",
-      imageAlt: "Marketing Automation - Automated Campaigns & Lead Nurturing with Email, Social Media, and Web integration",
     },
     {
       title: "Customer Support AI",
@@ -27,8 +25,6 @@ export default function ServicesPage() {
         "Smart routing to the right agent or team",
         "Every conversation logged in your helpdesk",
       ],
-      image: "/customer-support-ai.jpg",
-      imageAlt: "Customer Support AI - AI chatbot handling tickets with Email, Chat, and Phone integration",
     },
     {
       title: "CRM & Ticketing Automation",
@@ -38,8 +34,6 @@ export default function ServicesPage() {
         "SLA reminders and escalation rules",
         "Cleaner, more reliable customer data",
       ],
-      image: "/crm-ticketing-automation.jpg",
-      imageAlt: "CRM & Ticketing Automation - Automated workflow from Leads to In Progress to Won with auto-reply and follow-up tasks",
     },
     {
       title: "Workflow Automation",
@@ -61,8 +55,6 @@ export default function ServicesPage() {
         "Live KPIs for leaders and teams",
         "Email or chat reports on a schedule",
       ],
-      image: "/reporting-dashboards.jpg",
-      imageAlt: "Reporting Dashboards - Real-time analytics showing Sales by Region, User Growth, Traffic Sources, and KPI metrics",
     },
     {
       title: "IT Infrastructure Support",
@@ -107,45 +99,40 @@ export default function ServicesPage() {
 
           {/* AI Automation Section */}
           <div className="mb-24">
-            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">
               AI Automation
             </h2>
-            <div className="space-y-24">
+
+            {/* Section Image */}
+            <div className="mb-12 flex justify-center">
+              <img
+                src="/ai-automation-section.jpg"
+                alt="AI Automation - CRM workflow with chatbot and email integration"
+                className="w-full max-w-3xl h-auto rounded-lg shadow-xl"
+              />
+            </div>
+
+            {/* Service Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {aiAutomationServices.map((service, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                    } gap-12 items-center`}
+                  className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow"
                 >
-                  <div className="flex-1">
-                    <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                      {service.title}
-                    </h3>
-                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start">
-                          <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="flex-1 flex items-center justify-center">
-                    {service.image ? (
-                      <img
-                        src={service.image}
-                        alt={service.imageAlt || `${service.title} illustration`}
-                        className="w-full h-auto rounded-lg shadow-lg"
-                      />
-                    ) : (
-                      <div className="bg-gray-50 border border-gray-200 rounded-lg p-12 min-h-[300px] w-full flex items-center justify-center">
-                        <span className="text-gray-400 text-sm">Service Illustration</span>
-                      </div>
-                    )}
-                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <ul className="space-y-3">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start">
+                        <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
@@ -153,45 +140,40 @@ export default function ServicesPage() {
 
           {/* Data & IT Foundation Section */}
           <div className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
+            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">
               Data & IT Foundation
             </h2>
-            <div className="space-y-24">
+
+            {/* Section Image */}
+            <div className="mb-12 flex justify-center">
+              <img
+                src="/data-it-section.jpg"
+                alt="Data & IT Foundation - Dashboard analytics with secure infrastructure and cloud sync"
+                className="w-full max-w-3xl h-auto rounded-lg shadow-xl"
+              />
+            </div>
+
+            {/* Service Cards Grid */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               {dataITServices.map((service, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                    } gap-12 items-center`}
+                  className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow"
                 >
-                  <div className="flex-1">
-                    <h3 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
-                      {service.title}
-                    </h3>
-                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                      {service.description}
-                    </p>
-                    <ul className="space-y-3">
-                      {service.features.map((feature, featureIndex) => (
-                        <li key={featureIndex} className="flex items-start">
-                          <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                          <span className="text-gray-700">{feature}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div className="flex-1 flex items-center justify-center">
-                    {service.image ? (
-                      <img
-                        src={service.image}
-                        alt={service.imageAlt || `${service.title} illustration`}
-                        className="w-full h-auto rounded-lg shadow-lg"
-                      />
-                    ) : (
-                      <div className="bg-gray-50 border border-gray-200 rounded-lg p-12 min-h-[300px] w-full flex items-center justify-center">
-                        <span className="text-gray-400 text-sm">Service Illustration</span>
-                      </div>
-                    )}
-                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                    {service.title}
+                  </h3>
+                  <p className="text-gray-600 mb-6 leading-relaxed">
+                    {service.description}
+                  </p>
+                  <ul className="space-y-3">
+                    {service.features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start">
+                        <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
                 </div>
               ))}
             </div>
