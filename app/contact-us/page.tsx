@@ -9,7 +9,7 @@ import { WEB3FORMS_CONFIG } from "@/lib/config";
 
 const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
   ssr: false
-});
+}) as any;
 
 // Country list
 const COUNTRIES = [
