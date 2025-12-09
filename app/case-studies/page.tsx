@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 
 export const metadata: Metadata = {
   title: "Case Studies | Gaugon - Success Stories",
@@ -104,19 +105,7 @@ export default function CaseStudiesPage() {
                         key={resultIndex}
                         className="flex items-start bg-gray-50 p-4 rounded-lg"
                       >
-                        <svg
-                          className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
+                        <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700">{result}</span>
                       </div>
                     ))}
