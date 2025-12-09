@@ -56,6 +56,12 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 - **Goal:** Provide immediate quantitative proof before social proof (Authority Hacker style).
 - **Style:** Large typography metric, separated by divider, reduced opacity for logos.
 
+### 👤 UI: Founder Authority Block
+- **Component:** `About.tsx`
+- **Change:** Replacing generic mission text with a personal "Lead Architect" bio.
+- **Goal:** Build trust through personal expertise ("15 years building systems").
+- **Style:** 2-column layout, pull quote, certified expert badge, placeholder for founder image.
+
 ---
 
 ## Developer Guide
