@@ -62,6 +62,12 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 - **Goal:** Build trust through personal expertise ("15 years building systems").
 - **Style:** 2-column layout, pull quote, certified expert badge, placeholder for founder image.
 
+### 🚦 UI: Red/Green Qualification Gate
+- **Component:** `WhoThisIsFor.tsx`
+- **Change:** Implemented polarizing "Green Logic" vs "Red Logic" cards.
+- **Goal:** Filter for ideal clients by explicitly repelling bad fits (Authority Hacker style).
+- **Style:** Border-top indicators (Green/Red), clear check/cross iconography.
+
 ---
 
 ## Developer Guide
