@@ -43,6 +43,8 @@ export default function ServicesPage() {
         "Automated approvals and notifications",
         "Less copy-paste across tools",
       ],
+      image: "/workflow-automation.jpg",
+      imageAlt: "Workflow Automation - Approval workflow diagram with checkmark decision point",
     },
   ];
 
@@ -64,6 +66,8 @@ export default function ServicesPage() {
         "Backup and recovery planning",
         "Cloud and on-prem support",
       ],
+      image: "/it-infrastructure.jpg",
+      imageAlt: "IT Infrastructure Support - Dashboard with secure server infrastructure and cloud sync",
     },
   ];
 
@@ -112,9 +116,9 @@ export default function ServicesPage() {
               />
             </div>
 
-            {/* Service Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {aiAutomationServices.map((service, index) => (
+            {/* Service Cards Grid - First 3 services */}
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
+              {aiAutomationServices.slice(0, 3).map((service, index) => (
                 <div
                   key={index}
                   className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow"
@@ -136,6 +140,35 @@ export default function ServicesPage() {
                 </div>
               ))}
             </div>
+
+            {/* Workflow Automation - Full width with image */}
+            {aiAutomationServices[3] && aiAutomationServices[3].image && (
+              <div className="flex flex-col lg:flex-row gap-12 items-center">
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                    {aiAutomationServices[3].title}
+                  </h3>
+                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    {aiAutomationServices[3].description}
+                  </p>
+                  <ul className="space-y-3">
+                    {aiAutomationServices[3].features.map((feature, featureIndex) => (
+                      <li key={featureIndex} className="flex items-start">
+                        <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-700">{feature}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+                <div className="flex-1 flex items-center justify-center">
+                  <img
+                    src={aiAutomationServices[3].image}
+                    alt={aiAutomationServices[3].imageAlt}
+                    className="w-full h-auto rounded-lg shadow-lg max-w-md"
+                  />
+                </div>
+              </div>
+            )}
           </div>
 
           {/* Data & IT Foundation Section */}
@@ -153,21 +186,38 @@ export default function ServicesPage() {
               />
             </div>
 
-            {/* Service Cards Grid */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {dataITServices.map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow"
-                >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                    {service.title}
+            {/* Reporting Dashboards Card */}
+            <div className="mb-16">
+              <div className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow max-w-2xl mx-auto">
+                <h3 className="text-2xl font-bold text-gray-900 mb-3">
+                  {dataITServices[0].title}
+                </h3>
+                <p className="text-gray-600 mb-6 leading-relaxed">
+                  {dataITServices[0].description}
+                </p>
+                <ul className="space-y-3">
+                  {dataITServices[0].features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-start">
+                      <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                      <span className="text-gray-700">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            </div>
+
+            {/* IT Infrastructure Support - Full width with image */}
+            {dataITServices[1] && dataITServices[1].image && (
+              <div className="flex flex-col lg:flex-row-reverse gap-12 items-center">
+                <div className="flex-1">
+                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                    {dataITServices[1].title}
                   </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {service.description}
+                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    {dataITServices[1].description}
                   </p>
                   <ul className="space-y-3">
-                    {service.features.map((feature, featureIndex) => (
+                    {dataITServices[1].features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
                         <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700">{feature}</span>
@@ -175,8 +225,15 @@ export default function ServicesPage() {
                     ))}
                   </ul>
                 </div>
-              ))}
-            </div>
+                <div className="flex-1 flex items-center justify-center">
+                  <img
+                    src={dataITServices[1].image}
+                    alt={dataITServices[1].imageAlt}
+                    className="w-full h-auto rounded-lg shadow-lg max-w-md"
+                  />
+                </div>
+              </div>
+            )}
           </div>
 
           {/* CTA Strip */}
