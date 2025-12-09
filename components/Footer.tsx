@@ -2,82 +2,88 @@ import Link from "next/link";
 
 export default function Footer() {
   return (
-    <footer className="bg-slate-900 text-gray-300">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-20">
-        {/* Top Navigation Sections */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16">
+    <footer className="bg-slate-900 text-white">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
+        {/* Top Section: Logo and Tagline */}
+        <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 pb-16 border-b border-slate-800">
+          {/* Left: Large Gaugon Logo */}
+          <div className="mb-8 lg:mb-0">
+            <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
+              Gaugon
+            </h2>
+          </div>
+
+          {/* Right: Tagline with accent */}
+          <div className="max-w-lg">
+            <h3 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight">
+              <span className="bg-primary px-2 py-1">Work smarter,</span>
+              <br />
+              <span className="bg-primary px-2 py-1 ml-0 lg:ml-12">scale faster</span>
+            </h3>
+          </div>
+        </div>
+
+        {/* Navigation Links - Two Columns */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          {/* Column 1 */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Learn More</h4>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-4 text-base">
               <li>
-                <Link href="/about" className="hover:text-white transition-colors">
-                  About
+                <Link href="/about" className="hover:text-gray-300 transition-colors">
+                  About Us
                 </Link>
               </li>
               <li>
-                <Link href="/services" className="hover:text-white transition-colors">
+                <Link href="/services" className="hover:text-gray-300 transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/pricing" className="hover:text-white transition-colors">
+                <Link href="/pricing" className="hover:text-gray-300 transition-colors">
                   Pricing
-                </Link>
-              </li>
-              <li>
-                <Link href="/case-studies" className="hover:text-white transition-colors">
-                  Case Studies
                 </Link>
               </li>
             </ul>
           </div>
 
+          {/* Column 2 */}
           <div>
-            <h4 className="text-white font-semibold mb-4 text-sm uppercase tracking-wider">Resources</h4>
-            <ul className="space-y-3 text-sm">
+            <ul className="space-y-4 text-base">
               <li>
-                <Link href="/faq" className="hover:text-white transition-colors">
+                <Link href="/case-studies" className="hover:text-gray-300 transition-colors">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="hover:text-gray-300 transition-colors">
                   FAQ
                 </Link>
               </li>
               <li>
-                <Link href="/contact" className="hover:text-white transition-colors">
-                  Book Audit
+                <Link href="/contact" className="hover:text-gray-300 transition-colors">
+                  Contact Us
                 </Link>
               </li>
             </ul>
           </div>
         </div>
 
-        {/* Large Gaugon Branding */}
-        <div className="mb-16 text-center">
-          <h2 className="text-6xl md:text-8xl lg:text-9xl font-bold text-white tracking-tight">
-            Gaugon
-          </h2>
-        </div>
-
-        {/* About Gaugon Section - Very Bottom */}
-        <div className="border-t border-slate-800 pt-12">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
-            <div className="max-w-2xl">
-              <h3 className="text-white font-semibold mb-3 text-sm uppercase tracking-wider">About Gaugon</h3>
-              <p className="text-sm text-gray-400 leading-relaxed">
-                AI automation and IT solutions for growing businesses. We help you streamline operations,
-                automate workflows, and scale efficiently—without the complexity.
-              </p>
-            </div>
-
-            <div className="flex flex-col items-start md:items-end gap-4">
-              <div className="flex flex-wrap gap-6 text-sm text-gray-400">
-                <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
-                <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
-                <Link href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
-              </div>
-              <p className="text-sm text-gray-500">
-                &copy; {new Date().getFullYear()} Gaugon. All rights reserved.
-              </p>
-            </div>
+        {/* Bottom Section: Legal Links & Copyright */}
+        <div className="pt-8 border-t border-slate-800">
+          <div className="flex flex-wrap gap-4 md:gap-6 text-sm text-gray-400 mb-4">
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">
+              Privacy
+            </Link>
+            <Link href="/terms" className="hover:text-white transition-colors">
+              Terms
+            </Link>
+            <Link href="/cookie-policy" className="hover:text-white transition-colors">
+              Cookie Policy
+            </Link>
           </div>
+          <p className="text-sm text-gray-500">
+            &copy; {new Date().getFullYear()} Gaugon. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
