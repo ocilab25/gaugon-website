@@ -4,27 +4,27 @@ export default function Footer() {
   return (
     <footer className="bg-slate-900 text-white">
       <div className="max-w-7xl mx-auto px-6 lg:px-8 py-16">
-        {/* Top Section: Logo and Tagline */}
+        {/* Top Section: Tagline and Logo */}
         <div className="flex flex-col lg:flex-row justify-between items-start lg:items-center mb-16 pb-16 border-b border-slate-800">
-          {/* Left: Large Gaugon Logo */}
-          <div className="mb-8 lg:mb-0">
+          {/* Left: Tagline - same style as logo */}
+          <div className="mb-8 lg:mb-0 max-w-lg">
+            <h3 className="text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight leading-tight">
+              Work smarter,
+              <br />
+              scale faster
+            </h3>
+          </div>
+
+          {/* Right: Large Gaugon Logo */}
+          <div>
             <h2 className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight">
               Gaugon
             </h2>
           </div>
-
-          {/* Right: Tagline with accent */}
-          <div className="max-w-lg">
-            <h3 className="text-3xl md:text-4xl lg:text-5xl font-light leading-tight">
-              <span className="bg-primary px-2 py-1">Work smarter,</span>
-              <br />
-              <span className="bg-primary px-2 py-1 ml-0 lg:ml-12">scale faster</span>
-            </h3>
-          </div>
         </div>
 
-        {/* Navigation Links - Two Columns */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+        {/* Navigation Links - Two Columns (closer together) */}
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-12 max-w-2xl">
           {/* Column 1 */}
           <div>
             <ul className="space-y-4 text-base">
