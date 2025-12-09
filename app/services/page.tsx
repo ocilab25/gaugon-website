@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
+import WhoThisIsFor from "@/components/sections/WhoThisIsFor";
 
 export const metadata: Metadata = {
   title: "Services | Gaugon - AI Automation & IT Solutions",
@@ -256,13 +257,16 @@ export default function ServicesPage() {
             </div>
           </div>
 
+          {/* Fit & Expectations */}
+          <WhoThisIsFor id="fit-and-expectations" />
+
           {/* CTA Strip */}
           <div className="mt-20 bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 lg:p-12 text-center border border-primary/20">
             <p className="text-xl sm:text-2xl text-gray-900 mb-6 max-w-3xl mx-auto leading-relaxed">
               Not sure which service fits? Start with the Workflow Sprint—we'll map your tools, spot bottlenecks, and build you a prioritized roadmap in 7–14 days.
             </p>
             <a
-              href="/contact"
+              href="/contact-us"
               className="inline-block bg-primary text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg"
             >
               Book Your Sprint

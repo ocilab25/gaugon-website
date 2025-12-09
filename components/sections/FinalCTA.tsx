@@ -12,19 +12,11 @@ export default function FinalCTA() {
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <Link
-            href="/contact"
+            href="/contact-us"
             className="bg-white text-primary px-8 py-4 rounded-md text-lg font-semibold hover:bg-gray-100 transition-colors shadow-sm hover:shadow-md min-w-[240px]"
           >
             Book Your Intro Call
           </Link>
-          <a
-            href="https://wa.me/14076682684?text=Hi! I'd like to chat about streamlining my workflows."
-            target="_blank"
-            rel="noopener noreferrer"
-            className="border-2 border-white text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-white/10 transition-colors min-w-[240px]"
-          >
-            WhatsApp Our Team
-          </a>
         </div>
       </div>
     </section>

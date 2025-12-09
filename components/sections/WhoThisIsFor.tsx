@@ -1,4 +1,4 @@
-export default function WhoThisIsFor() {
+export default function WhoThisIsFor({ id }: { id?: string }) {
     const goodFit = [
         "You're a small business (5–50 people) that's outgrowing spreadsheets and sticky notes.",
         "You're hiring soon and want clear systems for your next person to follow.",
@@ -14,7 +14,7 @@ export default function WhoThisIsFor() {
     ];
 
     return (
-        <section className="py-24 bg-gray-50 px-6 lg:px-8">
+        <section id={id} className="py-24 bg-gray-50 px-6 lg:px-8">
             <div className="max-w-7xl mx-auto">
                 <h2 className="text-4xl sm:text-5xl font-bold text-center text-gray-900 mb-16 tracking-tight">
                     Is this a fit?

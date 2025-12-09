@@ -116,7 +116,7 @@ export default function CaseStudiesPage() {
           </div>
           <div className="mt-16 text-center">
             <Link
-              href="/contact"
+              href="/contact-us"
               className="inline-block bg-primary text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-primary/90 transition-colors"
             >
               Start Your Success Story
@@ -124,7 +124,6 @@ export default function CaseStudiesPage() {
           </div>
         </div>
       </section>
-    </main>
+    </main >
   );
 }
-
