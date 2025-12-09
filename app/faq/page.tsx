@@ -7,6 +7,26 @@ export default function FAQPage() {
 
     const faqs = [
         {
+            question: "Will this break my current systems?",
+            answer: "Nope. We don't rip-and-replace. Everything we suggest is small, reversible, and uses the tools you already have. If a change feels risky, we flag it and let you decide.",
+        },
+        {
+            question: "I don't have time to redo my systems right now.",
+            answer: "You don't have to. We do the mapping and write the plan. You can run it yourself when you're ready, hand it to your next hire, or ask us to help execute later. It's designed to fit your timeline, not ours.",
+        },
+        {
+            question: "What if I don't want to give you access to my tools?",
+            answer: "No problem. We can work read-only, or you can just screen-share and walk us through. Some quick wins require access, but the roadmap doesn't.",
+        },
+        {
+            question: "How is this different from hiring a Zapier consultant or a freelance VA?",
+            answer: "We're not just wiring tools together. We review your security/privacy setup, spot bottlenecks in how your team actually works, and give you a written plan ranked by business impact—not just what's technically easy. And we're upfront about what not to automate.",
+        },
+        {
+            question: "What happens after the 7–14 days?",
+            answer: "You get a full report and a ranked action plan. You can run it yourself, hire someone else to execute, or stick with us on a monthly plan if you want ongoing help. No lock-in, no recurring unless you want it.",
+        },
+        {
             question: "What types of businesses can benefit from automation?",
             answer: "Any business with repetitive tasks or high volumes of customer interaction. Common fits include e-commerce, SaaS, agencies, and professional services.",
         },
@@ -41,7 +61,7 @@ export default function FAQPage() {
                         Frequently Asked Questions
                     </h1>
                     <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Quick answers to the questions you're most likely to have before we work together.
+                        The things most small-business owners ask before we start
                     </p>
                 </div>
             </section>
