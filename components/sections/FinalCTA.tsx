@@ -23,7 +23,7 @@ export default function FinalCTA() {
             rel="noopener noreferrer"
             className="border-2 border-white text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-white/10 transition-colors min-w-[240px]"
           >
-            Message Me on WhatsApp
+            WhatsApp Our Team
           </a>
         </div>
       </div>
