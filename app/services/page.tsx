@@ -33,6 +33,8 @@ export default function ServicesPage() {
         "Sentiment analysis",
         "Support analytics",
       ],
+      image: "/customer-support-ai.jpg",
+      imageAlt: "Customer Support AI - AI chatbot handling tickets with Email, Chat, and Phone integration",
     },
     {
       title: "CRM & Ticketing Automation",
@@ -45,6 +47,8 @@ export default function ServicesPage() {
         "CRM integrations",
         "Contact management",
       ],
+      image: "/crm-ticketing-automation.jpg",
+      imageAlt: "CRM & Ticketing Automation - Automated workflow from Leads to In Progress to Won with auto-reply and follow-up tasks",
     },
     {
       title: "Reporting Dashboards",
@@ -57,6 +61,8 @@ export default function ServicesPage() {
         "Scheduled reporting",
         "Multi-source data integration",
       ],
+      image: "/reporting-dashboards.jpg",
+      imageAlt: "Reporting Dashboards - Real-time analytics showing Sales by Region, User Growth, Traffic Sources, and KPI metrics",
     },
     {
       title: "Workflow Automation",
