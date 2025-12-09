@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -182,19 +183,19 @@ WhatsApp: +1 (407) 668-2684`);
               </h2>
               <ul className="space-y-4 mb-12">
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">Snapshot of tools and workflows</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">Ranked list of automation opportunities</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">Recommended AI + CRM + chat stack</span>
                 </li>
                 <li className="flex items-start">
-                  <svg className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+                  <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
                   <span className="text-gray-700">DIY or done-with-you next steps</span>
                 </li>
               </ul>

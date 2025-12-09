@@ -1,4 +1,5 @@
 import Link from "next/link";
+import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 
 export default function Hero() {
   return (
@@ -21,15 +22,15 @@ export default function Hero() {
           <p className="font-semibold text-gray-900 mb-3 text-center">In your free AI audit you will:</p>
           <ul className="grid sm:grid-cols-3 gap-4 text-gray-700">
             <li className="flex items-start">
-              <svg className="w-5 h-5 text-primary mr-2 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+              <CheckmarkIcon className="w-5 h-5 text-primary mr-2 mt-0.5 shrink-0" />
               <span>Map your current workflows</span>
             </li>
             <li className="flex items-start">
-              <svg className="w-5 h-5 text-primary mr-2 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+              <CheckmarkIcon className="w-5 h-5 text-primary mr-2 mt-0.5 shrink-0" />
               <span>Spot 3–5 high-impact automation opportunities</span>
             </li>
             <li className="flex items-start">
-              <svg className="w-5 h-5 text-primary mr-2 mt-0.5 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" /></svg>
+              <CheckmarkIcon className="w-5 h-5 text-primary mr-2 mt-0.5 shrink-0" />
               <span>Get a simple next-step plan</span>
             </li>
           </ul>
