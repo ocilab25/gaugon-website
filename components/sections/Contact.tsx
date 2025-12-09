@@ -45,32 +45,26 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
+  // Helper: Build Web3Forms FormData with all required fields
+  const buildWeb3FormData = () => {
+    const web3FormData = new FormData();
+    web3FormData.append("access_key", "0a70d745-bd5d-41d0-a68f-7b0953cf7012");
+    web3FormData.append("name", `${formData.firstName} ${formData.lastName}`);
+    web3FormData.append("email", formData.workEmail);
+    web3FormData.append("phone", formData.phone);
+    web3FormData.append("message", formData.message);
+    web3FormData.append("subject", `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
 
-    if (!validateForm()) {
-      return;
-    }
+    return web3FormData;
+  };
 
-    setIsSubmitting(true);
-    setSubmitStatus(null);
-
-    try {
-      // Prepare form data for Web3Forms
-      const web3FormData = new FormData();
-      web3FormData.append("access_key", "0a70d745-bd5d-41d0-a68f-7b0953cf7012");
-      web3FormData.append("name", `${formData.firstName} ${formData.lastName}`);
-      web3FormData.append("email", formData.workEmail);
-      web3FormData.append("phone", formData.phone);
-      web3FormData.append("message", formData.message);
-      web3FormData.append("subject", `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
-
-      // Auto-reply configuration for customer confirmation
-      web3FormData.append("from_name", "Gaugon Support Team");
-      web3FormData.append("replyto", "support@gaugon.com");
-      web3FormData.append("autoresponse", "true");
-      web3FormData.append("autoresponse_subject", "Thank you for contacting Gaugon! We'll be in touch soon.");
-      web3FormData.append("autoresponse_text", `Hi ${formData.firstName},
+  // Helper: Configure auto-reply settings for customer confirmation
+  const configureAutoReply = (web3FormData: FormData) => {
+    web3FormData.append("from_name", "Gaugon Support Team");
+    web3FormData.append("replyto", "support@gaugon.com");
+    web3FormData.append("autoresponse", "true");
+    web3FormData.append("autoresponse_subject", "Thank you for contacting Gaugon! We'll be in touch soon.");
+    web3FormData.append("autoresponse_text", `Hi ${formData.firstName},
 
 Thank you for reaching out to Gaugon! We've received your message and will get back to you within 24 hours.
 
@@ -94,32 +88,62 @@ Gaugon - AI Automation & IT Solutions
 Website: https://app.gaugon.com
 Email: support@gaugon.com
 WhatsApp: +1 (407) 668-2684`);
+  };
 
-      // Submit to Web3Forms API
-      const response = await fetch("https://api.web3forms.com/submit", {
-        method: "POST",
-        body: web3FormData
-      });
+  // Helper: Submit form data to Web3Forms API
+  const submitToWeb3Forms = async (web3FormData: FormData) => {
+    const response = await fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      body: web3FormData
+    });
 
-      const data = await response.json();
+    const data = await response.json();
 
-      if (data.success) {
-        setIsSubmitting(false);
-        setSubmitStatus("success");
-        setFormData({ firstName: "", lastName: "", workEmail: "", phone: "", message: "" });
+    if (!data.success) {
+      throw new Error("Form submission failed");
+    }
 
-        // Reset success message after 10 seconds
-        setTimeout(() => setSubmitStatus(null), 10000);
-      } else {
-        throw new Error("Form submission failed");
-      }
+    return data;
+  };
+
+  // Helper: Handle successful form submission
+  const handleSubmitSuccess = () => {
+    setIsSubmitting(false);
+    setSubmitStatus("success");
+    setFormData({ firstName: "", lastName: "", workEmail: "", phone: "", message: "" });
+
+    // Reset success message after 10 seconds
+    setTimeout(() => setSubmitStatus(null), 10000);
+  };
+
+  // Helper: Handle form submission error
+  const handleSubmitError = (error: unknown) => {
+    console.error("Form submission error:", error);
+    setIsSubmitting(false);
+    setSubmitStatus("error");
+
+    // Reset error message after 10 seconds
+    setTimeout(() => setSubmitStatus(null), 10000);
+  };
+
+  // Main submit handler - orchestrates the submission process
+  const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+
+    if (!validateForm()) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus(null);
+
+    try {
+      const web3FormData = buildWeb3FormData();
+      configureAutoReply(web3FormData);
+      await submitToWeb3Forms(web3FormData);
+      handleSubmitSuccess();
     } catch (error) {
-      console.error("Form submission error:", error);
-      setIsSubmitting(false);
-      setSubmitStatus("error");
-
-      // Reset error message after 10 seconds
-      setTimeout(() => setSubmitStatus(null), 10000);
+      handleSubmitError(error);
     }
   };
 
