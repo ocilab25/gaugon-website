@@ -34,19 +34,19 @@ export default function AboutPage() {
           </h1>
           <div className="prose prose-lg max-w-none mb-16">
             <p className="text-xl text-gray-600 leading-relaxed mb-6">
-              Gaugon was founded with a simple mission: make enterprise-grade AI automation 
-              and IT solutions accessible to businesses of all sizes. We believe that every 
-              company, regardless of size, deserves technology that works seamlessly, securely, 
+              Gaugon was founded with a simple mission: make enterprise-grade AI automation
+              and IT solutions accessible to businesses of all sizes. We believe that every
+              company, regardless of size, deserves technology that works seamlessly, securely,
               and scales with their growth.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed mb-6">
-              Our team combines deep technical expertise with a practical understanding of 
-              business operations. We don't just implement technology—we solve real problems, 
+              Our team combines deep technical expertise with a practical understanding of
+              business operations. We don't just implement technology—we solve real problems,
               eliminate inefficiencies, and create systems that drive measurable results.
             </p>
             <p className="text-lg text-gray-600 leading-relaxed">
-              Whether you're automating a single workflow or transforming your entire operation, 
-              we approach every project with the same level of care, attention to detail, and 
+              Whether you're automating a single workflow or transforming your entire operation,
+              we approach every project with the same level of care, attention to detail, and
               commitment to your success.
             </p>
           </div>
@@ -75,10 +75,10 @@ export default function AboutPage() {
               Let's discuss how automation can transform your business operations.
             </p>
             <a
-              href="/contact"
-              className="inline-block bg-primary text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-primary/90 transition-colors"
+              href="/contact-us"
+              className="inline-block bg-primary text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-primary/90 transition-colors shadow-sm hover:shadow-md"
             >
-              Get Started
+              Book Your Sprint
             </a>
           </div>
         </div>

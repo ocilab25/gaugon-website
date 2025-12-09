@@ -28,7 +28,7 @@ export default function Navbar() {
               About
             </Link>
             <Link
-              href="/contact"
+              href="/contact-us"
               className="bg-primary text-white px-6 py-2.5 rounded-md hover:bg-primary/90 transition-colors text-sm font-semibold"
             >
               Book Audit
@@ -86,7 +86,7 @@ export default function Navbar() {
               About
             </Link>
             <Link
-              href="/contact"
+              href="/contact-us"
               className="block bg-primary text-white px-6 py-2.5 rounded-md hover:bg-primary/90 transition-colors text-sm font-semibold text-center"
               onClick={() => setIsMenuOpen(false)}
             >

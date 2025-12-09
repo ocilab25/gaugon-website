@@ -1,8 +1,32 @@
 "use client";
 
 import { useState, FormEvent } from "react";
+import Link from "next/link";
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 import { WEB3FORMS_CONFIG } from "@/lib/config";
+
+// Country list
+const COUNTRIES = [
+  "United States", "Canada", "United Kingdom", "Australia", "Germany", "France", "Spain", "Italy", "Netherlands",
+  "Belgium", "Switzerland", "Austria", "Sweden", "Norway", "Denmark", "Finland", "Ireland", "Portugal", "Greece",
+  "Poland", "Czech Republic", "Hungary", "Romania", "Bulgaria", "Croatia", "Slovenia", "Slovakia", "Estonia",
+  "Latvia", "Lithuania", "Luxembourg", "Malta", "Cyprus", "Iceland", "Liechtenstein", "Monaco", "San Marino",
+  "Vatican City", "Andorra", "Albania", "Bosnia and Herzegovina", "Kosovo", "Macedonia", "Montenegro", "Serbia",
+  "Ukraine", "Belarus", "Moldova", "Russia", "Turkey", "Georgia", "Armenia", "Azerbaijan", "Kazakhstan",
+  "Uzbekistan", "Turkmenistan", "Kyrgyzstan", "Tajikistan", "Afghanistan", "Pakistan", "India", "Bangladesh",
+  "Sri Lanka", "Nepal", "Bhutan", "Maldives", "China", "Japan", "South Korea", "North Korea", "Mongolia",
+  "Taiwan", "Hong Kong", "Macau", "Vietnam", "Thailand", "Myanmar", "Cambodia", "Laos", "Malaysia", "Singapore",
+  "Indonesia", "Philippines", "Brunei", "East Timor", "Papua New Guinea", "Australia", "New Zealand", "Fiji",
+  "Solomon Islands", "Vanuatu", "Samoa", "Tonga", "Kiribati", "Micronesia", "Marshall Islands", "Palau",
+  "Nauru", "Tuvalu", "Mexico", "Guatemala", "Belize", "El Salvador", "Honduras", "Nicaragua", "Costa Rica",
+  "Panama", "Cuba", "Jamaica", "Haiti", "Dominican Republic", "Bahamas", "Barbados", "Trinidad and Tobago",
+  "Saint Lucia", "Saint Vincent and the Grenadines", "Grenada", "Antigua and Barbuda", "Dominica",
+  "Saint Kitts and Nevis", "Brazil", "Argentina", "Chile", "Colombia", "Peru", "Venezuela", "Ecuador",
+  "Bolivia", "Paraguay", "Uruguay", "Guyana", "Suriname", "French Guiana", "Falkland Islands", "South Africa",
+  "Egypt", "Morocco", "Algeria", "Tunisia", "Libya", "Sudan", "South Sudan", "Ethiopia", "Kenya", "Tanzania",
+  "Uganda", "Rwanda", "Burundi", "Somalia", "Djibouti", "Eritrea", "Nigeria", "Ghana", "Côte d'Ivoire",
+  "Senegal", "Mali", "Burkina Faso", "Niger", "Guinea", "Sierra Leone", "Liberia", "Togo", "Benin", "Mauritania"
+].sort();
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -10,12 +34,23 @@ export default function ContactPage() {
     lastName: "",
     workEmail: "",
     phone: "",
+    inquiryType: "",
+    country: "",
     message: "",
+    privacyConsent: false,
     honeypot: "", // Spam protection
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+
+  const inquiryTypes = [
+    "AI Automation Audit",
+    "Workflow Integration Services",
+    "IT Infrastructure Assessment",
+    "Custom Automation Project",
+    "General Inquiry"
+  ];
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -34,14 +69,22 @@ export default function ContactPage() {
       newErrors.workEmail = "Please enter a valid email address";
     }
 
-    if (!formData.phone.trim()) {
-      newErrors.phone = "Phone number is required";
+    if (!formData.inquiryType) {
+      newErrors.inquiryType = "Please select an inquiry type";
+    }
+
+    if (!formData.country) {
+      newErrors.country = "Please select a country/region";
     }
 
     if (!formData.message.trim()) {
       newErrors.message = "Please tell us how we can help";
     } else if (formData.message.trim().length < 20) {
       newErrors.message = "Please provide more details (at least 20 characters)";
+    }
+
+    if (!formData.privacyConsent) {
+      newErrors.privacyConsent = "You must agree to the privacy policy to continue";
     }
 
     setErrors(newErrors);
@@ -54,9 +97,11 @@ export default function ContactPage() {
     web3FormData.append("access_key", WEB3FORMS_CONFIG.ACCESS_KEY);
     web3FormData.append("name", `${formData.firstName} ${formData.lastName}`);
     web3FormData.append("email", formData.workEmail);
-    web3FormData.append("phone", formData.phone);
+    web3FormData.append("phone", formData.phone || "Not provided");
+    web3FormData.append("inquiry_type", formData.inquiryType);
+    web3FormData.append("country", formData.country);
     web3FormData.append("message", formData.message);
-    web3FormData.append("subject", `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
+    web3FormData.append("subject", `New ${formData.inquiryType} - ${formData.firstName} ${formData.lastName} (${formData.country})`);
 
     return web3FormData;
   };
@@ -69,7 +114,7 @@ export default function ContactPage() {
     web3FormData.append("autoresponse_subject", "Thank you for contacting Gaugon! We'll be in touch soon.");
     web3FormData.append("autoresponse_text", `Hi ${formData.firstName},
 
-Thank you for reaching out to Gaugon! We've received your message and will get back to you within 24 hours.
+Thank you for reaching out to Gaugon! We've received your ${formData.inquiryType} request and will get back to you within 24 hours.
 
 What happens next:
 • Our team is reviewing your request
@@ -113,7 +158,17 @@ WhatsApp: +1 (407) 668-2684`);
   const handleSubmitSuccess = () => {
     setIsSubmitting(false);
     setSubmitStatus("success");
-    setFormData({ firstName: "", lastName: "", workEmail: "", phone: "", message: "", honeypot: "" });
+    setFormData({
+      firstName: "",
+      lastName: "",
+      workEmail: "",
+      phone: "",
+      inquiryType: "",
+      country: "",
+      message: "",
+      privacyConsent: false,
+      honeypot: ""
+    });
 
     // Clear success message after 10 seconds
     setTimeout(() => setSubmitStatus(null), 10000);
@@ -156,11 +211,17 @@ WhatsApp: +1 (407) 668-2684`);
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
   ) => {
-    const { name, value } = e.target;
-    setFormData((prev) => ({ ...prev, [name]: value }));
-    // Clear error when user starts typing
+    const { name, value, type } = e.target;
+    const checked = (e.target as HTMLInputElement).checked;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: type === "checkbox" ? checked : value
+    }));
+
+    // Clear error when user interacts
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -213,7 +274,7 @@ WhatsApp: +1 (407) 668-2684`);
 
               <div className="bg-gray-50 p-6 rounded-lg border border-gray-100">
                 <p className="text-gray-800 font-medium mb-4">
-                  Ready to see what automation can do for your team? Book your free AI audit and we’ll confirm within one business day.
+                  Ready to see what automation can do for your team? Book your free AI audit and we'll confirm within one business day.
                 </p>
                 <div className="pt-2">
                   <h3 className="text-sm font-semibold text-gray-900 mb-2">Alternative Contact</h3>
@@ -242,6 +303,46 @@ WhatsApp: +1 (407) 668-2684`);
               tabIndex={-1}
               autoComplete="off"
             />
+
+            {/* Inquiry Type */}
+            <div className="mb-6 relative">
+              <select
+                id="inquiryType"
+                name="inquiryType"
+                value={formData.inquiryType}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.inquiryType ? "border-red-500" : "border-gray-300"}`}
+                required
+              >
+                <option value="">Select Inquiry Type *</option>
+                {inquiryTypes.map((type) => (
+                  <option key={type} value={type}>{type}</option>
+                ))}
+              </select>
+              {errors.inquiryType && (
+                <p className="mt-1 text-sm text-red-600">{errors.inquiryType}</p>
+              )}
+            </div>
+
+            {/* Country/Region */}
+            <div className="mb-6 relative">
+              <select
+                id="country"
+                name="country"
+                value={formData.country}
+                onChange={handleChange}
+                className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.country ? "border-red-500" : "border-gray-300"}`}
+                required
+              >
+                <option value="">Select Country/Region *</option>
+                {COUNTRIES.map((country) => (
+                  <option key={country} value={country}>{country}</option>
+                ))}
+              </select>
+              {errors.country && (
+                <p className="mt-1 text-sm text-red-600">{errors.country}</p>
+              )}
+            </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
               {/* First Name - Floating Label */}
@@ -318,7 +419,7 @@ WhatsApp: +1 (407) 668-2684`);
                 )}
               </div>
 
-              {/* Phone - Floating Label */}
+              {/* Phone - Floating Label - OPTIONAL */}
               <div className="relative">
                 <input
                   type="tel"
@@ -329,13 +430,12 @@ WhatsApp: +1 (407) 668-2684`);
                   className={`peer w-full px-4 pt-6 pb-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.phone ? "border-red-500" : "border-gray-300"
                     }`}
                   placeholder=" "
-                  required
                 />
                 <label
                   htmlFor="phone"
                   className="absolute left-4 top-2 text-xs text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-xs peer-focus:text-primary"
                 >
-                  Phone *
+                  Phone Number (please include country code)
                 </label>
                 {errors.phone && (
                   <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
@@ -367,6 +467,28 @@ WhatsApp: +1 (407) 668-2684`);
               )}
             </div>
 
+            {/* Privacy Policy Checkbox */}
+            <div className="mb-6">
+              <label className="flex items-start cursor-pointer">
+                <input
+                  type="checkbox"
+                  name="privacyConsent"
+                  checked={formData.privacyConsent}
+                  onChange={handleChange}
+                  className="mt-1 h-4 w-4 text-primary focus:ring-primary border-gray-300 rounded"
+                />
+                <span className="ml-3 text-sm text-gray-700">
+                  I agree to the use or processing of my personal information by Gaugon for the purpose of fulfilling this request and in accordance with Gaugon's{" "}
+                  <Link href="/privacy-policy" className="text-primary hover:underline">
+                    Privacy Statement
+                  </Link>
+                </span>
+              </label>
+              {errors.privacyConsent && (
+                <p className="mt-1 text-sm text-red-600">{errors.privacyConsent}</p>
+              )}
+            </div>
+
             {submitStatus === "success" && (
               <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-md mb-6">
                 <p className="font-medium">Thank you! Your request has been submitted.</p>
@@ -381,13 +503,15 @@ WhatsApp: +1 (407) 668-2684`);
               </div>
             )}
 
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="w-full bg-primary text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-primary/90 transition-colors shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
-            >
-              {isSubmitting ? "Submitting..." : "Submit"}
-            </button>
+            <div className="flex justify-center">
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="bg-primary text-white px-6 py-3 rounded-md text-base font-semibold hover:bg-primary/90 transition-colors shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? "Submitting..." : "Submit"}
+              </button>
+            </div>
           </form>
         </div>
       </section>

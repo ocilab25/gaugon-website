@@ -99,7 +99,7 @@ export default function PricingPage() {
                                     </li>
                                 </ul>
                                 <Link
-                                    href="/contact"
+                                    href="/contact-us"
                                     className="inline-block bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
                                 >
                                     Book Your Sprint
@@ -176,7 +176,7 @@ export default function PricingPage() {
                                     ))}
                                 </ul>
                                 <Link
-                                    href="/contact"
+                                    href="/contact-us"
                                     className={`block w-full py-4 px-6 rounded-lg text-center font-semibold transition-colors ${plan.highlighted
                                         ? "bg-white text-primary hover:bg-gray-100"
                                         : "bg-primary text-white hover:bg-primary/90"
@@ -194,7 +194,7 @@ export default function PricingPage() {
                             Not sure which monthly plan fits? Start with the <strong>Workflow Sprint</strong>. We'll map your workflows, and then suggest what makes sense for ongoing support—if you even need it.
                         </p>
                         <Link
-                            href="/contact"
+                            href="/contact-us"
                             className="inline-block text-primary font-semibold hover:underline"
                         >
                             Book Your Sprint →
