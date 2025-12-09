@@ -10,195 +10,176 @@ export const metadata: Metadata = {
 export default function PricingPage() {
     const plans = [
         {
-            name: "Starter",
-            price: "From $500/mo",
-            tagline: "Good if you're executing simple automation workflows.",
-            features: [
-                "Simple workflows around a few key tools",
-                "Email and basic CRM setup",
-                "Light reporting so you can see what's working",
-                "Email support for questions",
-            ],
+            name: "Standard",
+            price: "$83",
+            period: "/month",
+            billing: "billed annually",
+            description: "Self-paced learning with templates and community support.",
+            buttonText: "Join Now",
+            buttonLink: "/contact-us?inquiry=Standard+Membership",
             highlighted: false,
+            features: [
+                "Practical, tool-agnostic lessons",
+                "Templates to copy and deploy",
+                "New content shipped monthly",
+                "Forum community",
+                "Challenges & implementation sprints",
+            ],
+            checklistTitle: "What's included:",
         },
         {
-            name: "Growth",
-            price: "From $1,500/mo",
-            tagline: "For teams that already feel the growing pains.",
-            features: [
-                "Everything in Starter",
-                "Helpdesk or chatbot support for common questions",
-                "Deeper reporting dashboards for leaders",
-                "Multiple systems talking to each other",
-                "Priority support and check-ins",
-            ],
+            name: "Plus",
+            price: "$166",
+            period: "/month",
+            billing: "billed annually",
+            description: "Elite community with weekly masterminds and founder access.",
+            buttonText: "Apply to Join",
+            buttonLink: "/contact-us?inquiry=Plus+Membership",
             highlighted: true,
+            badge: "Most Popular",
+            features: [
+                "Weekly group coaching calls",
+                "Private elite chat access",
+                "Buy additional employee seats**",
+                "Tech stack consultation",
+                "Personalized onboarding",
+                "14-day refund guarantee*",
+            ],
+            checklistTitle: "Everything in Standard, plus:",
         },
         {
-            name: "Scale",
-            price: "From $3,000/mo",
-            tagline: "When you need things to just run, all the time.",
-            features: [
-                "Everything in Growth",
-                "Custom automations around your specific stack",
-                "Monitoring and alerts on key workflows",
-                "Regular strategy sessions to keep things sharp",
-            ],
+            name: "Max",
+            price: "$500",
+            period: "/month",
+            billing: "billed annually",
+            description: "For businesses seeking personalized, hands-on support.",
+            buttonText: "Apply to Join",
+            buttonLink: "/contact-us?inquiry=Max+Membership",
             highlighted: false,
+            badge: "Best Value",
+            features: [
+                "Monthly 1:1 Coaching calls",
+                "Priority DM support",
+                "Implementation planning",
+                "Early access to new systems",
+                "14-day refund guarantee*",
+            ],
+            checklistTitle: "Everything in Plus, plus:",
+        },
+        {
+            name: "Enterprise",
+            price: "Custom",
+            period: "",
+            billing: "Tailored to your needs",
+            description: "Tailored solutions for organizations with specific needs.",
+            buttonText: "Talk to us",
+            buttonLink: "/contact-us?inquiry=Enterprise+Membership",
+            highlighted: false,
+            features: [
+                "Dedicated account manager",
+                "Custom solution development",
+                "Team training and onboarding",
+                "Done-for-you implementation",
+                "Priority Slack support",
+                "Quarterly strategy reviews",
+            ],
+            checklistTitle: "Everything in Max, plus:",
         },
     ];
 
     return (
         <main className="pt-20">
-            {/* Hero Section */}
-            <section className="py-20 bg-white px-6 lg:px-8">
-                <div className="max-w-4xl mx-auto text-center">
+            {/* Header */}
+            <section className="py-20 bg-white px-6 lg:px-8 text-center">
+                <div className="max-w-4xl mx-auto">
                     <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-                        What it costs
+                        Membership Levels
                     </h1>
-                    <p className="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-                        Here's how most clients work with us. If your situation's different, we'll talk through custom options.
+                    <p className="text-xl text-gray-600 max-w-2xl mx-auto leading-relaxed">
+                        Scalable solutions for your automation journey.
                     </p>
                 </div>
             </section>
 
-            {/* Workflow Sprint - Primary Offer */}
-            <section className="py-12 bg-gray-50 px-6 lg:px-8">
-                <div className="max-w-5xl mx-auto">
-                    <div className="bg-primary text-white rounded-2xl p-8 lg:p-12 mb-16">
-                        <div className="flex flex-col lg:flex-row gap-8 items-center">
-                            <div className="flex-1">
-                                <div className="inline-block bg-white text-primary px-4 py-1 rounded-full text-sm font-semibold mb-4">
-                                    Start Here
-                                </div>
-                                <h2 className="text-4xl font-bold mb-4">
-                                    Workflow Sprint
-                                </h2>
-                                <p className="text-xl text-primary-100 mb-6 leading-relaxed">
-                                    In 7–14 days, we map your tools, flag risks, and build you a prioritized 30/60/90-day roadmap.
-                                </p>
-                                <div className="text-3xl font-bold mb-6">
-                                    Starting at $2,500
-                                </div>
-                                <ul className="space-y-3 mb-6">
-                                    <li className="flex items-start">
-                                        <CheckmarkIcon className="w-5 h-5 text-white mr-3 flex-shrink-0 mt-0.5" />
-                                        <span>Complete tool & workflow inventory</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <CheckmarkIcon className="w-5 h-5 text-white mr-3 flex-shrink-0 mt-0.5" />
-                                        <span>Security & privacy review</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <CheckmarkIcon className="w-5 h-5 text-white mr-3 flex-shrink-0 mt-0.5" />
-                                        <span>Prioritized 30/60/90-day action plan</span>
-                                    </li>
-                                    <li className="flex items-start">
-                                        <CheckmarkIcon className="w-5 h-5 text-white mr-3 flex-shrink-0 mt-0.5" />
-                                        <span>1–2 quick wins (if access allows)</span>
-                                    </li>
-                                </ul>
-                                <Link
-                                    href="/contact-us"
-                                    className="inline-block bg-white text-primary px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors"
-                                >
-                                    Book Your Sprint
-                                </Link>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            {/* Monthly Plans Section */}
-            <section className="py-12 bg-gray-50 px-6 lg:px-8">
-                <div className="max-w-7xl mx-auto">
-                    {/* Monthly Plans Intro */}
-                    <div className="text-center mb-12">
-                        <h2 className="text-3xl font-bold text-gray-900 mb-4">
-                            Want ongoing help after the sprint?
-                        </h2>
-                        <p className="text-lg text-gray-600 max-w-2xl mx-auto">
-                            These monthly plans help you execute the roadmap, with ongoing support and optimization.
-                        </p>
-                    </div>
-
-                    {/* Pricing Cards */}
-                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            {/* Pricing Grid */}
+            <section className="pb-20 bg-gray-50 px-4 lg:px-6 pt-12">
+                <div className="max-w-[1400px] mx-auto">
+                    <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
                         {plans.map((plan, index) => (
                             <div
                                 key={index}
-                                className={`rounded-lg p-8 ${plan.highlighted
-                                    ? "bg-primary text-white shadow-2xl transform md:scale-105 border-4 border-primary"
-                                    : "bg-white border border-gray-200 shadow-lg"
+                                className={`flex flex-col relative rounded-2xl p-8 transition-all duration-300 ${plan.highlighted
+                                        ? "bg-white ring-2 ring-primary shadow-xl scale-100 z-10"
+                                        : "bg-white border border-gray-200 shadow-sm hover:shadow-md"
                                     }`}
                             >
-                                {plan.highlighted && (
-                                    <div className="text-center mb-4">
-                                        <span className="bg-white text-primary px-4 py-1 rounded-full text-sm font-semibold">
-                                            Most Common
+                                {plan.badge && (
+                                    <div className="absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                                        <span className="bg-primary text-white px-4 py-1 rounded-full text-sm font-semibold shadow-sm">
+                                            {plan.badge}
                                         </span>
                                     </div>
                                 )}
-                                <h2
-                                    className={`text-3xl font-bold mb-3 ${plan.highlighted ? "text-white" : "text-gray-900"
-                                        }`}
-                                >
-                                    {plan.name}
-                                </h2>
-                                <div
-                                    className={`text-2xl font-bold mb-3 ${plan.highlighted ? "text-white" : "text-primary"
-                                        }`}
-                                >
-                                    {plan.price}
+
+                                <div className="mb-8">
+                                    <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                                        {plan.name}
+                                    </h2>
+                                    <p className="text-gray-600 min-h-[48px] mb-6">
+                                        {plan.description}
+                                    </p>
+                                    <div className="flex items-baseline mb-2">
+                                        <span className="text-5xl font-bold text-gray-900 tracking-tight">
+                                            {plan.price}
+                                        </span>
+                                        <span className="text-gray-500 ml-1 font-medium">
+                                            {plan.period}
+                                        </span>
+                                    </div>
+                                    <p className="text-sm text-gray-500 font-mono">
+                                        {plan.billing}
+                                    </p>
                                 </div>
-                                <p
-                                    className={`text-lg mb-6 leading-relaxed ${plan.highlighted ? "text-white/90" : "text-gray-600"
-                                        }`}
-                                >
-                                    {plan.tagline}
-                                </p>
-                                <ul className="space-y-4 mb-8">
-                                    {plan.features.map((feature, featureIndex) => (
-                                        <li key={featureIndex} className="flex items-start">
-                                            <CheckmarkIcon
-                                                className={`w-5 h-5 mr-3 flex-shrink-0 mt-0.5 ${plan.highlighted ? "text-white" : "text-primary"
-                                                    }`}
-                                            />
-                                            <span
-                                                className={
-                                                    plan.highlighted ? "text-white" : "text-gray-700"
-                                                }
-                                            >
-                                                {feature}
-                                            </span>
-                                        </li>
-                                    ))}
-                                </ul>
+
                                 <Link
-                                    href="/contact-us"
-                                    className={`block w-full py-4 px-6 rounded-lg text-center font-semibold transition-colors ${plan.highlighted
-                                        ? "bg-white text-primary hover:bg-gray-100"
-                                        : "bg-primary text-white hover:bg-primary/90"
+                                    href={plan.buttonLink}
+                                    className={`block w-full py-4 rounded-lg text-center font-semibold mb-10 transition-colors ${plan.highlighted
+                                            ? "bg-primary text-white hover:bg-primary/90 shadow-md"
+                                            : "border-2 border-gray-200 text-gray-900 hover:border-gray-300 hover:bg-gray-50"
                                         }`}
                                 >
-                                    Talk about {plan.name}
+                                    {plan.buttonText}
                                 </Link>
+
+                                <div className="mt-auto">
+                                    <p className="font-bold text-gray-900 mb-6 text-sm">
+                                        {plan.checklistTitle}
+                                    </p>
+                                    <ul className="space-y-4">
+                                        {plan.features.map((feature, idx) => (
+                                            <li key={idx} className="flex items-start text-sm">
+                                                <div className="flex-shrink-0 w-5 h-5 rounded-full bg-primary/10 flex items-center justify-center mt-0.5 mr-3">
+                                                    <CheckmarkIcon className="w-3.5 h-3.5 text-primary" />
+                                                </div>
+                                                <span className="text-gray-600 leading-snug">
+                                                    {feature}
+                                                </span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
                         ))}
                     </div>
 
-                    {/* Note Below Plans */}
-                    <div className="mt-16 text-center max-w-3xl mx-auto">
-                        <p className="text-lg text-gray-700 leading-relaxed mb-4">
-                            Not sure which monthly plan fits? Start with the <strong>Workflow Sprint</strong>. We'll map your workflows, and then suggest what makes sense for ongoing support—if you even need it.
+                    {/* Footnotes */}
+                    <div className="mt-16 max-w-4xl mx-auto text-center space-y-2">
+                        <p className="text-sm text-gray-500">
+                            * Attend an onboarding call to qualify. See refund policy for full terms.
                         </p>
-                        <Link
-                            href="/contact-us"
-                            className="inline-block text-primary font-semibold hover:underline"
-                        >
-                            Book Your Sprint →
-                        </Link>
+                        <p className="text-sm text-gray-500">
+                            ** Plus and Max accounts can purchase extra seats for their team at a discount. Contact us for more info.
+                        </p>
                     </div>
                 </div>
             </section>
