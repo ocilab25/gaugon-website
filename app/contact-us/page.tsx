@@ -533,7 +533,7 @@ WhatsApp: +1 (407) 668-2684`);
             <div className="mb-6">
               <ReCAPTCHA
                 ref={recaptchaRef}
-                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                sitekey="6LfqfCYsAAAAAEmxAdlrbKRmsqnwjX8A9U74qFKA"
                 onChange={handleRecaptchaChange}
                 theme="light"
               />
