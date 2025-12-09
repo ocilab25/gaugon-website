@@ -9,28 +9,28 @@ export default function Hero() {
           {/* Left Column - Text Content (60%) */}
           <div className="lg:col-span-3">
             <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 mb-6 tracking-tight">
-              AI Automation That Makes Your Team Feel 2x Bigger
+              You know something's inefficient. You just don't have time to fix it.
             </h1>
 
             <p className="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed">
-              We design and run automations for marketing, support, CRM, and ops so growing businesses can scale without extra headcount.
+              We spend 7–14 days mapping your workflows, security gaps, and automation opportunities—then give you a prioritized to-do list. Small, reversible changes that use the tools you already own.
             </p>
 
             {/* Inline Audit Checklist */}
             <div className="mb-8">
-              <p className="font-semibold text-gray-900 mb-4">In your free AI audit you'll:</p>
+              <p className="font-semibold text-gray-900 mb-4">What you'll get:</p>
               <ul className="space-y-3 mb-8">
                 <li className="flex items-start">
                   <CheckmarkIcon className="w-5 h-5 text-primary mr-3 mt-0.5 shrink-0" />
-                  <span className="text-gray-700">Map your current workflows</span>
+                  <span className="text-gray-700">A clear map of your tools and workflows</span>
                 </li>
                 <li className="flex items-start">
                   <CheckmarkIcon className="w-5 h-5 text-primary mr-3 mt-0.5 shrink-0" />
-                  <span className="text-gray-700">Spot 3–5 high-impact automation opportunities</span>
+                  <span className="text-gray-700">A short list of concrete risks</span>
                 </li>
                 <li className="flex items-start">
                   <CheckmarkIcon className="w-5 h-5 text-primary mr-3 mt-0.5 shrink-0" />
-                  <span className="text-gray-700">Get a simple next-step plan</span>
+                  <span className="text-gray-700">A prioritized 30/60/90-day action plan</span>
                 </li>
               </ul>
             </div>
@@ -41,7 +41,7 @@ export default function Hero() {
                 href="/contact"
                 className="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg text-center"
               >
-                Start Free AI Audit
+                Map My Workflows
               </Link>
               <a
                 href="https://wa.me/14076682684?text=Hello! I'm interested in learning more about Gaugon's AI automation services."

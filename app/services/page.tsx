@@ -83,27 +83,73 @@ export default function ServicesPage() {
         <div className="max-w-7xl mx-auto">
           {/* Page Header */}
           <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 text-center tracking-tight">
-            Services
+            What we actually do
           </h1>
           <p className="text-xl text-gray-600 text-center mb-6 max-w-3xl mx-auto">
-            AI automation and IT services that cut manual work, speed up response times, and keep your systems stable.
+            In 7–14 days, we map your workflows, spot bottlenecks, and build you a roadmap. If you stick with us after that, here's what we help with.
           </p>
+
+          {/* What's Included / Excluded Box */}
+          <div className="max-w-4xl mx-auto mb-16 grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div className="bg-primary/5 border border-primary/20 rounded-lg p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">Included:</h3>
+              <ul className="space-y-2 text-gray-700 text-sm">
+                <li className="flex items-start">
+                  <CheckmarkIcon className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span>Tool/workflow inventory</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckmarkIcon className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span>Light security/privacy review of public site + key forms</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckmarkIcon className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span>Bottleneck review for 2–3 core workflows</span>
+                </li>
+                <li className="flex items-start">
+                  <CheckmarkIcon className="w-4 h-4 text-primary mr-2 flex-shrink-0 mt-0.5" />
+                  <span>Written summary + prioritized fixes and automation ideas</span>
+                </li>
+              </ul>
+            </div>
+            <div className="bg-gray-50 border border-gray-200 rounded-lg p-6">
+              <h3 className="text-lg font-bold text-gray-900 mb-4">Excluded:</h3>
+              <ul className="space-y-2 text-gray-700 text-sm">
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-2">×</span>
+                  <span>Full custom builds/migrations</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-2">×</span>
+                  <span>24/7 or on-call support</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-2">×</span>
+                  <span>Legal/compliance certification</span>
+                </li>
+                <li className="flex items-start">
+                  <span className="text-gray-400 mr-2">×</span>
+                  <span>Vendor negotiation</span>
+                </li>
+              </ul>
+            </div>
+          </div>
 
           {/* Badges */}
           <div className="flex flex-wrap items-center justify-center gap-4 mb-16 text-gray-700">
             <span className="flex items-center gap-2">
               <CheckmarkIcon className="w-4 h-4 text-primary" />
-              <span className="text-sm sm:text-base">Save hours every week</span>
+              <span className="text-sm sm:text-base">Small, reversible changes</span>
             </span>
             <span className="hidden sm:inline text-gray-300">·</span>
             <span className="flex items-center gap-2">
               <CheckmarkIcon className="w-4 h-4 text-primary" />
-              <span className="text-sm sm:text-base">Better customer experience</span>
+              <span className="text-sm sm:text-base">Uses your existing tools</span>
             </span>
             <span className="hidden sm:inline text-gray-300">·</span>
             <span className="flex items-center gap-2">
               <CheckmarkIcon className="w-4 h-4 text-primary" />
-              <span className="text-sm sm:text-base">Cleaner data</span>
+              <span className="text-sm sm:text-base">No rip-and-replace</span>
             </span>
           </div>
 
@@ -213,13 +259,13 @@ export default function ServicesPage() {
           {/* CTA Strip */}
           <div className="mt-20 bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8 lg:p-12 text-center border border-primary/20">
             <p className="text-xl sm:text-2xl text-gray-900 mb-6 max-w-3xl mx-auto leading-relaxed">
-              Not sure which service fits? Start with a free AI automation audit and we'll map the highest-impact opportunities for your business.
+              Not sure which service fits? Start with the Workflow Sprint—we'll map your tools, spot bottlenecks, and build you a prioritized roadmap in 7–14 days.
             </p>
             <a
               href="/contact"
               className="inline-block bg-primary text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-primary/90 transition-colors shadow-md hover:shadow-lg"
             >
-              Start Free AI Audit
+              Book Your Sprint
             </a>
           </div>
         </div>

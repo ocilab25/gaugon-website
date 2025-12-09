@@ -36,7 +36,6 @@ export default function CookiePolicyPage() {
                     <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
                         <li>Security and fraud prevention</li>
                         <li>Network management and accessibility</li>
-                        <li>Session management and authentication</li>
                         <li>Load balancing</li>
                     </ul>
 
@@ -48,7 +47,6 @@ export default function CookiePolicyPage() {
                         <li>Remember your preferences and settings</li>
                         <li>Personalize content based on your interactions</li>
                         <li>Save your cookie consent preferences</li>
-                        <li>Enable interactive features like live chat</li>
                     </ul>
 
                     <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">3. Performance & Analytics Cookies</h3>
@@ -63,26 +61,13 @@ export default function CookiePolicyPage() {
                         <li>Track which pages are most popular</li>
                     </ul>
 
-                    <h3 className="text-xl font-semibold text-gray-900 mt-6 mb-3">4. Marketing & Third-party Cookies</h3>
+                    <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Third-Party Services</h2>
                     <p className="text-gray-700 mb-4">
-                        These cookies are used to deliver relevant advertisements and track advertising effectiveness. They:
+                        We use the following third-party services that may set cookies:
                     </p>
                     <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
-                        <li>Track your browsing across different websites</li>
-                        <li>Build a profile of your interests</li>
-                        <li>Deliver targeted advertising</li>
-                        <li>Measure the effectiveness of marketing campaigns</li>
-                    </ul>
-
-                    <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Third-Party Cookies</h2>
-                    <p className="text-gray-700 mb-4">
-                        We may use services from third-party providers that set their own cookies. These include:
-                    </p>
-                    <ul className="list-disc list-inside text-gray-700 mb-4 space-y-2">
-                        <li><strong>Analytics providers</strong> - To analyze website usage (e.g., Google Analytics)</li>
-                        <li><strong>Social media platforms</strong> - For social sharing and login features</li>
-                        <li><strong>Advertising networks</strong> - To display relevant advertisements</li>
-                        <li><strong>Communication tools</strong> - For customer support and chat features</li>
+                        <li><strong>Analytics providers</strong> - To analyze website usage and improve performance</li>
+                        <li><strong>Hosting provider (GitHub Pages)</strong> - To deliver website content securely</li>
                     </ul>
 
                     <h2 className="text-2xl font-semibold text-gray-900 mt-8 mb-4">Managing Your Cookie Preferences</h2>
@@ -140,8 +125,7 @@ export default function CookiePolicyPage() {
                     <div className="bg-gray-50 p-6 rounded-lg border border-gray-200 mt-4">
                         <p className="text-gray-700 mb-2"><strong>Email:</strong> support@gaugon.com</p>
                         <p className="text-gray-700 mb-2"><strong>Phone:</strong> +1 (407) 668-2684</p>
-                        <p className="text-gray-700 mb-2"><strong>Website:</strong> https://app.gaugon.com</p>
-                        <p className="text-gray-700"><strong>WhatsApp:</strong> +1 (407) 668-2684</p>
+                        <p className="text-gray-700"><strong>Website:</strong> https://app.gaugon.com</p>
                     </div>
 
                     <div className="mt-12 p-6 bg-primary/10 border-l-4 border-primary rounded">

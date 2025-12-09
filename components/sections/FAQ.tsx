@@ -7,28 +7,24 @@ export default function FAQ() {
 
   const faqs = [
     {
-      question: "What types of businesses can benefit from automation?",
-      answer: "Businesses of all sizes can benefit from automation, particularly those with repetitive tasks, high customer interaction volumes, or complex workflows. Common use cases include e-commerce, SaaS platforms, professional services, and manufacturing.",
+      question: "Will this break my current systems?",
+      answer: "Nope. We don't rip-and-replace. Everything we suggest is small, reversible, and uses the tools you already have. If a change feels risky, we flag it and let you decide.",
     },
     {
-      question: "How long does it take to implement automation solutions?",
-      answer: "Implementation timelines vary based on complexity and scope. Simple workflows can be automated in 1-2 weeks, while comprehensive automation projects typically take 4-8 weeks. We provide detailed timelines during the discovery phase.",
+      question: "I don't have time to redo my systems right now.",
+      answer: "You don't have to. We do the mapping and write the plan. You can run it yourself when you're ready, hand it to your next hire, or ask us to help execute later. It's designed to fit your timeline, not ours.",
     },
     {
-      question: "Will automation require changes to our existing systems?",
-      answer: "Our solutions are designed to integrate with your existing systems wherever possible. We prioritize non-disruptive implementations and work with your current tech stack to minimize changes while maximizing efficiency gains.",
+      question: "What if I don't want to give you access to my tools?",
+      answer: "No problem. We can work read-only, or you can just screen-share and walk us through. Some quick wins require access, but the roadmap doesn't.",
     },
     {
-      question: "What kind of support do you provide after implementation?",
-      answer: "Support levels vary by plan. All plans include email support, with priority and 24/7 options available. We also provide documentation, training materials, and regular optimization reviews to ensure your automations continue to deliver value.",
+      question: "How is this different from hiring a Zapier consultant or a freelance VA?",
+      answer: "We're not just wiring tools together. We review your security/privacy setup, spot bottlenecks in how your team actually works, and give you a written plan ranked by business impact—not just what's technically easy. And we're upfront about what not to automate.",
     },
     {
-      question: "How do you measure the success of automation projects?",
-      answer: "We establish clear KPIs during the discovery phase, including time savings, cost reduction, error rates, and customer satisfaction metrics. Regular reporting and analytics dashboards provide ongoing visibility into performance and ROI.",
-    },
-    {
-      question: "Can automation solutions scale as our business grows?",
-      answer: "Yes. Our solutions are built with scalability in mind. As your business grows, we can expand automations, add new workflows, and integrate additional systems. The Growth and Scale plans include dedicated optimization to support your expansion.",
+      question: "What happens after the 7–14 days?",
+      answer: "You get a full report and a ranked action plan. You can run it yourself, hire someone else to execute, or stick with us on a monthly plan if you want ongoing help. No lock-in, no recurring unless you want it.",
     },
   ];
 
@@ -36,10 +32,10 @@ export default function FAQ() {
     <section className="py-24 bg-gray-50 px-6 lg:px-8">
       <div className="max-w-4xl mx-auto">
         <h2 className="text-4xl sm:text-5xl font-bold text-center text-gray-900 mb-4 tracking-tight">
-          Frequently Asked Questions
+          Common questions
         </h2>
         <p className="text-xl text-gray-600 text-center mb-16">
-          Common questions about our automation services
+          The things most small-business owners ask before we start
         </p>
         <div className="space-y-4">
           {faqs.map((faq, index) => (
@@ -55,9 +51,8 @@ export default function FAQ() {
                   {faq.question}
                 </span>
                 <svg
-                  className={`w-5 h-5 text-gray-500 flex-shrink-0 transition-transform ${
-                    openIndex === index ? "rotate-180" : ""
-                  }`}
+                  className={`w-5 h-5 text-gray-500 flex-shrink-0 transition-transform ${openIndex === index ? "rotate-180" : ""
+                    }`}
                   fill="none"
                   stroke="currentColor"
                   viewBox="0 0 24 24"

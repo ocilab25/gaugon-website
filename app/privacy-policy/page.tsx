@@ -1,5 +1,5 @@
 export default function PrivacyPolicyPage() {
-    const lastUpdated = "December 9, 2024";
+    const lastUpdated = "December 9, 2025";
 
     return (
         <main className="pt-20">
