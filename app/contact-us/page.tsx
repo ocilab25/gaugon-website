@@ -2,9 +2,13 @@
 
 import { useState, FormEvent, useRef } from "react";
 import Link from "next/link";
-import ReCAPTCHA from "react-google-recaptcha";
+import dynamic from "next/dynamic";
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 import { WEB3FORMS_CONFIG } from "@/lib/config";
+
+const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
+  ssr: false
+});
 
 // Country list
 const COUNTRIES = [
