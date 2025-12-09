@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 
 export const metadata: Metadata = {
   title: "Services | Gaugon - AI Automation & IT Solutions",
@@ -18,6 +19,8 @@ export default function ServicesPage() {
         "A/B testing automation",
         "Marketing analytics integration",
       ],
+      image: "/marketing-automation.jpg",
+      imageAlt: "Marketing Automation - Automated Campaigns & Lead Nurturing with Email, Social Media, and Web integration",
     },
     {
       title: "Customer Support AI",
@@ -89,16 +92,15 @@ export default function ServicesPage() {
             Our Services
           </h1>
           <p className="text-xl text-gray-600 text-center mb-16 max-w-3xl mx-auto">
-            Comprehensive AI automation and IT solutions designed to streamline operations, 
+            Comprehensive AI automation and IT solutions designed to streamline operations,
             reduce costs, and accelerate business growth.
           </p>
           <div className="space-y-24">
             {services.map((service, index) => (
               <div
                 key={index}
-                className={`flex flex-col ${
-                  index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                } gap-12 items-center`}
+                className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                  } gap-12 items-center`}
               >
                 <div className="flex-1">
                   <h2 className="text-3xl sm:text-4xl font-bold text-gray-900 mb-4">
@@ -110,26 +112,24 @@ export default function ServicesPage() {
                   <ul className="space-y-3">
                     {service.features.map((feature, featureIndex) => (
                       <li key={featureIndex} className="flex items-start">
-                        <svg
-                          className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5"
-                          fill="none"
-                          stroke="currentColor"
-                          viewBox="0 0 24 24"
-                        >
-                          <path
-                            strokeLinecap="round"
-                            strokeLinejoin="round"
-                            strokeWidth={2}
-                            d="M5 13l4 4L19 7"
-                          />
-                        </svg>
+                        <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
                         <span className="text-gray-700">{feature}</span>
                       </li>
                     ))}
                   </ul>
                 </div>
-                <div className="flex-1 bg-gray-50 border border-gray-200 rounded-lg p-12 min-h-[300px] flex items-center justify-center">
-                  <span className="text-gray-400 text-sm">Service Illustration</span>
+                <div className="flex-1 flex items-center justify-center">
+                  {service.image ? (
+                    <img
+                      src={service.image}
+                      alt={service.imageAlt || `${service.title} illustration`}
+                      className="w-full h-auto rounded-lg shadow-lg"
+                    />
+                  ) : (
+                    <div className="bg-gray-50 border border-gray-200 rounded-lg p-12 min-h-[300px] w-full flex items-center justify-center">
+                      <span className="text-gray-400 text-sm">Service Illustration</span>
+                    </div>
+                  )}
                 </div>
               </div>
             ))}
