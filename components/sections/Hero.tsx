@@ -43,14 +43,6 @@ export default function Hero() {
               >
                 Map My Workflows
               </Link>
-              <a
-                href="https://wa.me/14076682684?text=Hello! I'm interested in learning more about Gaugon's AI automation services."
-                target="_blank"
-                rel="noopener noreferrer"
-                className="border-2 border-gray-300 text-gray-900 px-8 py-4 rounded-lg text-lg font-semibold hover:border-gray-400 hover:bg-gray-50 transition-colors text-center"
-              >
-                WhatsApp Our Team
-              </a>
             </div>
           </div>
 
