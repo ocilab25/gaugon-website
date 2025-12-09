@@ -8,7 +8,7 @@ export default function FinalCTA() {
           Ready to Automate Your Business?
         </h2>
         <p className="text-xl text-primary-100 mb-10 max-w-2xl mx-auto">
-          Start with a free AI audit. We'll analyze your processes and show you 
+          Start with a free AI audit. We'll analyze your processes and show you
           exactly where automation can drive the most impact.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
@@ -19,7 +19,7 @@ export default function FinalCTA() {
             Start Free AI Audit
           </Link>
           <a
-            href="https://wa.me/1234567890?text=Hello, I'm interested in learning more about Gaugon's services."
+            href="https://wa.me/14076682684?text=Hello! I'm interested in learning more about Gaugon's AI automation services."
             target="_blank"
             rel="noopener noreferrer"
             className="border-2 border-white text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-white/10 transition-colors min-w-[240px]"

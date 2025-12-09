@@ -10,7 +10,7 @@ export default function Hero() {
           <span className="text-primary">Scales Your Business</span>
         </h1>
         <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
-          Automate marketing, customer support, CRM, and workflows. 
+          Automate marketing, customer support, CRM, and workflows.
           Professional IT solutions designed for growth.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
@@ -21,7 +21,7 @@ export default function Hero() {
             Start Free AI Audit
           </Link>
           <a
-            href="https://wa.me/1234567890?text=Hello, I'm interested in learning more about Gaugon's services."
+            href="https://wa.me/14076682684?text=Hello! I'm interested in learning more about Gaugon's AI automation services."
             target="_blank"
             rel="noopener noreferrer"
             className="border-2 border-gray-300 text-gray-900 px-8 py-4 rounded-md text-lg font-semibold hover:border-gray-400 hover:bg-gray-50 transition-colors min-w-[240px]"

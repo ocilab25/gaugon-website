@@ -210,7 +210,7 @@ export default function ContactPage() {
                 Prefer to chat? Reach out via WhatsApp for immediate assistance.
               </p>
               <a
-                href="https://wa.me/1234567890?text=Hello, I'm interested in booking a free AI audit."
+                href="https://wa.me/14076682684?text=Hello! I'd like to book a free AI audit with Gaugon."
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center bg-[#25D366] text-white px-6 py-3 rounded-md font-semibold hover:bg-[#20BA5A] transition-colors"

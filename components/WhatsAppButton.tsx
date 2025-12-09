@@ -1,8 +1,8 @@
 "use client";
 
 export default function WhatsAppButton() {
-  const whatsappNumber = "1234567890"; // Replace with your actual WhatsApp number
-  const message = encodeURIComponent("Hello, I'm interested in learning more about Gaugon's services.");
+  const whatsappNumber = "14076682684"; // Gaugon WhatsApp Business: +1 (407) 668-2684
+  const message = encodeURIComponent("Hello! I'm interested in learning more about Gaugon's AI automation services.");
   const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
   return (
