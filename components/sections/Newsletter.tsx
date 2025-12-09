@@ -43,7 +43,7 @@ export default function Newsletter() {
 
     // Mock submit handler - replace with actual newsletter API
     setTimeout(() => {
-      console.log("Newsletter subscription:", email);
+      // TODO: Replace with actual newsletter API integration
       handleSubmitSuccess();
     }, 1000);
   };
