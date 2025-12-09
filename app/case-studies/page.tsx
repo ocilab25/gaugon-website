@@ -10,15 +10,15 @@ export default function CaseStudiesPage() {
   const caseStudies = [
     {
       title: "E-commerce Automation Success",
-      client: "Mid-Size Retailer",
+      client: "Mid-size online retailer",
       industry: "E-commerce",
-      challenge: "Manual order processing and customer communications were creating bottlenecks and errors during peak seasons.",
-      solution: "Implemented automated order processing, inventory updates, and customer communication workflows integrated with their existing e-commerce platform.",
+      challenge: "Manual orders, inventory, and follow-ups were spread across spreadsheets and email, causing delays and mistakes in busy seasons.",
+      solution: "Automations synced orders, inventory, and shipping, triggered status emails, and pushed events into CRM and support tools for a single customer view.",
       results: [
-        "90% reduction in manual order processing time",
-        "75% faster order fulfillment",
-        "Zero order processing errors",
-        "40% reduction in customer service tickets",
+        "About 90% less manual order work",
+        "Faster fulfillment",
+        "Fewer status tickets",
+        "Team freed for higher-value work",
       ],
     },
     {
