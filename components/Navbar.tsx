@@ -1,44 +1,48 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
+      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+        <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
-            <a href="#home" className="text-2xl font-bold text-primary">
+            <Link href="/" className="text-2xl font-bold text-gray-900 tracking-tight">
               Gaugon
-            </a>
+            </Link>
           </div>
           
           {/* Desktop menu */}
-          <div className="hidden md:flex md:items-center md:space-x-8">
-            <a href="#services" className="text-gray-700 hover:text-primary transition-colors">
+          <div className="hidden md:flex md:items-center md:space-x-10">
+            <Link href="/" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
+              Home
+            </Link>
+            <Link href="/services" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
               Services
-            </a>
-            <a href="#process" className="text-gray-700 hover:text-primary transition-colors">
-              Process
-            </a>
-            <a href="#about" className="text-gray-700 hover:text-primary transition-colors">
+            </Link>
+            <Link href="/case-studies" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
+              Case Studies
+            </Link>
+            <Link href="/about" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
               About
-            </a>
-            <a
-              href="#contact"
-              className="bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors"
+            </Link>
+            <Link
+              href="/contact"
+              className="bg-primary text-white px-6 py-2.5 rounded-md hover:bg-primary/90 transition-colors text-sm font-semibold"
             >
-              Contact Us
-            </a>
+              Book Audit
+            </Link>
           </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-primary focus:outline-none"
+              className="text-gray-700 hover:text-gray-900 focus:outline-none"
               aria-label="Toggle menu"
             >
               <svg
@@ -62,39 +66,45 @@ export default function Navbar() {
 
         {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden py-4 space-y-4">
-            <a
-              href="#services"
-              className="block text-gray-700 hover:text-primary transition-colors"
+          <div className="md:hidden py-6 space-y-4 border-t border-gray-100 mt-4">
+            <Link
+              href="/"
+              className="block text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Home
+            </Link>
+            <Link
+              href="/services"
+              className="block text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               Services
-            </a>
-            <a
-              href="#process"
-              className="block text-gray-700 hover:text-primary transition-colors"
+            </Link>
+            <Link
+              href="/case-studies"
+              className="block text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
-              Process
-            </a>
-            <a
-              href="#about"
-              className="block text-gray-700 hover:text-primary transition-colors"
+              Case Studies
+            </Link>
+            <Link
+              href="/about"
+              className="block text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
               onClick={() => setIsMenuOpen(false)}
             >
               About
-            </a>
-            <a
-              href="#contact"
-              className="block bg-primary text-white px-6 py-2 rounded-lg hover:bg-primary/90 transition-colors text-center"
+            </Link>
+            <Link
+              href="/contact"
+              className="block bg-primary text-white px-6 py-2.5 rounded-md hover:bg-primary/90 transition-colors text-sm font-semibold text-center"
               onClick={() => setIsMenuOpen(false)}
             >
-              Contact Us
-            </a>
+              Book Audit
+            </Link>
           </div>
         )}
       </div>
     </nav>
   );
 }
-

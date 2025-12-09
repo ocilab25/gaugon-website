@@ -1,19 +1,27 @@
 import Hero from "@/components/sections/Hero";
-import PainSolution from "@/components/sections/PainSolution";
-import Services from "@/components/sections/Services";
-import Process from "@/components/sections/Process";
-import About from "@/components/sections/About";
-import Contact from "@/components/sections/Contact";
+import TrustStrip from "@/components/sections/TrustStrip";
+import WhatWeAutomate from "@/components/sections/WhatWeAutomate";
+import HowItWorks from "@/components/sections/HowItWorks";
+import Outcomes from "@/components/sections/Outcomes";
+import CaseStudyTeaser from "@/components/sections/CaseStudyTeaser";
+import Pricing from "@/components/sections/Pricing";
+import FAQ from "@/components/sections/FAQ";
+import FinalCTA from "@/components/sections/FinalCTA";
+import Newsletter from "@/components/sections/Newsletter";
 
 export default function Home() {
   return (
-    <main className="pt-16">
+    <main>
       <Hero />
-      <PainSolution />
-      <Services />
-      <Process />
-      <About />
-      <Contact />
+      <TrustStrip />
+      <WhatWeAutomate />
+      <HowItWorks />
+      <Outcomes />
+      <CaseStudyTeaser />
+      <Pricing />
+      <FAQ />
+      <Newsletter />
+      <FinalCTA />
     </main>
   );
 }

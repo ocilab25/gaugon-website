@@ -1,33 +1,35 @@
+import Link from "next/link";
+
 export default function Hero() {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center bg-gradient-to-b from-white to-gray-50 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-4xl mx-auto text-center">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6">
-          Gaugon
+    <section className="min-h-screen flex items-center justify-center bg-white px-6 lg:px-8 pt-20">
+      <div className="max-w-6xl mx-auto text-center">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-bold text-gray-900 mb-6 tracking-tight">
+          AI Automation That
+          <br />
+          <span className="text-primary">Scales Your Business</span>
         </h1>
-        <h2 className="text-2xl sm:text-3xl lg:text-4xl font-semibold text-gray-800 mb-4">
-          AI-driven IT & automation for small businesses.
-        </h2>
-        <p className="text-lg sm:text-xl text-gray-600 mb-8 max-w-2xl mx-auto">
-          Transform your business operations with intelligent automation and expert IT support. 
-          We help small businesses streamline workflows, optimize systems, and unlock growth through technology.
+        <p className="text-xl sm:text-2xl text-gray-600 mb-12 max-w-3xl mx-auto leading-relaxed">
+          Automate marketing, customer support, CRM, and workflows. 
+          Professional IT solutions designed for growth.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-          <a
-            href="#contact"
-            className="bg-primary text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors shadow-lg hover:shadow-xl"
+          <Link
+            href="/contact"
+            className="bg-primary text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-primary/90 transition-colors shadow-sm hover:shadow-md min-w-[240px]"
           >
-            Book a free discovery call
-          </a>
+            Start Free AI Audit
+          </Link>
           <a
-            href="#contact"
-            className="border-2 border-primary text-primary px-8 py-4 rounded-lg text-lg font-semibold hover:bg-primary hover:text-white transition-colors"
+            href="https://wa.me/1234567890?text=Hello, I'm interested in learning more about Gaugon's services."
+            target="_blank"
+            rel="noopener noreferrer"
+            className="border-2 border-gray-300 text-gray-900 px-8 py-4 rounded-md text-lg font-semibold hover:border-gray-400 hover:bg-gray-50 transition-colors min-w-[240px]"
           >
-            Contact us
+            WhatsApp Us
           </a>
         </div>
       </div>
     </section>
   );
 }
-
