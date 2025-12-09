@@ -31,9 +31,9 @@ export default function WhoThisIsFor({ id }: { id?: string }) {
                             <h3 className="text-3xl font-bold mb-10">This is for you if...</h3>
 
                             <ul className="space-y-6">
-                                <li className="flex gap-4 items-start">
-                                    <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-1">
-                                        <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                <li className="group flex gap-4 items-start cursor-default focus-visible:outline-none" tabIndex={0}>
+                                    <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-1 transition-all duration-150 ease-out group-hover:bg-white/40 group-focus-visible:bg-white/40 group-hover:scale-105 group-focus-visible:scale-105">
+                                        <svg className="w-3.5 h-3.5 text-white transition-colors duration-150 ease-out group-hover:text-green-400 group-focus-visible:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
@@ -41,9 +41,9 @@ export default function WhoThisIsFor({ id }: { id?: string }) {
                                         You're generating consistent revenue and ready to scale.
                                     </p>
                                 </li>
-                                <li className="flex gap-4 items-start">
-                                    <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-1">
-                                        <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                <li className="group flex gap-4 items-start cursor-default focus-visible:outline-none" tabIndex={0}>
+                                    <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-1 transition-all duration-150 ease-out group-hover:bg-white/40 group-focus-visible:bg-white/40 group-hover:scale-105 group-focus-visible:scale-105">
+                                        <svg className="w-3.5 h-3.5 text-white transition-colors duration-150 ease-out group-hover:text-green-400 group-focus-visible:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
@@ -51,9 +51,9 @@ export default function WhoThisIsFor({ id }: { id?: string }) {
                                         You want to own your data, not rent it from expensive SaaS giants.
                                     </p>
                                 </li>
-                                <li className="flex gap-4 items-start">
-                                    <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-1">
-                                        <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                <li className="group flex gap-4 items-start cursor-default focus-visible:outline-none" tabIndex={0}>
+                                    <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-1 transition-all duration-150 ease-out group-hover:bg-white/40 group-focus-visible:bg-white/40 group-hover:scale-105 group-focus-visible:scale-105">
+                                        <svg className="w-3.5 h-3.5 text-white transition-colors duration-150 ease-out group-hover:text-green-400 group-focus-visible:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
@@ -61,9 +61,9 @@ export default function WhoThisIsFor({ id }: { id?: string }) {
                                         You need systems people actually follow, not just another handbook.
                                     </p>
                                 </li>
-                                <li className="flex gap-4 items-start">
-                                    <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-1">
-                                        <svg className="w-3.5 h-3.5 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                                <li className="group flex gap-4 items-start cursor-default focus-visible:outline-none" tabIndex={0}>
+                                    <div className="w-6 h-6 rounded-full bg-white/20 flex items-center justify-center shrink-0 mt-1 transition-all duration-150 ease-out group-hover:bg-white/40 group-focus-visible:bg-white/40 group-hover:scale-105 group-focus-visible:scale-105">
+                                        <svg className="w-3.5 h-3.5 text-white transition-colors duration-150 ease-out group-hover:text-green-400 group-focus-visible:text-green-400" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
                                             <path strokeLinecap="round" strokeLinejoin="round" d="M5 13l4 4L19 7" />
                                         </svg>
                                     </div>
@@ -87,32 +87,32 @@ export default function WhoThisIsFor({ id }: { id?: string }) {
                         <h3 className="text-2xl font-bold text-gray-900 mb-8">This is not for you if...</h3>
 
                         <ul className="space-y-6">
-                            <li className="flex gap-4 items-start">
-                                <svg className="w-6 h-6 text-gray-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <li className="group flex gap-4 items-start cursor-default focus-visible:outline-none" tabIndex={0}>
+                                <svg className="w-6 h-6 text-gray-400 shrink-0 mt-0.5 transition-all duration-150 ease-out group-hover:text-red-500 group-focus-visible:text-red-500 group-hover:scale-110 group-focus-visible:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                                 <p className="text-gray-600 leading-relaxed">
                                     You're looking for a "quick install" magic button without understanding the flow.
                                 </p>
                             </li>
-                            <li className="flex gap-4 items-start">
-                                <svg className="w-6 h-6 text-gray-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <li className="group flex gap-4 items-start cursor-default focus-visible:outline-none" tabIndex={0}>
+                                <svg className="w-6 h-6 text-gray-400 shrink-0 mt-0.5 transition-all duration-150 ease-out group-hover:text-red-500 group-focus-visible:text-red-500 group-hover:scale-110 group-focus-visible:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                                 <p className="text-gray-600 leading-relaxed">
                                     You want the cheapest freelancer who disappears after one month.
                                 </p>
                             </li>
-                            <li className="flex gap-4 items-start">
-                                <svg className="w-6 h-6 text-gray-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <li className="group flex gap-4 items-start cursor-default focus-visible:outline-none" tabIndex={0}>
+                                <svg className="w-6 h-6 text-gray-400 shrink-0 mt-0.5 transition-all duration-150 ease-out group-hover:text-red-500 group-focus-visible:text-red-500 group-hover:scale-110 group-focus-visible:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                                 <p className="text-gray-600 leading-relaxed">
                                     You prefer chaos and "figuring it out" over documented stability.
                                 </p>
                             </li>
-                            <li className="flex gap-4 items-start">
-                                <svg className="w-6 h-6 text-gray-400 shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                            <li className="group flex gap-4 items-start cursor-default focus-visible:outline-none" tabIndex={0}>
+                                <svg className="w-6 h-6 text-gray-400 shrink-0 mt-0.5 transition-all duration-150 ease-out group-hover:text-red-500 group-focus-visible:text-red-500 group-hover:scale-110 group-focus-visible:scale-110" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                                     <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
                                 </svg>
                                 <p className="text-gray-600 leading-relaxed">
