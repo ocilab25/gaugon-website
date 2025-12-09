@@ -3,6 +3,7 @@
 import { useState, FormEvent, useRef } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
+import ReCAPTCHAType from "react-google-recaptcha";
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 import { WEB3FORMS_CONFIG } from "@/lib/config";
 
@@ -34,7 +35,7 @@ const COUNTRIES = [
 ].sort();
 
 export default function ContactPage() {
-  const recaptchaRef = useRef<ReCAPTCHA>(null);
+  const recaptchaRef = useRef<ReCAPTCHAType>(null);
 
   const [formData, setFormData] = useState({
     firstName: "",
