@@ -50,6 +50,12 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 - **Goal:** Position Gaugon as a "Systems Architect" rather than a generalist agency.
 - **Style:** 3-column, icon-heavy, concise outcome descriptions.
 
+### 🏆 UI: Results-Anchored Trust Strip
+- **Component:** `TrustStrip.tsx`
+- **Change:** Added a bold "700+ Hours Saved" metric block next to client logos.
+- **Goal:** Provide immediate quantitative proof before social proof (Authority Hacker style).
+- **Style:** Large typography metric, separated by divider, reduced opacity for logos.
+
 ---
 
 ## Developer Guide
