@@ -251,10 +251,10 @@ WhatsApp: +1 (407) 668-2684`);
       <section className="py-20 bg-white px-6 lg:px-8">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 text-center tracking-tight">
-            Book Your Free AI Automation Audit
+            Architect Your Automation Strategy
           </h1>
           <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            On this free call, we review how work flows through your business and show where automation can save time and reduce errors.
+            Schedule a consultation to discuss your operational challenges and explore how bespoke automation can scale your business.
           </p>
 
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-12">
@@ -282,11 +282,11 @@ WhatsApp: +1 (407) 668-2684`);
               </ul>
 
               <h2 className="text-2xl font-semibold text-gray-900 mb-6">
-                How the audit works
+                How the consultation works
               </h2>
               <ol className="space-y-4 list-decimal list-inside text-gray-700 mb-12 pl-2">
                 <li className="pl-2">Submit the form.</li>
-                <li className="pl-2">Receive a short pre-audit questionnaire.</li>
+                <li className="pl-2">Receive a short pre-consultation questionnaire.</li>
                 <li className="pl-2">Meet on a live call.</li>
                 <li className="pl-2">Get a brief roadmap within 2 business days.</li>
               </ol>
@@ -518,7 +518,7 @@ WhatsApp: +1 (407) 668-2684`);
             {submitStatus === "success" && (
               <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-md mb-6">
                 <p className="font-medium">Thank you! Your request has been submitted.</p>
-                <p className="text-sm mt-1">We'll get back to you within 24 hours to schedule your AI audit.</p>
+                <p className="text-sm mt-1">We'll get back to you within 24 hours to schedule your consultation.</p>
               </div>
             )}
 
