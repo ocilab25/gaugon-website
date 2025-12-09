@@ -37,7 +37,7 @@ export default function Contact() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     if (!validateForm()) {
       return;
     }
@@ -45,16 +45,41 @@ export default function Contact() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Mock submit handler - simulate API call
-    setTimeout(() => {
-      console.log("Form submitted:", formData);
+    try {
+      // Prepare form data for Web3Forms
+      const web3FormData = new FormData();
+      web3FormData.append("access_key", "0a70d745-bd5d-41d0-a68f-7b0953cf7012");
+      web3FormData.append("name", formData.name);
+      web3FormData.append("email", formData.email);
+      web3FormData.append("message", formData.message);
+      web3FormData.append("subject", `New Contact Form Submission from ${formData.name}`);
+
+      // Submit to Web3Forms API
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: web3FormData
+      });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitting(false);
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", message: "" });
+
+        // Reset success message after 10 seconds
+        setTimeout(() => setSubmitStatus(null), 10000);
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
       setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", message: "" });
-      
-      // Reset success message after 5 seconds
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1000);
+      setSubmitStatus("error");
+
+      // Reset error message after 10 seconds
+      setTimeout(() => setSubmitStatus(null), 10000);
+    }
   };
 
   const handleChange = (
@@ -75,7 +100,7 @@ export default function Contact() {
           Get Started Today
         </h2>
         <p className="text-lg text-gray-600 text-center mb-12">
-          Ready to streamline your business operations? Book a free discovery call or send us a message. 
+          Ready to streamline your business operations? Book a free discovery call or send us a message.
           We'll respond within 24 hours.
         </p>
 
@@ -90,9 +115,8 @@ export default function Contact() {
               name="name"
               value={formData.name}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${
-                errors.name ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.name ? "border-red-500" : "border-gray-300"
+                }`}
               placeholder="Your name"
             />
             {errors.name && (
@@ -110,9 +134,8 @@ export default function Contact() {
               name="email"
               value={formData.email}
               onChange={handleChange}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${
-                errors.email ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.email ? "border-red-500" : "border-gray-300"
+                }`}
               placeholder="your.email@example.com"
             />
             {errors.email && (
@@ -130,9 +153,8 @@ export default function Contact() {
               value={formData.message}
               onChange={handleChange}
               rows={6}
-              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors resize-none ${
-                errors.message ? "border-red-500" : "border-gray-300"
-              }`}
+              className={`w-full px-4 py-3 border rounded-lg focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors resize-none ${errors.message ? "border-red-500" : "border-gray-300"
+                }`}
               placeholder="Tell us about your business and what you'd like to achieve..."
             />
             {errors.message && (

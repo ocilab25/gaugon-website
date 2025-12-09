@@ -39,12 +39,12 @@ export default function ContactPage() {
 
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
+
     // Spam protection: if honeypot field is filled, it's likely a bot
     if (formData.honeypot) {
       return;
     }
-    
+
     if (!validateForm()) {
       return;
     }
@@ -52,20 +52,42 @@ export default function ContactPage() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    // Mock submit handler - replace with actual API endpoint
-    setTimeout(() => {
-      console.log("Form submitted:", {
-        name: formData.name,
-        email: formData.email,
-        company: formData.company,
-        message: formData.message,
+    try {
+      // Prepare form data for Web3Forms
+      const web3FormData = new FormData();
+      web3FormData.append("access_key", "0a70d745-bd5d-41d0-a68f-7b0953cf7012");
+      web3FormData.append("name", formData.name);
+      web3FormData.append("email", formData.email);
+      web3FormData.append("company", formData.company);
+      web3FormData.append("message", formData.message);
+      web3FormData.append("subject", `New Contact Form Submission from ${formData.name}`);
+
+      // Submit to Web3Forms API
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: web3FormData
       });
+
+      const data = await response.json();
+
+      if (data.success) {
+        setIsSubmitting(false);
+        setSubmitStatus("success");
+        setFormData({ name: "", email: "", company: "", message: "", honeypot: "" });
+
+        // Clear success message after 10 seconds
+        setTimeout(() => setSubmitStatus(null), 10000);
+      } else {
+        throw new Error("Form submission failed");
+      }
+    } catch (error) {
+      console.error("Form submission error:", error);
       setIsSubmitting(false);
-      setSubmitStatus("success");
-      setFormData({ name: "", email: "", company: "", message: "", honeypot: "" });
-      
-      setTimeout(() => setSubmitStatus(null), 5000);
-    }, 1000);
+      setSubmitStatus("error");
+
+      // Clear error message after 10 seconds
+      setTimeout(() => setSubmitStatus(null), 10000);
+    }
   };
 
   const handleChange = (
@@ -87,7 +109,7 @@ export default function ContactPage() {
             Book Your Free AI Audit
           </h1>
           <p className="text-xl text-gray-600 text-center mb-12 max-w-2xl mx-auto">
-            Tell us about your business and challenges. We'll analyze your processes 
+            Tell us about your business and challenges. We'll analyze your processes
             and show you exactly where automation can drive the most impact.
           </p>
 
@@ -219,9 +241,8 @@ export default function ContactPage() {
                   name="name"
                   value={formData.name}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${
-                    errors.name ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.name ? "border-red-500" : "border-gray-300"
+                    }`}
                   placeholder="Your name"
                   required
                 />
@@ -240,9 +261,8 @@ export default function ContactPage() {
                   name="email"
                   value={formData.email}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${
-                    errors.email ? "border-red-500" : "border-gray-300"
-                  }`}
+                  className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.email ? "border-red-500" : "border-gray-300"
+                    }`}
                   placeholder="your.email@example.com"
                   required
                 />
@@ -277,9 +297,8 @@ export default function ContactPage() {
                 value={formData.message}
                 onChange={handleChange}
                 rows={6}
-                className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors resize-none ${
-                  errors.message ? "border-red-500" : "border-gray-300"
-                }`}
+                className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors resize-none ${errors.message ? "border-red-500" : "border-gray-300"
+                  }`}
                 placeholder="Tell us about your business, current challenges, and what you'd like to automate..."
                 required
               />
