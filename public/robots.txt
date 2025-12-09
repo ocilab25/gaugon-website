@@ -1,0 +1,5 @@
+﻿# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+Sitemap: https://ocilab25.github.io/gaugon-website/sitemap.xml
