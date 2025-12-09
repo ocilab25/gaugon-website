@@ -11,11 +11,11 @@ export default function PricingPage() {
     const plans = [
         {
             name: "Standard",
-            price: "$83",
+            price: "$49",
             period: "/month",
-            billing: "billed annually",
+            billing: "Billed monthly, cancel anytime.",
             description: "Self-paced learning with templates and community support.",
-            buttonText: "Join Now",
+            buttonText: "Start Free Trial",
             buttonLink: "/contact-us?inquiry=Standard+Membership",
             highlighted: false,
             features: [
@@ -29,11 +29,11 @@ export default function PricingPage() {
         },
         {
             name: "Plus",
-            price: "$166",
+            price: "$149",
             period: "/month",
-            billing: "billed annually",
+            billing: "Billed monthly, cancel anytime.",
             description: "Elite community with weekly masterminds and founder access.",
-            buttonText: "Apply to Join",
+            buttonText: "Start Free Trial",
             buttonLink: "/contact-us?inquiry=Plus+Membership",
             highlighted: true,
             badge: "Most Popular",
@@ -49,14 +49,14 @@ export default function PricingPage() {
         },
         {
             name: "Max",
-            price: "$500",
+            price: "$750",
             period: "/month",
-            billing: "billed annually",
+            billing: "Billed monthly, cancel anytime.",
             description: "For businesses seeking personalized, hands-on support.",
-            buttonText: "Apply to Join",
+            buttonText: "Contact Sales",
             buttonLink: "/contact-us?inquiry=Max+Membership",
             highlighted: false,
-            badge: "Best Value",
+            badge: "Hands-on Support",
             features: [
                 "Monthly 1:1 Coaching calls",
                 "Priority DM support",
@@ -68,9 +68,9 @@ export default function PricingPage() {
         },
         {
             name: "Enterprise",
-            price: "Custom",
-            period: "",
-            billing: "Tailored to your needs",
+            price: "From $2,500",
+            period: "/month",
+            billing: "Billed monthly.",
             description: "Tailored solutions for organizations with specific needs.",
             buttonText: "Talk to us",
             buttonLink: "/contact-us?inquiry=Enterprise+Membership",
@@ -109,8 +109,8 @@ export default function PricingPage() {
                             <div
                                 key={index}
                                 className={`flex flex-col relative rounded-2xl p-8 transition-all duration-300 ${plan.highlighted
-                                        ? "bg-white ring-2 ring-primary shadow-xl scale-100 z-10"
-                                        : "bg-white border border-gray-200 shadow-sm hover:shadow-md"
+                                    ? "bg-white ring-2 ring-primary shadow-xl scale-100 z-10"
+                                    : "bg-white border border-gray-200 shadow-sm hover:shadow-md"
                                     }`}
                             >
                                 {plan.badge && (
@@ -144,8 +144,8 @@ export default function PricingPage() {
                                 <Link
                                     href={plan.buttonLink}
                                     className={`block w-full py-4 rounded-lg text-center font-semibold mb-10 transition-colors ${plan.highlighted
-                                            ? "bg-primary text-white hover:bg-primary/90 shadow-md"
-                                            : "border-2 border-gray-200 text-gray-900 hover:border-gray-300 hover:bg-gray-50"
+                                        ? "bg-primary text-white hover:bg-primary/90 shadow-md"
+                                        : "border-2 border-gray-200 text-gray-900 hover:border-gray-300 hover:bg-gray-50"
                                         }`}
                                 >
                                     {plan.buttonText}
