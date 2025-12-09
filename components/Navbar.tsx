@@ -12,7 +12,7 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <img src="/logo.png" alt="Gaugon" className="h-10 w-auto" />
+              <img src="/logo.png" alt="Gaugon" className="h-16 w-auto" />
             </Link>
           </div>
 
