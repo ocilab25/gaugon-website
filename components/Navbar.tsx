@@ -27,6 +27,9 @@ export default function Navbar() {
             <Link href="/case-studies" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
               Case Studies
             </Link>
+            <Link href="/pricing" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
+              Pricing
+            </Link>
             <Link href="/about" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
               About
             </Link>
@@ -87,6 +90,13 @@ export default function Navbar() {
               onClick={() => setIsMenuOpen(false)}
             >
               Case Studies
+            </Link>
+            <Link
+              href="/pricing"
+              className="block text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium"
+              onClick={() => setIsMenuOpen(false)}
+            >
+              Pricing
             </Link>
             <Link
               href="/about"

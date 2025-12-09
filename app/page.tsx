@@ -4,10 +4,10 @@ import WhatWeAutomate from "@/components/sections/WhatWeAutomate";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Outcomes from "@/components/sections/Outcomes";
 import CaseStudyTeaser from "@/components/sections/CaseStudyTeaser";
-import Pricing from "@/components/sections/Pricing";
+import PricingStrip from "@/components/sections/PricingStrip";
 import FAQ from "@/components/sections/FAQ";
-import FinalCTA from "@/components/sections/FinalCTA";
 import Newsletter from "@/components/sections/Newsletter";
+import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function Home() {
   return (
@@ -18,9 +18,9 @@ export default function Home() {
       <HowItWorks />
       <Outcomes />
       <CaseStudyTeaser />
-      <Pricing />
       <FAQ />
       <Newsletter />
+      <PricingStrip />
       <FinalCTA />
     </main>
   );
