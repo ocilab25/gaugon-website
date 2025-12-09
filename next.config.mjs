@@ -4,8 +4,7 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Deploying to GitHub Pages subdirectory
-  basePath: '/gaugon-website',
+  // Deploying to custom domain app.gaugon.com (no basePath needed)
   trailingSlash: true,
 };
 
