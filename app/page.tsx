@@ -4,7 +4,6 @@ import WhoThisIsFor from "@/components/sections/WhoThisIsFor";
 import WhatYouGet from "@/components/sections/WhatYouGet";
 import RealResults from "@/components/sections/RealResults";
 import HowItWorks from "@/components/sections/HowItWorks";
-import FAQ from "@/components/sections/FAQ";
 import PricingStrip from "@/components/sections/PricingStrip";
 import FinalCTA from "@/components/sections/FinalCTA";
 
@@ -17,7 +16,6 @@ export default function Home() {
       <WhatYouGet />
       <RealResults />
       <HowItWorks />
-      <FAQ />
       <PricingStrip />
       <FinalCTA />
     </main>
