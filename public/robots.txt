@@ -2,4 +2,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://ocilab25.github.io/gaugon-website/sitemap.xml
+Sitemap: https://app.gaugon.com/sitemap.xml

@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: "Gaugon | AI Automation & IT Solutions for Business",
     description: "Professional AI automation and IT solutions. Automate marketing, customer support, CRM, reporting, and workflows.",
-    url: "https://ocilab25.github.io/gaugon-website",
+    url: "https://app.gaugon.com",
     siteName: "Gaugon",
     type: "website",
     locale: "en_US",
@@ -47,7 +47,7 @@ export default function RootLayout({
     "@type": "ProfessionalService",
     "name": "Gaugon",
     "description": "AI automation and IT solutions for businesses",
-    "url": "https://ocilab25.github.io/gaugon-website",
+    "url": "https://app.gaugon.com",
     "serviceType": ["AI Automation", "IT Solutions", "Business Automation"],
     "areaServed": "Worldwide",
   };
@@ -55,6 +55,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
+        {/* Security meta tags (temporary mitigation until Cloudflare Pages migration) */}
+        <meta
+          httpEquiv="Content-Security-Policy"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self'; frame-ancestors 'none'"
+        />
+        <meta name="referrer" content="strict-origin-when-cross-origin" />
+        <link rel="canonical" href="https://app.gaugon.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

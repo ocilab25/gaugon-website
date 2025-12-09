@@ -16,6 +16,8 @@ export default function ServicesPage() {
         "Follow-up sequences that run on their own",
         "Clear view of pipeline performance",
       ],
+      image: "/marketing-automation.jpg",
+      imageAlt: "Illustration of marketing automation funnel connecting email, social, and web into a growth dashboard.",
     },
     {
       title: "Customer Support AI",
@@ -25,6 +27,8 @@ export default function ServicesPage() {
         "Smart routing to the right agent or team",
         "Every conversation logged in your helpdesk",
       ],
+      image: "/ai-automation-section.jpg",
+      imageAlt: "Chatbot handling customer messages while updating a CRM pipeline.",
     },
     {
       title: "CRM & Ticketing Automation",
@@ -34,6 +38,8 @@ export default function ServicesPage() {
         "SLA reminders and escalation rules",
         "Cleaner, more reliable customer data",
       ],
+      image: "/crm-ticketing-automation.jpg",
+      imageAlt: "Kanban-style CRM and ticket board with automated replies and follow-ups.",
     },
     {
       title: "Workflow Automation",
@@ -43,8 +49,6 @@ export default function ServicesPage() {
         "Automated approvals and notifications",
         "Less copy-paste across tools",
       ],
-      image: "/workflow-automation.jpg",
-      imageAlt: "Workflow Automation - Approval workflow diagram with checkmark decision point",
     },
   ];
 
@@ -57,6 +61,8 @@ export default function ServicesPage() {
         "Live KPIs for leaders and teams",
         "Email or chat reports on a schedule",
       ],
+      image: "/reporting-dashboards.jpg",
+      imageAlt: "Reporting dashboard showing sales by region, user growth, traffic sources, and KPIs.",
     },
     {
       title: "IT Infrastructure Support",
@@ -66,8 +72,8 @@ export default function ServicesPage() {
         "Backup and recovery planning",
         "Cloud and on-prem support",
       ],
-      image: "/it-infrastructure.jpg",
-      imageAlt: "IT Infrastructure Support - Dashboard with secure server infrastructure and cloud sync",
+      image: "/data-it-section.jpg",
+      imageAlt: "Central analytics dashboard connected to secure servers, cloud backup, and network nodes.",
     },
   ];
 
@@ -103,137 +109,105 @@ export default function ServicesPage() {
 
           {/* AI Automation Section */}
           <div className="mb-24">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
               AI Automation
             </h2>
 
-            {/* Section Image */}
-            <div className="mb-12 flex justify-center">
-              <img
-                src="/ai-automation-section.jpg"
-                alt="AI Automation - CRM workflow with chatbot and email integration"
-                className="w-full max-w-3xl h-auto rounded-lg shadow-xl"
-              />
-            </div>
-
-            {/* Service Cards Grid - First 3 services */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 mb-16">
-              {aiAutomationServices.slice(0, 3).map((service, index) => (
-                <div
-                  key={index}
-                  className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow"
-                >
-                  <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                    {service.title}
-                  </h3>
-                  <p className="text-gray-600 mb-6 leading-relaxed">
-                    {service.description}
-                  </p>
-                  <ul className="space-y-3">
-                    {service.features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+            <div className="space-y-16">
+              {aiAutomationServices.map((service, index) => (
+                service.image ? (
+                  <div
+                    key={index}
+                    className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                      } gap-12 items-center`}
+                  >
+                    <div className="flex-1">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                        {service.title}
+                      </h3>
+                      <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                        {service.description}
+                      </p>
+                      <ul className="space-y-3">
+                        {service.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start">
+                            <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-700">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                    <div className="flex-1 flex items-center justify-center">
+                      <img
+                        src={service.image}
+                        alt={service.imageAlt}
+                        className="w-full h-auto rounded-lg shadow-lg max-w-md"
+                      />
+                    </div>
+                  </div>
+                ) : (
+                  <div key={index} className="max-w-2xl mx-auto">
+                    <div className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow">
+                      <h3 className="text-2xl font-bold text-gray-900 mb-3 text-center">
+                        {service.title}
+                      </h3>
+                      <p className="text-gray-600 mb-6 leading-relaxed text-center">
+                        {service.description}
+                      </p>
+                      <ul className="space-y-3">
+                        {service.features.map((feature, featureIndex) => (
+                          <li key={featureIndex} className="flex items-start">
+                            <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                            <span className="text-gray-700">{feature}</span>
+                          </li>
+                        ))}
+                      </ul>
+                    </div>
+                  </div>
+                )
               ))}
             </div>
-
-            {/* Workflow Automation - Full width with image */}
-            {aiAutomationServices[3] && aiAutomationServices[3].image && (
-              <div className="flex flex-col lg:flex-row gap-12 items-center">
-                <div className="flex-1">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                    {aiAutomationServices[3].title}
-                  </h3>
-                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                    {aiAutomationServices[3].description}
-                  </p>
-                  <ul className="space-y-3">
-                    {aiAutomationServices[3].features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-                <div className="flex-1 flex items-center justify-center">
-                  <img
-                    src={aiAutomationServices[3].image}
-                    alt={aiAutomationServices[3].imageAlt}
-                    className="w-full h-auto rounded-lg shadow-lg max-w-md"
-                  />
-                </div>
-              </div>
-            )}
           </div>
 
           {/* Data & IT Foundation Section */}
           <div className="mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-8 text-center">
+            <h2 className="text-4xl font-bold text-gray-900 mb-12 text-center">
               Data & IT Foundation
             </h2>
 
-            {/* Section Image */}
-            <div className="mb-12 flex justify-center">
-              <img
-                src="/data-it-section.jpg"
-                alt="Data & IT Foundation - Dashboard analytics with secure infrastructure and cloud sync"
-                className="w-full max-w-3xl h-auto rounded-lg shadow-xl"
-              />
-            </div>
-
-            {/* Reporting Dashboards Card */}
-            <div className="mb-16">
-              <div className="bg-white border border-gray-200 rounded-lg p-8 hover:shadow-lg transition-shadow max-w-2xl mx-auto">
-                <h3 className="text-2xl font-bold text-gray-900 mb-3">
-                  {dataITServices[0].title}
-                </h3>
-                <p className="text-gray-600 mb-6 leading-relaxed">
-                  {dataITServices[0].description}
-                </p>
-                <ul className="space-y-3">
-                  {dataITServices[0].features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start">
-                      <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                      <span className="text-gray-700">{feature}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            {/* IT Infrastructure Support - Full width with image */}
-            {dataITServices[1] && dataITServices[1].image && (
-              <div className="flex flex-col lg:flex-row-reverse gap-12 items-center">
-                <div className="flex-1">
-                  <h3 className="text-3xl font-bold text-gray-900 mb-4">
-                    {dataITServices[1].title}
-                  </h3>
-                  <p className="text-lg text-gray-600 mb-6 leading-relaxed">
-                    {dataITServices[1].description}
-                  </p>
-                  <ul className="space-y-3">
-                    {dataITServices[1].features.map((feature, featureIndex) => (
-                      <li key={featureIndex} className="flex items-start">
-                        <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-700">{feature}</span>
-                      </li>
-                    ))}
-                  </ul>
+            <div className="space-y-16">
+              {dataITServices.map((service, index) => (
+                <div
+                  key={index}
+                  className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                    } gap-12 items-center`}
+                >
+                  <div className="flex-1">
+                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                      {service.title}
+                    </h3>
+                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                      {service.description}
+                    </p>
+                    <ul className="space-y-3">
+                      {service.features.map((feature, featureIndex) => (
+                        <li key={featureIndex} className="flex items-start">
+                          <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                          <span className="text-gray-700">{feature}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  </div>
+                  <div className="flex-1 flex items-center justify-center">
+                    <img
+                      src={service.image}
+                      alt={service.imageAlt}
+                      className="w-full h-auto rounded-lg shadow-lg max-w-md"
+                    />
+                  </div>
                 </div>
-                <div className="flex-1 flex items-center justify-center">
-                  <img
-                    src={dataITServices[1].image}
-                    alt={dataITServices[1].imageAlt}
-                    className="w-full h-auto rounded-lg shadow-lg max-w-md"
-                  />
-                </div>
-              </div>
-            )}
+              ))}
+            </div>
           </div>
 
           {/* CTA Strip */}

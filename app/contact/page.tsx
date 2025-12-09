@@ -2,6 +2,7 @@
 
 import { useState, FormEvent } from "react";
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
+import { WEB3FORMS_CONFIG } from "@/lib/config";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
@@ -50,7 +51,7 @@ export default function ContactPage() {
   // Helper: Build Web3Forms FormData with all required fields
   const buildWeb3FormData = () => {
     const web3FormData = new FormData();
-    web3FormData.append("access_key", "0a70d745-bd5d-41d0-a68f-7b0953cf7012");
+    web3FormData.append("access_key", WEB3FORMS_CONFIG.ACCESS_KEY);
     web3FormData.append("name", `${formData.firstName} ${formData.lastName}`);
     web3FormData.append("email", formData.workEmail);
     web3FormData.append("phone", formData.phone);
@@ -94,7 +95,7 @@ WhatsApp: +1 (407) 668-2684`);
 
   // Helper: Submit form data to Web3Forms API
   const submitToWeb3Forms = async (web3FormData: FormData) => {
-    const response = await fetch("https://api.web3forms.com/submit", {
+    const response = await fetch(WEB3FORMS_CONFIG.API_URL, {
       method: "POST",
       body: web3FormData
     });

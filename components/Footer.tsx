@@ -22,13 +22,23 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/case-studies" className="hover:text-white transition-colors">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
                 <Link href="/services" className="hover:text-white transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/case-studies" className="hover:text-white transition-colors">
-                  Case Studies
+                <Link href="/pricing" className="hover:text-white transition-colors">
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="hover:text-white transition-colors">
+                  Frequently Asked Questions
                 </Link>
               </li>
             </ul>
@@ -42,11 +52,6 @@ export default function Footer() {
                   Book Audit
                 </Link>
               </li>
-              <li>
-                <a href="#newsletter" className="hover:text-white transition-colors">
-                  Newsletter
-                </a>
-              </li>
             </ul>
           </div>
         </div>
@@ -54,8 +59,9 @@ export default function Footer() {
         <div className="border-t border-slate-800 mt-12 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-gray-400">
           <p>&copy; {new Date().getFullYear()} Gaugon. All rights reserved.</p>
           <div className="mt-4 md:mt-0 space-x-6">
-            <a href="#" className="hover:text-white transition-colors">Privacy</a>
-            <a href="#" className="hover:text-white transition-colors">Terms</a>
+            <Link href="/privacy-policy" className="hover:text-white transition-colors">Privacy</Link>
+            <Link href="/terms" className="hover:text-white transition-colors">Terms</Link>
+            <Link href="/cookie-policy" className="hover:text-white transition-colors">Cookie Policy</Link>
           </div>
         </div>
       </div>

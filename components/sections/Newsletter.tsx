@@ -7,11 +7,34 @@ export default function Newsletter() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
 
+  // Helper: Validate email format
+  const validateEmail = (emailToValidate: string): boolean => {
+    if (!emailToValidate || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(emailToValidate)) {
+      return false;
+    }
+    return true;
+  };
+
+  // Helper: Handle successful subscription
+  const handleSubmitSuccess = () => {
+    setIsSubmitting(false);
+    setSubmitStatus("success");
+    setEmail("");
+    setTimeout(() => setSubmitStatus(null), 5000);
+  };
+
+  // Helper: Handle subscription error
+  const handleSubmitError = () => {
+    setIsSubmitting(false);
+    setSubmitStatus("error");
+  };
+
+  // Main submit handler - orchestrates the subscription process
   const handleSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    
-    if (!email || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-      setSubmitStatus("error");
+
+    if (!validateEmail(email)) {
+      handleSubmitError();
       return;
     }
 
@@ -21,11 +44,7 @@ export default function Newsletter() {
     // Mock submit handler - replace with actual newsletter API
     setTimeout(() => {
       console.log("Newsletter subscription:", email);
-      setIsSubmitting(false);
-      setSubmitStatus("success");
-      setEmail("");
-      
-      setTimeout(() => setSubmitStatus(null), 5000);
+      handleSubmitSuccess();
     }, 1000);
   };
 
