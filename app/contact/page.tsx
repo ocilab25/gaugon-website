@@ -71,6 +71,36 @@ export default function ContactPage() {
       web3FormData.append("message", formData.message);
       web3FormData.append("subject", `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
 
+      // Auto-reply configuration for customer confirmation
+      web3FormData.append("from_name", "Gaugon Support Team");
+      web3FormData.append("replyto", "support@gaugon.com");
+      web3FormData.append("autoresponse", "true");
+      web3FormData.append("autoresponse_subject", "Thank you for contacting Gaugon! We'll be in touch soon.");
+      web3FormData.append("autoresponse_text", `Hi ${formData.firstName},
+
+Thank you for reaching out to Gaugon! We've received your message and will get back to you within 24 hours.
+
+What happens next:
+• Our team is reviewing your request
+• We'll analyze how AI automation can help your business
+• You'll receive a personalized response from our experts
+
+In the meantime, feel free to:
+• Check out our services: https://app.gaugon.com/services
+• Learn about our approach: https://app.gaugon.com/about
+• Message us on WhatsApp: +1 (407) 668-2684
+
+Looking forward to helping you automate and grow your business!
+
+Best regards,
+The Gaugon Team
+
+---
+Gaugon - AI Automation & IT Solutions
+Website: https://app.gaugon.com
+Email: support@gaugon.com
+WhatsApp: +1 (407) 668-2684`);
+
       // Submit to Web3Forms API
       const response = await fetch("https://api.web3forms.com/submit", {
         method: "POST",
