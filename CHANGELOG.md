@@ -44,6 +44,12 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 - **Goal:** Highlight differentiation using "Old Way vs. New Way" framing (inspired by Authority Hacker).
 - **Style:** 2-column grid, visual cues (Red X vs Green Check), stacked on mobile.
 
+### 📦 UI: Modular System Components
+- **Component:** `Services.tsx`
+- **Change:** Swapped generic "IT Support/Web Design" lists for "Core Systems" cards (e.g., Lead Capture, Onboarding, Command Center).
+- **Goal:** Position Gaugon as a "Systems Architect" rather than a generalist agency.
+- **Style:** 3-column, icon-heavy, concise outcome descriptions.
+
 ---
 
 ## Developer Guide
