@@ -529,7 +529,7 @@ WhatsApp: +1 (407) 668-2684`);
               </div>
             )}
 
-            {/* Google reCAPTCHA */}
+            {/* Google reCAPTCHA v2 */}
             <div className="mb-6">
               <ReCAPTCHA
                 ref={recaptchaRef}
