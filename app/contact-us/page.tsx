@@ -1,7 +1,8 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useRef } from "react";
 import Link from "next/link";
+import ReCAPTCHA from "react-google-recaptcha";
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 import { WEB3FORMS_CONFIG } from "@/lib/config";
 
@@ -29,6 +30,8 @@ const COUNTRIES = [
 ].sort();
 
 export default function ContactPage() {
+  const recaptchaRef = useRef<ReCAPTCHA>(null);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -43,6 +46,7 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
 
   const inquiryTypes = [
     "AI Automation Audit",
@@ -87,6 +91,10 @@ export default function ContactPage() {
       newErrors.privacyConsent = "You must agree to the privacy policy to continue";
     }
 
+    if (!recaptchaToken) {
+      newErrors.recaptcha = "Please complete the reCAPTCHA verification";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -102,6 +110,7 @@ export default function ContactPage() {
     web3FormData.append("country", formData.country);
     web3FormData.append("message", formData.message);
     web3FormData.append("subject", `New ${formData.inquiryType} - ${formData.firstName} ${formData.lastName} (${formData.country})`);
+    web3FormData.append("recaptcha", recaptchaToken || "");
 
     return web3FormData;
   };
@@ -169,6 +178,8 @@ WhatsApp: +1 (407) 668-2684`);
       privacyConsent: false,
       honeypot: ""
     });
+    setRecaptchaToken(null);
+    recaptchaRef.current?.reset();
 
     // Clear success message after 10 seconds
     setTimeout(() => setSubmitStatus(null), 10000);
@@ -226,6 +237,14 @@ WhatsApp: +1 (407) 668-2684`);
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
   };
+
+  const handleRecaptchaChange = (token: string | null) => {
+    setRecaptchaToken(token);
+    if (errors.recaptcha) {
+      setErrors((prev) => ({ ...prev, recaptcha: "" }));
+    }
+  };
+
 
   return (
     <main className="pt-20">
@@ -499,7 +518,7 @@ WhatsApp: +1 (407) 668-2684`);
             {submitStatus === "success" && (
               <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-md mb-6">
                 <p className="font-medium">Thank you! Your request has been submitted.</p>
-                <p className="text-sm mt-1">We'll get back to you within 24 hours to schedule your free AI audit.</p>
+                <p className="text-sm mt-1">We'll get back to you within 24 hours to schedule your AI audit.</p>
               </div>
             )}
 
@@ -509,6 +528,19 @@ WhatsApp: +1 (407) 668-2684`);
                 <p className="text-sm mt-1">Please try again or contact us via WhatsApp.</p>
               </div>
             )}
+
+            {/* Google reCAPTCHA */}
+            <div className="mb-6">
+              <ReCAPTCHA
+                ref={recaptchaRef}
+                sitekey={process.env.NEXT_PUBLIC_RECAPTCHA_SITE_KEY!}
+                onChange={handleRecaptchaChange}
+                theme="light"
+              />
+              {errors.recaptcha && (
+                <p className="mt-1 text-sm text-red-600">{errors.recaptcha}</p>
+              )}
+            </div>
 
             <div className="flex justify-center">
               <button
