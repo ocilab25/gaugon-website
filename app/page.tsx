@@ -3,10 +3,7 @@ import TrustStrip from "@/components/sections/TrustStrip";
 import WhatWeAutomate from "@/components/sections/WhatWeAutomate";
 import HowItWorks from "@/components/sections/HowItWorks";
 import Outcomes from "@/components/sections/Outcomes";
-import CaseStudyTeaser from "@/components/sections/CaseStudyTeaser";
 import PricingStrip from "@/components/sections/PricingStrip";
-import FAQ from "@/components/sections/FAQ";
-import Newsletter from "@/components/sections/Newsletter";
 import FinalCTA from "@/components/sections/FinalCTA";
 
 export default function Home() {
@@ -17,9 +14,6 @@ export default function Home() {
       <WhatWeAutomate />
       <HowItWorks />
       <Outcomes />
-      <CaseStudyTeaser />
-      <FAQ />
-      <Newsletter />
       <PricingStrip />
       <FinalCTA />
     </main>

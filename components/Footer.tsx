@@ -22,13 +22,23 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
+                <Link href="/case-studies" className="hover:text-white transition-colors">
+                  Case Studies
+                </Link>
+              </li>
+              <li>
                 <Link href="/services" className="hover:text-white transition-colors">
                   Services
                 </Link>
               </li>
               <li>
-                <Link href="/case-studies" className="hover:text-white transition-colors">
-                  Case Studies
+                <Link href="/pricing" className="hover:text-white transition-colors">
+                  Pricing
+                </Link>
+              </li>
+              <li>
+                <Link href="/faq" className="hover:text-white transition-colors">
+                  Frequently Asked Questions
                 </Link>
               </li>
             </ul>
@@ -41,11 +51,6 @@ export default function Footer() {
                 <Link href="/contact" className="hover:text-white transition-colors">
                   Book Audit
                 </Link>
-              </li>
-              <li>
-                <a href="#newsletter" className="hover:text-white transition-colors">
-                  Newsletter
-                </a>
               </li>
             </ul>
           </div>
