@@ -4,9 +4,10 @@ import { useState, FormEvent } from "react";
 
 export default function ContactPage() {
   const [formData, setFormData] = useState({
-    name: "",
-    email: "",
-    company: "",
+    firstName: "",
+    lastName: "",
+    workEmail: "",
+    phone: "",
     message: "",
     honeypot: "", // Spam protection
   });
@@ -17,20 +18,28 @@ export default function ContactPage() {
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
 
-    if (!formData.name.trim()) {
-      newErrors.name = "Name is required";
+    if (!formData.firstName.trim()) {
+      newErrors.firstName = "First name is required";
     }
 
-    if (!formData.email.trim()) {
-      newErrors.email = "Email is required";
-    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)) {
-      newErrors.email = "Please enter a valid email address";
+    if (!formData.lastName.trim()) {
+      newErrors.lastName = "Last name is required";
+    }
+
+    if (!formData.workEmail.trim()) {
+      newErrors.workEmail = "Work email is required";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.workEmail)) {
+      newErrors.workEmail = "Please enter a valid email address";
+    }
+
+    if (!formData.phone.trim()) {
+      newErrors.phone = "Phone number is required";
     }
 
     if (!formData.message.trim()) {
-      newErrors.message = "Message is required";
+      newErrors.message = "Please tell us how we can help";
     } else if (formData.message.trim().length < 20) {
-      newErrors.message = "Message must be at least 20 characters";
+      newErrors.message = "Please provide more details (at least 20 characters)";
     }
 
     setErrors(newErrors);
@@ -56,11 +65,11 @@ export default function ContactPage() {
       // Prepare form data for Web3Forms
       const web3FormData = new FormData();
       web3FormData.append("access_key", "0a70d745-bd5d-41d0-a68f-7b0953cf7012");
-      web3FormData.append("name", formData.name);
-      web3FormData.append("email", formData.email);
-      web3FormData.append("company", formData.company);
+      web3FormData.append("name", `${formData.firstName} ${formData.lastName}`);
+      web3FormData.append("email", formData.workEmail);
+      web3FormData.append("phone", formData.phone);
       web3FormData.append("message", formData.message);
-      web3FormData.append("subject", `New Contact Form Submission from ${formData.name}`);
+      web3FormData.append("subject", `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
 
       // Submit to Web3Forms API
       const response = await fetch("https://api.web3forms.com/submit", {
@@ -73,7 +82,7 @@ export default function ContactPage() {
       if (data.success) {
         setIsSubmitting(false);
         setSubmitStatus("success");
-        setFormData({ name: "", email: "", company: "", message: "", honeypot: "" });
+        setFormData({ firstName: "", lastName: "", workEmail: "", phone: "", message: "", honeypot: "" });
 
         // Clear success message after 10 seconds
         setTimeout(() => setSubmitStatus(null), 10000);
@@ -231,77 +240,124 @@ export default function ContactPage() {
             />
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
-              <div>
-                <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-                  Name *
-                </label>
+              {/* First Name - Floating Label */}
+              <div className="relative">
                 <input
                   type="text"
-                  id="name"
-                  name="name"
-                  value={formData.name}
+                  id="firstName"
+                  name="firstName"
+                  value={formData.firstName}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.name ? "border-red-500" : "border-gray-300"
+                  className={`peer w-full px-4 pt-6 pb-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.firstName ? "border-red-500" : "border-gray-300"
                     }`}
-                  placeholder="Your name"
+                  placeholder=" "
                   required
                 />
-                {errors.name && (
-                  <p className="mt-1 text-sm text-red-600">{errors.name}</p>
+                <label
+                  htmlFor="firstName"
+                  className="absolute left-4 top-2 text-xs text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-xs peer-focus:text-primary"
+                >
+                  First Name *
+                </label>
+                {errors.firstName && (
+                  <p className="mt-1 text-sm text-red-600">{errors.firstName}</p>
                 )}
               </div>
 
-              <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-                  Email *
+              {/* Last Name - Floating Label */}
+              <div className="relative">
+                <input
+                  type="text"
+                  id="lastName"
+                  name="lastName"
+                  value={formData.lastName}
+                  onChange={handleChange}
+                  className={`peer w-full px-4 pt-6 pb-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.lastName ? "border-red-500" : "border-gray-300"
+                    }`}
+                  placeholder=" "
+                  required
+                />
+                <label
+                  htmlFor="lastName"
+                  className="absolute left-4 top-2 text-xs text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-xs peer-focus:text-primary"
+                >
+                  Last Name *
                 </label>
+                {errors.lastName && (
+                  <p className="mt-1 text-sm text-red-600">{errors.lastName}</p>
+                )}
+              </div>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+              {/* Work Email - Floating Label */}
+              <div className="relative">
                 <input
                   type="email"
-                  id="email"
-                  name="email"
-                  value={formData.email}
+                  id="workEmail"
+                  name="workEmail"
+                  value={formData.workEmail}
                   onChange={handleChange}
-                  className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.email ? "border-red-500" : "border-gray-300"
+                  className={`peer w-full px-4 pt-6 pb-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.workEmail ? "border-red-500" : "border-gray-300"
                     }`}
-                  placeholder="your.email@example.com"
+                  placeholder=" "
                   required
                 />
-                {errors.email && (
-                  <p className="mt-1 text-sm text-red-600">{errors.email}</p>
+                <label
+                  htmlFor="workEmail"
+                  className="absolute left-4 top-2 text-xs text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-xs peer-focus:text-primary"
+                >
+                  Work Email *
+                </label>
+                {errors.workEmail && (
+                  <p className="mt-1 text-sm text-red-600">{errors.workEmail}</p>
+                )}
+              </div>
+
+              {/* Phone - Floating Label */}
+              <div className="relative">
+                <input
+                  type="tel"
+                  id="phone"
+                  name="phone"
+                  value={formData.phone}
+                  onChange={handleChange}
+                  className={`peer w-full px-4 pt-6 pb-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors ${errors.phone ? "border-red-500" : "border-gray-300"
+                    }`}
+                  placeholder=" "
+                  required
+                />
+                <label
+                  htmlFor="phone"
+                  className="absolute left-4 top-2 text-xs text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-xs peer-focus:text-primary"
+                >
+                  Phone *
+                </label>
+                {errors.phone && (
+                  <p className="mt-1 text-sm text-red-600">{errors.phone}</p>
                 )}
               </div>
             </div>
 
-            <div className="mb-6">
-              <label htmlFor="company" className="block text-sm font-medium text-gray-700 mb-2">
-                Company
-              </label>
-              <input
-                type="text"
-                id="company"
-                name="company"
-                value={formData.company}
-                onChange={handleChange}
-                className="w-full px-4 py-3 border border-gray-300 rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors"
-                placeholder="Your company name"
-              />
-            </div>
-
-            <div className="mb-6">
-              <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-                Message *
-              </label>
+            {/* How can we help? - Floating Label */}
+            <div className="mb-6 relative">
               <textarea
                 id="message"
                 name="message"
                 value={formData.message}
                 onChange={handleChange}
                 rows={6}
-                className={`w-full px-4 py-3 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors resize-none ${errors.message ? "border-red-500" : "border-gray-300"
+                className={`peer w-full px-4 pt-6 pb-2 border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none transition-colors resize-none ${errors.message ? "border-red-500" : "border-gray-300"
                   }`}
-                placeholder="Tell us about your business, current challenges, and what you'd like to automate..."
+                placeholder=" "
                 required
               />
+              <label
+                htmlFor="message"
+                className="absolute left-4 top-2 text-xs text-gray-600 transition-all peer-placeholder-shown:top-4 peer-placeholder-shown:text-base peer-placeholder-shown:text-gray-400 peer-focus:top-2 peer-focus:text-xs peer-focus:text-primary"
+              >
+                How can we help? *
+              </label>
               {errors.message && (
                 <p className="mt-1 text-sm text-red-600">{errors.message}</p>
               )}
@@ -326,7 +382,7 @@ export default function ContactPage() {
               disabled={isSubmitting}
               className="w-full bg-primary text-white px-8 py-4 rounded-md text-lg font-semibold hover:bg-primary/90 transition-colors shadow-sm hover:shadow-md disabled:opacity-50 disabled:cursor-not-allowed"
             >
-              {isSubmitting ? "Submitting..." : "Submit Request"}
+              {isSubmitting ? "Submitting..." : "Submit"}
             </button>
           </form>
         </div>
@@ -334,4 +390,3 @@ export default function ContactPage() {
     </main>
   );
 }
-
