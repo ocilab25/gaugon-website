@@ -1,10 +1,31 @@
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
+import StatCounter from "@/components/ui/StatCounter";
 
 export default function TrustStrip() {
   const stats = [
-    { label: "Client Hours Saved", value: "12,000+", sub: "across 50+ projects" },
-    { label: "Avg. ROI First Year", value: "3x", sub: "return on automation spend" },
-    { label: "Security Incidents", value: "0", sub: "AppSec-first approach" },
+    {
+      label: "Hours Saved",
+      value: 12000,
+      suffix: "+",
+      sub: "across 50+ projects"
+    },
+    {
+      label: "Saved on Employee Costs",
+      value: 100000,
+      prefix: "$",
+      suffix: "+",
+      sub: "annualized savings"
+    },
+    {
+      label: "Avg. ROI First Year",
+      staticValue: "3x",
+      sub: "return on automation spend"
+    },
+    {
+      label: "Security Incidents",
+      staticValue: "0",
+      sub: "AppSec-first approach"
+    },
   ];
 
   const miniCases = [
@@ -23,19 +44,33 @@ export default function TrustStrip() {
   return (
     <section className="py-20 bg-white border-y border-gray-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
 
           {/* Left: Stats */}
-          <div>
-            <h2 className="text-2xl font-bold text-gray-900 mb-8">
+          <div className="w-full">
+            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center sm:text-left">
               Reliable wins for boring businesses.
             </h2>
-            <div className="grid grid-cols-3 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-2 gap-8">
               {stats.map((stat, i) => (
-                <div key={i}>
-                  <p className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-1">{stat.value}</p>
-                  <p className="text-sm font-semibold text-gray-700">{stat.label}</p>
-                  <p className="text-xs text-gray-500 mt-1">{stat.sub}</p>
+                <div key={i} className="bg-gray-50/50 p-4 rounded-lg border border-gray-100 hover:border-primary/10 transition-colors">
+                  {stat.value ? (
+                    <StatCounter
+                      end={stat.value}
+                      prefix={stat.prefix}
+                      suffix={stat.suffix}
+                      label={stat.label}
+                      subLabel={stat.sub}
+                    />
+                  ) : (
+                    <div className="text-center sm:text-left">
+                      <p className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-1 tabular-nums">
+                        {stat.staticValue}
+                      </p>
+                      <p className="text-sm font-semibold text-gray-700">{stat.label}</p>
+                      <p className="text-xs text-gray-500 mt-1">{stat.sub}</p>
+                    </div>
+                  )}
                 </div>
               ))}
             </div>

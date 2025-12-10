@@ -222,33 +222,35 @@ export default function ServicesPage() {
                 service.image ? (
                   <div
                     key={index}
-                    className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                      } gap-12 items-center`}
+                    className={`group flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                      } gap-12 items-center p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 hover:border-primary/20 border border-transparent`}
                   >
                     <div className="flex-1">
-                      <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                      <h3 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors">
                         {service.title}
                       </h3>
-                      <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                      <p className="text-lg text-gray-600 mb-6 leading-relaxed group-hover:text-gray-700">
                         {service.description}
                       </p>
                       <ul className="space-y-3">
                         {service.features.map((feature, featureIndex) => (
                           <li key={featureIndex} className="flex items-start">
-                            <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                            <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
                             <span className="text-gray-700">{feature}</span>
                           </li>
                         ))}
                       </ul>
                     </div>
                     <div className="flex-1 flex items-center justify-center">
-                      <Image
-                        src={service.image}
-                        alt={service.imageAlt}
-                        width={600}
-                        height={400}
-                        className="w-full h-auto rounded-lg shadow-lg max-w-md"
-                      />
+                      <div className="relative group-hover:scale-[1.02] transition-transform duration-500">
+                        <Image
+                          src={service.image}
+                          alt={service.imageAlt}
+                          width={600}
+                          height={400}
+                          className="w-full h-auto rounded-lg shadow-lg max-w-md group-hover:shadow-2xl transition-shadow duration-300"
+                        />
+                      </div>
                     </div>
                   </div>
                 ) : (
@@ -285,33 +287,35 @@ export default function ServicesPage() {
               {dataITServices.map((service, index) => (
                 <div
                   key={index}
-                  className={`flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
-                    } gap-12 items-center`}
+                  className={`group flex flex-col ${index % 2 === 0 ? "lg:flex-row" : "lg:flex-row-reverse"
+                    } gap-12 items-center p-6 sm:p-8 rounded-2xl transition-all duration-300 hover:bg-white hover:shadow-xl hover:-translate-y-1 hover:border-primary/20 border border-transparent`}
                 >
                   <div className="flex-1">
-                    <h3 className="text-3xl font-bold text-gray-900 mb-4">
+                    <h3 className="text-3xl font-bold text-gray-900 mb-4 group-hover:text-primary transition-colors">
                       {service.title}
                     </h3>
-                    <p className="text-lg text-gray-600 mb-6 leading-relaxed">
+                    <p className="text-lg text-gray-600 mb-6 leading-relaxed group-hover:text-gray-700">
                       {service.description}
                     </p>
                     <ul className="space-y-3">
                       {service.features.map((feature, featureIndex) => (
                         <li key={featureIndex} className="flex items-start">
-                          <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5" />
+                          <CheckmarkIcon className="w-5 h-5 text-primary mr-3 flex-shrink-0 mt-0.5 group-hover:scale-110 transition-transform duration-300" />
                           <span className="text-gray-700">{feature}</span>
                         </li>
                       ))}
                     </ul>
                   </div>
                   <div className="flex-1 flex items-center justify-center">
-                    <Image
-                      src={service.image}
-                      alt={service.imageAlt}
-                      width={600}
-                      height={400}
-                      className="w-full h-auto rounded-lg shadow-lg max-w-md"
-                    />
+                    <div className="relative group-hover:scale-[1.02] transition-transform duration-500">
+                      <Image
+                        src={service.image}
+                        alt={service.imageAlt}
+                        width={600}
+                        height={400}
+                        className="w-full h-auto rounded-lg shadow-lg max-w-md group-hover:shadow-2xl transition-shadow duration-300"
+                      />
+                    </div>
                   </div>
                 </div>
               ))}
