@@ -85,12 +85,67 @@ export default function ServicesPage() {
       <section className="py-20 bg-white px-6 lg:px-8">
         <div className="max-w-7xl mx-auto">
           {/* Page Header */}
-          <h1 className="text-5xl sm:text-6xl font-bold text-gray-900 mb-6 text-center tracking-tight">
-            What we actually do
-          </h1>
-          <p className="text-xl text-gray-600 text-center mb-6 max-w-3xl mx-auto">
-            In 7–14 days, we map your workflows, spot bottlenecks, and build you a roadmap. If you stick with us after that, here's what we help with.
-          </p>
+          <div className="max-w-4xl mx-auto mb-20">
+            <div className="text-center mb-16">
+              <h1 className="text-4xl sm:text-5xl font-bold text-gray-900 mb-6 tracking-tight">
+                How we work with you
+              </h1>
+              <p className="text-xl text-gray-600">
+                We don't just "do IT". We treat your operations like a product—auditing, building, and optimizing it for scale.
+              </p>
+            </div>
+
+            {/* The Ladder */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-left">
+              {/* Step 1 */}
+              <div className="relative p-6 bg-white rounded-xl border-2 border-primary/10 shadow-sm ring-1 ring-primary/5">
+                <div className="absolute -top-4 left-6 bg-primary text-white text-xs font-bold px-3 py-1 rounded-full">
+                  Step 1: The Entry
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2 mt-2">Map (Audit)</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  We define the scope, map your mess, and find the ROI. Low risk, high clarity.
+                </p>
+                <ul className="text-sm space-y-2 text-gray-700">
+                  <li className="flex gap-2">✓ Tech Stack Inventory</li>
+                  <li className="flex gap-2">✓ Bottleneck Analysis</li>
+                  <li className="flex gap-2">✓ Implementation Roadmap</li>
+                </ul>
+              </div>
+
+              {/* Step 2 */}
+              <div className="relative p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
+                <div className="absolute -top-4 left-6 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  Step 2: The Build
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2 mt-2">Build (Sprint)</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  We execute the roadmap. 2–4 week implementation sprints to deploy your automations.
+                </p>
+                <ul className="text-sm space-y-2 text-gray-700">
+                  <li className="flex gap-2">✓ Setup & Configuration</li>
+                  <li className="flex gap-2">✓ Custom Integration Code</li>
+                  <li className="flex gap-2">✓ Team Training & Handoff</li>
+                </ul>
+              </div>
+
+              {/* Step 3 */}
+              <div className="relative p-6 bg-white rounded-xl border border-gray-200 shadow-sm">
+                <div className="absolute -top-4 left-6 bg-gray-800 text-white text-xs font-bold px-3 py-1 rounded-full">
+                  Step 3: The Scale
+                </div>
+                <h3 className="text-xl font-bold text-gray-900 mb-2 mt-2">Care (Retainer)</h3>
+                <p className="text-sm text-gray-600 mb-4">
+                  We keep it running. Monitoring, security patching, and small optimizations.
+                </p>
+                <ul className="text-sm space-y-2 text-gray-700">
+                  <li className="flex gap-2">✓ 24/7 Error Monitoring</li>
+                  <li className="flex gap-2">✓ Monthly Strategy Calls</li>
+                  <li className="flex gap-2">✓ Priority Support</li>
+                </ul>
+              </div>
+            </div>
+          </div>
 
           {/* What's Included / Excluded Box */}
           <div className="max-w-4xl mx-auto mb-16 grid grid-cols-1 md:grid-cols-2 gap-6">
