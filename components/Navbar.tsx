@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -12,7 +13,13 @@ export default function Navbar() {
         <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <img src="/logo.png" alt="Gaugon" className="h-16 w-auto" />
+              <Image
+                src="/logo.png"
+                alt="Gaugon"
+                width={200}
+                height={64}
+                className="h-16 w-auto"
+              />
             </Link>
           </div>
 

@@ -1,4 +1,6 @@
 import type { Metadata } from "next";
+import Link from "next/link";
+import Image from "next/image";
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 import WhoThisIsFor from "@/components/sections/WhoThisIsFor";
 
@@ -185,9 +187,11 @@ export default function ServicesPage() {
                       </ul>
                     </div>
                     <div className="flex-1 flex items-center justify-center">
-                      <img
+                      <Image
                         src={service.image}
                         alt={service.imageAlt}
+                        width={600}
+                        height={400}
                         className="w-full h-auto rounded-lg shadow-lg max-w-md"
                       />
                     </div>
@@ -246,9 +250,11 @@ export default function ServicesPage() {
                     </ul>
                   </div>
                   <div className="flex-1 flex items-center justify-center">
-                    <img
+                    <Image
                       src={service.image}
                       alt={service.imageAlt}
+                      width={600}
+                      height={400}
                       className="w-full h-auto rounded-lg shadow-lg max-w-md"
                     />
                   </div>

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 
 export default function Hero() {
@@ -49,9 +50,12 @@ export default function Hero() {
           {/* Right Column - Hero Image (40%) */}
           <div className="lg:col-span-2 flex items-center justify-center">
             <div className="w-full">
-              <img
+              <Image
                 src="/hero-illustration.jpg"
                 alt="AI Automation Dashboard - Connect email, chat, and CRM into one AI-driven workflow"
+                width={800}
+                height={600}
+                priority
                 className="w-full h-auto rounded-lg shadow-lg"
               />
             </div>

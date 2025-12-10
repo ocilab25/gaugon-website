@@ -1,4 +1,12 @@
-# GitHub Secret Setup for reCAPTCHA
+# GitHub Secret Setup
+
+> [!NOTE]
+> **No Secrets Required for hCaptcha Free Tier**
+>
+> Since migrating to hCaptcha (Web3Forms free tier), we use a shared public site key.
+> You do **not** need to set `RECAPTCHA_SITE_KEY` or any other build secrets for the contact form to work.
+>
+> This document is kept for reference in case we switch to a paid plan or custom keys in the future.
 
 ## ⚠️ IMPORTANT: Add GitHub Secret
 
@@ -24,13 +32,13 @@ The build will now have access to the reCAPTCHA site key as an environment varia
 
 ## What Was Fixed:
 
-✅ Changed GitHub Actions from `npm ci` to `npm install`  
-✅ Added environment variable to build step  
-✅ Configured workflow to use GitHub secret  
+✅ Changed GitHub Actions from `npm ci` to `npm install`
+✅ Added environment variable to build step
+✅ Configured workflow to use GitHub secret
 
 ## What You Need to Do:
 
-🔧 **Add the GitHub secret** (instructions above)  
+🔧 **Add the GitHub secret** (instructions above)
 🚀 **Then the build will succeed!**
 
 ---

@@ -7,14 +7,8 @@ After the build succeeds, you MUST add this environment variable to your product
 ### Environment Variable to Add:
 
 **Variable Name:**
-```
-NEXT_PUBLIC_RECAPTCHA_SITE_KEY
-```
-
-**Value:**
-```
-6LfqfCYsAAAAAEmxAdlrbKRmsqnwjX8A9U74qFKA
-```
+   **No environment variables are required for the hCaptcha free tier.**
+   (Web3Forms uses a shared site key: `50b2fe65-b00b-4b9e-ad62-3ba471098be2`)
 
 ## How to Add (Platform Specific):
 
