@@ -1,17 +1,35 @@
 export default function WhatYouGet() {
     const deliverables = [
         {
-            title: "A tool & workflow inventory",
-            description: "Plain-language map of what you use now, where data lives, and what's held together with duct tape.",
+            title: "Map your tools and workflows",
+            description: "A plain-language picture of your current stack: which tools you use, how data moves between them, and which parts are fragile or held together with \"quick fixes.\"",
         },
         {
-            title: "A short list of concrete risks",
-            description: "Security gaps, privacy red flags, or automation tripwires that could bite you later—explained in English, not IT speak.",
+            title: "Surface the biggest risks",
+            description: "A short list of security, privacy, and reliability issues that could cause outages or headaches later—explained in clear English so you can discuss them with your team or next hire.",
         },
         {
-            title: "A prioritized 30/60/90-day action plan",
-            description: "3–5 \"do this next\" steps ranked by impact and ease, designed to not break your existing systems.",
+            title: "A 30/60/90-day systems plan",
+            description: "3–5 ranked \"do this next\" moves that balance impact and effort, so you can tighten weak spots and add automation without breaking what already works.",
         },
+    ];
+
+    const aiRolloutSteps = [
+        {
+            title: "Find high-value automation wins",
+            text: "We review your workflows and flag the jobs where AI and automation save the most time and cost.",
+            tag: "Discovery"
+        },
+        {
+            title: "Build and connect your AI systems",
+            text: "We use custom code, AI agents, n8n, and your existing tools to wire those workflows into working systems.",
+            tag: "Implementation"
+        },
+        {
+            title: "Maintain, tune, and expand",
+            text: "As your business evolves, we keep an eye on the automations, fix issues, and suggest new areas where AI can free up more time or budget.",
+            tag: "Optimization"
+        }
     ];
 
     return (
@@ -23,7 +41,7 @@ export default function WhatYouGet() {
                 <p className="text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">
                     Everything delivered in 7–14 days, ready to use or hand to your next hire.
                 </p>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
                     {deliverables.map((item, index) => (
                         <div
                             key={index}
@@ -40,6 +58,31 @@ export default function WhatYouGet() {
                             </p>
                         </div>
                     ))}
+                </div>
+
+                {/* AI Rollout Section */}
+                <div className="mb-20">
+                    <h2 className="text-3xl sm:text-4xl font-bold text-center text-gray-900 mb-12 tracking-tight">
+                        How we help you roll out AI
+                    </h2>
+                    <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        {aiRolloutSteps.map((step, index) => (
+                            <div
+                                key={index}
+                                className="bg-gray-50 border border-gray-200 p-8 rounded-lg hover:border-primary/20 hover:shadow-md transition-all"
+                            >
+                                <span className="inline-block bg-white border border-gray-200 text-xs font-bold px-3 py-1 rounded-full text-gray-500 mb-6 uppercase tracking-wider">
+                                    {step.tag}
+                                </span>
+                                <h3 className="text-xl font-bold text-gray-900 mb-4">
+                                    {step.title}
+                                </h3>
+                                <p className="text-gray-600 leading-relaxed">
+                                    {step.text}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                 </div>
 
                 {/* Bonus Callout */}
