@@ -1,5 +1,11 @@
 # reCAPTCHA Setup Instructions
 
+> [!NOTE]
+> **This form now uses hCaptcha instead of reCAPTCHA**
+> 
+> See [HCAPTCHA_SETUP.md](HCAPTCHA_SETUP.md) for current setup instructions.
+> This document is kept for reference only.
+
 ## 📋 Steps to Complete Setup
 
 ### 1. Install Required Packages

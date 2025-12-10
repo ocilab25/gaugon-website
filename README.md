@@ -11,6 +11,7 @@ Visit the site at: [https://ocilab25.github.io/gaugon-website/](https://ocilab25
 - **Next.js 14** - React framework with App Router
 - **TypeScript** - Type-safe JavaScript
 - **Tailwind CSS** - Utility-first CSS framework
+- **hCaptcha** - Privacy-friendly spam protection (see [HCAPTCHA_SETUP.md](HCAPTCHA_SETUP.md))
 - **GitHub Pages** - Static hosting
 
 ## 📦 Installation

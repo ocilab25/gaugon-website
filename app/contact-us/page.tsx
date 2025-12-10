@@ -3,11 +3,11 @@
 import { useState, FormEvent, useRef } from "react";
 import Link from "next/link";
 import dynamic from "next/dynamic";
-import ReCAPTCHAType from "react-google-recaptcha";
+import type HCaptcha from "@hcaptcha/react-hcaptcha";
 import CheckmarkIcon from "@/components/icons/CheckmarkIcon";
 import { WEB3FORMS_CONFIG } from "@/lib/config";
 
-const ReCAPTCHA = dynamic(() => import("react-google-recaptcha"), {
+const HCaptchaComponent = dynamic(() => import("@hcaptcha/react-hcaptcha"), {
   ssr: false
 }) as any;
 
@@ -35,7 +35,7 @@ const COUNTRIES = [
 ].sort();
 
 export default function ContactPage() {
-  const recaptchaRef = useRef<ReCAPTCHAType>(null);
+  const hcaptchaRef = useRef<HCaptcha>(null);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -51,7 +51,7 @@ export default function ContactPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
-  const [recaptchaToken, setRecaptchaToken] = useState<string | null>(null);
+  const [hcaptchaToken, setHcaptchaToken] = useState<string | null>(null);
 
   const inquiryTypes = [
     "AI Automation Audit",
@@ -96,8 +96,8 @@ export default function ContactPage() {
       newErrors.privacyConsent = "You must agree to the privacy policy to continue";
     }
 
-    if (!recaptchaToken) {
-      newErrors.recaptcha = "Please complete the reCAPTCHA verification";
+    if (!hcaptchaToken) {
+      newErrors.hcaptcha = "Please complete the hCaptcha verification";
     }
 
     setErrors(newErrors);
@@ -115,7 +115,7 @@ export default function ContactPage() {
     web3FormData.append("country", formData.country);
     web3FormData.append("message", formData.message);
     web3FormData.append("subject", `New ${formData.inquiryType} - ${formData.firstName} ${formData.lastName} (${formData.country})`);
-    web3FormData.append("recaptcha", recaptchaToken || "");
+    web3FormData.append("h-captcha-response", hcaptchaToken || "");
 
     return web3FormData;
   };
@@ -183,8 +183,8 @@ WhatsApp: +1 (407) 668-2684`);
       privacyConsent: false,
       honeypot: ""
     });
-    setRecaptchaToken(null);
-    recaptchaRef.current?.reset();
+    setHcaptchaToken(null);
+    hcaptchaRef.current?.resetCaptcha();
 
     // Clear success message after 10 seconds
     setTimeout(() => setSubmitStatus(null), 10000);
@@ -243,10 +243,10 @@ WhatsApp: +1 (407) 668-2684`);
     }
   };
 
-  const handleRecaptchaChange = (token: string | null) => {
-    setRecaptchaToken(token);
-    if (errors.recaptcha) {
-      setErrors((prev) => ({ ...prev, recaptcha: "" }));
+  const handleHcaptchaChange = (token: string | null) => {
+    setHcaptchaToken(token);
+    if (errors.hcaptcha) {
+      setErrors((prev) => ({ ...prev, hcaptcha: "" }));
     }
   };
 
@@ -534,16 +534,16 @@ WhatsApp: +1 (407) 668-2684`);
               </div>
             )}
 
-            {/* Google reCAPTCHA v2 */}
+            {/* hCaptcha */}
             <div className="mb-6">
-              <ReCAPTCHA
-                ref={recaptchaRef}
-                sitekey="6LfqfCYsAAAAAEmxAdlrbKRmsqnwjX8A9U74qFKA"
-                onChange={handleRecaptchaChange}
-                theme="light"
+              <HCaptchaComponent
+                ref={hcaptchaRef}
+                sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+                onVerify={handleHcaptchaChange}
+                reCaptchaCompat={false}
               />
-              {errors.recaptcha && (
-                <p className="mt-1 text-sm text-red-600">{errors.recaptcha}</p>
+              {errors.hcaptcha && (
+                <p className="mt-1 text-sm text-red-600">{errors.hcaptcha}</p>
               )}
             </div>
 

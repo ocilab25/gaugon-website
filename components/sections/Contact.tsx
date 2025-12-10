@@ -1,9 +1,17 @@
 "use client";
 
-import { useState, FormEvent } from "react";
+import { useState, FormEvent, useRef } from "react";
+import dynamic from "next/dynamic";
+import type HCaptcha from "@hcaptcha/react-hcaptcha";
 import { WEB3FORMS_CONFIG } from "@/lib/config";
 
+const HCaptchaComponent = dynamic(() => import("@hcaptcha/react-hcaptcha"), {
+  ssr: false
+}) as any;
+
 export default function Contact() {
+  const hcaptchaRef = useRef<HCaptcha>(null);
+
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -14,6 +22,7 @@ export default function Contact() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"success" | "error" | null>(null);
+  const [hcaptchaToken, setHcaptchaToken] = useState<string | null>(null);
 
   const validateForm = () => {
     const newErrors: Record<string, string> = {};
@@ -42,6 +51,10 @@ export default function Contact() {
       newErrors.message = "Please provide more details (at least 10 characters)";
     }
 
+    if (!hcaptchaToken) {
+      newErrors.hcaptcha = "Please complete the hCaptcha verification";
+    }
+
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -54,6 +67,7 @@ export default function Contact() {
     web3FormData.append("email", formData.workEmail);
     web3FormData.append("phone", formData.phone);
     web3FormData.append("message", formData.message);
+    web3FormData.append("h-captcha-response", hcaptchaToken || "");
     web3FormData.append("subject", `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
 
     return web3FormData;
@@ -112,6 +126,8 @@ WhatsApp: +1 (407) 668-2684`);
     setIsSubmitting(false);
     setSubmitStatus("success");
     setFormData({ firstName: "", lastName: "", workEmail: "", phone: "", message: "" });
+    setHcaptchaToken(null);
+    hcaptchaRef.current?.resetCaptcha();
 
     // Reset success message after 10 seconds
     setTimeout(() => setSubmitStatus(null), 10000);
@@ -156,6 +172,13 @@ WhatsApp: +1 (407) 668-2684`);
     // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
+    }
+  };
+
+  const handleHcaptchaChange = (token: string | null) => {
+    setHcaptchaToken(token);
+    if (errors.hcaptcha) {
+      setErrors((prev) => ({ ...prev, hcaptcha: "" }));
     }
   };
 
@@ -308,6 +331,19 @@ WhatsApp: +1 (407) 668-2684`);
               <p className="text-sm mt-1">Please try again or contact us via WhatsApp.</p>
             </div>
           )}
+
+          {/* hCaptcha */}
+          <div className="mb-6">
+            <HCaptchaComponent
+              ref={hcaptchaRef}
+              sitekey="50b2fe65-b00b-4b9e-ad62-3ba471098be2"
+              onVerify={handleHcaptchaChange}
+              reCaptchaCompat={false}
+            />
+            {errors.hcaptcha && (
+              <p className="mt-1 text-sm text-red-600">{errors.hcaptcha}</p>
+            )}
+          </div>
 
           <button
             type="submit"
