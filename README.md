@@ -1,105 +1,107 @@
-﻿# Gaugon - AI Automation & IT Solutions
+﻿# Gaugon Website
 
-A clean, modern marketing website for Gaugon, an IT + AI solutions studio focused on helping small businesses automate workflows and optimize their operations.
+The marketing and lead generation site for **Gaugon**—an AI automation and IT solutions consultancy.
 
-## 🚀 Live Site
+Gaugon helps businesses map workflows, identify security gaps, and automate repetitive tasks using the tools they already own. This site serves as the primary touchpoint for potential clients to understand our services (audits, automation sprints) and book consultations.
 
-Visit the site at: [https://ocilab25.github.io/gaugon-website/](https://ocilab25.github.io/gaugon-website/)
+**Live Site:** [app.gaugon.com](https://app.gaugon.com)  
 
-## 🛠️ Technologies
+---
 
-- **Next.js 14** - React framework with App Router
-- **TypeScript** - Type-safe JavaScript
-- **Tailwind CSS** - Utility-first CSS framework
-- **hCaptcha** - Privacy-friendly spam protection (see [HCAPTCHA_SETUP.md](HCAPTCHA_SETUP.md))
-- **GitHub Pages** - Static hosting
+## 🚀 Key Features
 
-## 📦 Installation
+*   **Lead Capture & Forms**: 
+    *   Contact forms integrated with **Web3Forms**.
+    *   Spam protection via **hCaptcha** (Zero-Config for Free Plan).
+    *   Honeypot fields for extra bot mitigation.
+*   **Performance**: 
+    *   Static export (SSG) for hosting on GitHub Pages.
+    *   Optimized images via `next/image` (unoptimized for static export compatibility).
+*   **Security (AppSec First)**:
+    *   Strict **Content Security Policy (CSP)**.
+    *   **HSTS** and security headers configured via meta tags (migration to Cloudflare Headers planned).
+    *   privacy-focused analytics (no heavy tracking scripts).
+*   **Pricing & Services**:
+    *   Clear tiered pricing tables.
+    *   Detailed service breakdowns for AI Automation and IT Foundation.
 
-1. Clone the repository:
+## 🛠 Tech Stack
+
+*   **Framework**: [Next.js 14](https://nextjs.org/) (App Router)
+*   **Styling**: [Tailwind CSS](https://tailwindcss.com/)
+*   **Language**: TypeScript
+*   **Forms**: [Web3Forms](https://web3forms.com/) + [hCaptcha](https://www.hcaptcha.com/)
+*   **Deployment**: GitHub Pages (via GitHub Actions)
+
+## ⚡ Local Development
+
+### Prerequisites
+*   Node.js 20+
+*   npm
+
+### Installation
+
 ```bash
+# Clone the repository
 git clone https://github.com/ocilab25/gaugon-website.git
-cd gaugon-website
-```
 
-2. Install dependencies:
-```bash
+# Install dependencies
 npm install
 ```
 
-## 💻 Development
-
-Run the development server:
+### Running Locally
 
 ```bash
 npm run dev
 ```
+Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-Open [http://localhost:3000](http://localhost:3000) in your browser to see the result.
-
-## 🏗️ Build
-
-Create a production build:
+### Building for Production
 
 ```bash
 npm run build
 ```
+This generates a static `out/` directory ready for deployment.
 
-This generates a static export in the `out` directory, optimized for GitHub Pages deployment.
+## 🚢 Deployment Workflow
 
-## 🧪 Testing Build Locally
+We use **GitHub Actions** to automatically build and deploy to GitHub Pages.
 
-After building, you can test the production build locally:
+1.  **Develop**: Create a feature branch (e.g., `feat/pricing-update`).
+2.  **Test**: Verified locally with `npm run build`.
+3.  **Push**: Open a Pull Request (PR) to `main`.
+4.  **Deploy**: Merging into `main` triggers the workflow in `.github/workflows/static.yml`.
 
-```bash
-npx serve out
-```
+> [!NOTE]
+> The site is deployed to a custom domain (`app.gaugon.com`). The `CNAME` file is generated in the `public/` folder to persist this setting.
 
-Then visit the local URL provided (e.g., http://localhost:3000).
+## 🔐 Security & Privacy
 
-## 🚀 Deployment
+### Content Security Policy (CSP)
+We enforce a strict CSP in `app/layout.tsx` to prevent XSS and unauthorized script loading.
+*   **Allowed Scripts**: 'self', hCaptcha.
+*   **Allowed Connects**: 'self', hCaptcha, Web3Forms API.
 
-The site is automatically deployed to GitHub Pages via GitHub Actions when changes are pushed to the `main` branch.
+If you add a new third-party script, you **must** update the CSP whitelist or it will be blocked.
 
-### Manual Deployment
+### hCaptcha Integration
+We use the **Web3Forms Shared Site Key** for spam protection.
+*   **Key**: `50b2fe65-b00b-4b9e-ad62-3ba471098be2` (This is public and safe to commit).
+*   **Docs**: See [HCAPTCHA_SETUP.md](HCAPTCHA_SETUP.md) for details.
 
-1. Build the site: `npm run build`
-2. The GitHub Actions workflow automatically deploys the `out` directory to GitHub Pages
+### Environment Variables
+For the current static setup on the free tier, **no secrets or .env files are required** for the build to pass.
 
-### Configuration
+## 📐 Coding Standards
 
-- **Base Path**: `/gaugon-website` (configured in `next.config.mjs`)
-- **GitHub Pages**: Served from the `gh-pages` branch (managed by GitHub Actions)
+*   **Linting**: Run `npm run lint` before committing.
+*   **Formatting**: Prettier is used (via IDE settings).
+*   **Components**: Co-located in `components/sections` if used on specific landing pages.
+*   **Images**: Use `next/image` with `width`/`height` props to prevent layout shift.
 
-## 📁 Project Structure
+## 📝 Roadmap / TODOs
 
-```
-gaugon-website/
-├── app/                    # Next.js App Router pages
-│   ├── layout.tsx         # Root layout with metadata
-│   ├── page.tsx           # Homepage
-│   └── globals.css        # Global styles
-├── components/            # React components
-│   ├── sections/          # Page sections (Hero, Services, etc.)
-│   ├── Navbar.tsx         # Navigation component
-│   ├── Footer.tsx         # Footer component
-│   └── WhatsAppButton.tsx # WhatsApp contact button
-├── public/                # Static assets
-├── .github/workflows/     # GitHub Actions CI/CD
-└── next.config.mjs        # Next.js configuration
-```
-
-## 🎨 Brand
-
-- **Name**: Gaugon
-- **Tagline**: AI-driven IT & automation for small businesses
-- **Primary Color**: `#6B4CFF`
-- **Style**: Clean, minimal, security-focused
-
-## 📄 License
-
-Private repository - All rights reserved.
-
-## 🤝 Contact
-
-For inquiries about Gaugon services, visit the [contact page](https://ocilab25.github.io/gaugon-website/contact) or reach out via WhatsApp.
+- [ ] **Cookie Consent**: The current banner component is large (~14KB). Needs refactoring or replacement with a lighter alternative.
+- [ ] **CSP Migration**: Move security headers from `<meta>` tags to Cloudflare or server-side headers if we move off GitHub Pages.
+- [ ] **Blog/Content**: Add a CMS-backed blog section for SEO/content marketing.
+- [ ] **Analytics**: Evaluate privacy-friendly analytics (e.g., Plausible, Fathom) vs current setup.
