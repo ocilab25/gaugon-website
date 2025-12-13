@@ -9,80 +9,54 @@ The marketing and lead generation site for **Gaugon**—an AI automation and IT 
 
 ## 🏗️ Monorepo Structure
 
-This repository follows a split architecture:
+This repository follows a full-stack architecture:
 
 ```text
 /
-├── frontend/           # Next.js 14 Application (UI + Blog)
-├── backend/            # Express/Node.js Service (Stub/API)
-├── docs/               # Project Documentation & Protocols
-├── scripts/            # Deployment & Maintenance Scripts
-└── package.json        # Workspaces Configuration
+├── app/                # Next.js 14 App Router (Marketing + Portal)
+├── backend/            # Express/Node.js API Service
+├── components/         # Shared UI Components
+├── lib/                # Shared Utilities
+├── docs/               # Project Documentation
+└── package.json        # Root workspace config
 ```
 
-## 🚀 Key Features
+## ⚡ Quickstart
 
-### Marketing Site
-*   **Lead Capture**: Web3Forms + hCaptcha (Zero-Config).
-*   **Blog Engine**: Git-based MDX CMS with "White Luxury" UI.
-*   **Security**: Strict CSP, HSTS, Privacy-first Analytics ready.
-*   **Compliance**: GDPR/CCPA Cookie Consent with Timestamping.
-*   **Design**: "White Luxury" aesthetic with glassmorphism and Framer Motion.
+For detailed setup steps, see the **[Replication Guide](docs/Architecture/REPLICATION_GUIDE.md)**.
 
-### Portal System (Admin & Customer)
-*   **Authentication**: JWT-based auth with refresh tokens and rate limiting.
-*   **Invoice Management**: Full CRUD, PDF generation, email delivery.
-*   **Service Requests**: Quote workflow, progress tracking, status history.
-*   **Audit Logging**: Complete action tracking for compliance.
-*   **Customer Portal**: Self-service dashboard for invoices and service requests.
-*   **Admin Portal**: Full management dashboard with analytics.
+### 1. Requirements
+- Node.js 20+
+- MongoDB Instance
 
-### Backend API
-*   **Express + MongoDB**: RESTful API with Mongoose ODM.
-*   **Security**: Rate limiting, audit logs, DB health checks.
-*   **Email**: Nodemailer integration for invoices and notifications.
-*   **PDF Generation**: Professional invoice PDFs with pdfkit.
-
-## ⚡ Local Development
-
-### Prerequisites
-*   Node.js 20+
-*   npm
-
-### Installation
-
+### 2. Setup
 ```bash
-# Clone the repository
 git clone https://github.com/ocilab25/gaugon-website.git
-
-# Install dependencies for all workspaces (including Blog deps)
 npm install
 ```
 
-### Running Locally
+### 3. Run Locally
 
+**Frontend (Port 3000):**
 ```bash
-# Run the frontend (Next.js)
-npm run dev --workspace=frontend
+npm run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000).
-
-## 🚢 Deployment
-
-We use **GitHub Actions** to automatically build and deploy the `frontend/` workspace to GitHub Pages.
-
-1.  **Develop**: Create feature branches off `dev` or `main`.
-2.  **Test**: `npm run build --workspace=frontend`.
-3.  **Merge**: PR to `main` triggers deployment.
+**Backend (Port 5000):**
+```bash
+cd backend
+npm run dev
+```
 
 ## 📚 Documentation
 
 Detailed documentation is located in the `docs/` directory:
 
-- [Changelog](docs/CHANGELOG.md)
-- [Project Rules](docs/rules.md)
-- [hCaptcha Setup](docs/HCAPTCHA_SETUP.md)
+- 🏛️ **[Replication Guide](docs/Architecture/REPLICATION_GUIDE.md)** (Start Here)
+- 🗺️ **[Roadmap](docs/ROADMAP.md)**
+- 📉 **[Challenges Log](docs/CHALLENGES.md)**
+- 📝 [Changelog](CHANGELOG.md)
+- 🔒 [Project Rules](docs/rules.md)
 
 ## 🗺️ Roadmap (Completed Sprints) ✅
 *All items below were executed and verified on 2025-12-13.*
