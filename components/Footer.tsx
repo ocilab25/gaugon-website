@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import NewsletterForm from "./NewsletterForm";
 
 export default function Footer() {
   return (
@@ -29,9 +30,9 @@ export default function Footer() {
         </div>
 
         {/* Navigation Links */}
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 mb-16 max-w-3xl">
-          {/* Column 1 */}
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-12 mb-16">
+          {/* Links Column 1 */}
+          <div className="md:col-span-3">
             <p className="font-bold text-text-primary mb-6 uppercase tracking-widest text-xs">Company</p>
             <ul className="space-y-4 text-sm font-medium text-text-secondary">
               <li>
@@ -52,8 +53,8 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Column 2 */}
-          <div>
+          {/* Links Column 2 */}
+          <div className="md:col-span-3">
             <p className="font-bold text-text-primary mb-6 uppercase tracking-widest text-xs">Resources</p>
             <ul className="space-y-4 text-sm font-medium text-text-secondary">
               <li>
@@ -72,6 +73,17 @@ export default function Footer() {
                 </Link>
               </li>
             </ul>
+          </div>
+
+          {/* Newsletter Column */}
+          <div className="md:col-span-6">
+            <p className="font-bold text-text-primary mb-6 uppercase tracking-widest text-xs">Stay Updated</p>
+            <p className="text-sm text-text-secondary mb-4">
+              Get the latest automation strategies delivered to your inbox.
+            </p>
+            <div className="bg-gray-900 rounded-lg p-6">
+              <NewsletterForm />
+            </div>
           </div>
         </div>
 
