@@ -221,3 +221,9 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 - **SEO**: Automated generation of `sitemap.xml` and `robots.txt` for better search indexing.
 - **Engagement**: Added Newsletter Signup form to the Footer (connected to Web3Forms logic).
 - **Analytics**: Prepared `layout.tsx` for privacy-first analytics integration (stubbed).
+
+### 🔒 Security Hardening (Phase 8)
+- **Credential Protection**: Moved Web3Forms access key from client-side bundle to Backend environment variables.
+- **Backend Proxy**: Implemented `/api/forms/contact` and `/api/forms/newsletter` with strict **Zod** schema validation and rate limiting (5 req/hr).
+- **Static Security**: Added `public/_headers` to enforce CSP, HSTS, X-Frame-Options, and X-Content-Type-Options for static hosting.
+- **Cleanup**: Removed sensitive data from `lib/config.ts` and refactored form components to use the new secure backend API.
