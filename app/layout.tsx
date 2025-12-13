@@ -60,6 +60,10 @@ export default function RootLayout({
           httpEquiv="Content-Security-Policy"
           content="default-src 'self'; script-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://hcaptcha.com https://*.hcaptcha.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com https://gaugon-website.onrender.com; frame-src https://hcaptcha.com https://*.hcaptcha.com"
         />
+        <meta
+          httpEquiv="Permissions-Policy"
+          content="camera=(), microphone=(), geolocation=(), payment=(), usb=(), magnetometer=(), gyroscope=(), accelerometer=(), fullscreen=(self)"
+        />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link rel="canonical" href="https://app.gaugon.com" />
         <script
