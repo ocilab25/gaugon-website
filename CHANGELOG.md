@@ -211,3 +211,8 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 - **Hardening**: Implemented strict `Permissions-Policy` header in `layout.tsx` to disable unused browser features (camera, mic, etc.).
 - **CI/CD**: Added automated `npm audit` security scanning to the GitHub Actions deployment workflow.
 - **Documentation**: Created `docs/CLOUDFLARE_MIGRATION.md` with a step-by-step guide for future migration to Cloudflare Pages.
+
+### 🎨 Frontend & Experience (Track 2)
+- **Dark Mode**: Implemented system-aware "Dark Luxury" mode with a toggle in the navbar.
+- **Blog Engine**: Added a static blog system with client-side fuzzy search and filtering (`/blog`).
+- **Animations**: Added smooth page transition animations using framer-motion.
