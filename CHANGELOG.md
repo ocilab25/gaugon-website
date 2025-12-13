@@ -240,3 +240,36 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
   - Create Invoice form with dynamic line items, tax calculation, and live totals.
 - **Customer Portal UI**: Invoice history page with download functionality.
 - **Auth Enhancement**: Added `token` to AuthContext for API calls.
+
+## [2025-12-13] - Security Enhancements (Phase 10)
+
+### 🔒 Audit Logging System
+- **AuditLog Model**: Created `AuditLog.ts` with indexed fields for efficient querying.
+- **AuditService**: Helper service for consistent logging across routes.
+- **Invoice Tracking**: All invoice actions logged (CREATE, UPDATE, DELETE, DOWNLOAD, EMAIL, MARK_PAID).
+- **Metadata Capture**: User ID, email, IP address, and user agent recorded.
+
+### ✅ Already Implemented
+- **Rate Limiting**: Login endpoint already protected (5 attempts/15min).
+- **DB Health Check**: `/api/health/db` endpoint already exists.
+
+## [2025-12-13] - Customer Service Portal (Phase 11)
+
+### 📋 Service Request System
+- **ServiceRequest Model**: Created with auto-increment numbers (`GAU-SR-YYYY-0001`).
+- **Service Types**: Consultation, Custom Development, Integration, Support, Maintenance, Other.
+- **Status Workflow**: pending_review → quoted → approved → in_progress → completed.
+- **Status History**: Full timeline tracking with timestamps and notes.
+
+### 🎨 Customer Portal UI
+- **Services List Page**: View all requests with progress bars and status badges.
+- **New Request Form**: Two-step flow with visual service type selection.
+- **Request Details**: Progress tracking and quote approval.
+
+### 👔 Admin Portal UI
+- **Services Management Page**: Table view of all requests.
+- **Quote System**: Admin sets price → Customer approves.
+- **Status Controls**: Start work, mark complete, cancel actions.
+
+### 🧭 Navigation
+- Added "Services" to both Admin and Customer sidebars.
