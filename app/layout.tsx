@@ -58,7 +58,7 @@ export default function RootLayout({
         {/* Security meta tags (temporary mitigation until Cloudflare Pages migration) */}
         <meta
           httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://hcaptcha.com https://*.hcaptcha.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com; frame-src https://hcaptcha.com https://*.hcaptcha.com; frame-ancestors 'none'"
+          content="default-src 'self'; script-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://hcaptcha.com https://*.hcaptcha.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com https://gaugon-website.onrender.com; frame-src https://hcaptcha.com https://*.hcaptcha.com"
         />
         <meta name="referrer" content="strict-origin-when-cross-origin" />
         <link rel="canonical" href="https://app.gaugon.com" />
