@@ -5,6 +5,7 @@ import { Customer } from '../models/Customer';
 import { authenticate } from '../middleware/auth';
 import { PDFService } from '../services/PDFService';
 import { EmailService } from '../services/EmailService';
+import { AuditService } from '../services/AuditService';
 
 const router = Router();
 
@@ -83,6 +84,10 @@ router.post('/', authenticate, async (req: Request, res: Response) => {
         });
 
         await invoice.save();
+
+        // Audit log
+        await AuditService.logInvoiceAction('INVOICE_CREATE', invoice._id.toString(), req);
+
         res.status(201).json({ invoice });
     } catch (error: any) {
         if (error instanceof z.ZodError) {
@@ -107,6 +112,9 @@ router.patch('/:id', authenticate, async (req: Request, res: Response) => {
             return res.status(404).json({ error: 'Invoice not found' });
         }
 
+        const action = status === 'paid' ? 'INVOICE_MARK_PAID' : 'INVOICE_UPDATE';
+        await AuditService.logInvoiceAction(action, req.params.id, req);
+
         res.json({ invoice });
     } catch (error: any) {
         res.status(500).json({ error: error.message });
@@ -120,6 +128,8 @@ router.delete('/:id', authenticate, async (req: Request, res: Response) => {
         if (!invoice) {
             return res.status(404).json({ error: 'Invoice not found' });
         }
+        await AuditService.logInvoiceAction('INVOICE_DELETE', req.params.id, req);
+
         res.json({ message: 'Invoice deleted successfully' });
     } catch (error: any) {
         res.status(500).json({ error: error.message });
@@ -135,6 +145,8 @@ router.get('/:id/pdf', authenticate, async (req: Request, res: Response) => {
         }
 
         const pdfBuffer = await PDFService.generateInvoicePDF(invoice);
+
+        await AuditService.logInvoiceAction('INVOICE_DOWNLOAD', req.params.id, req);
 
         res.setHeader('Content-Type', 'application/pdf');
         res.setHeader('Content-Disposition', `attachment; filename=Invoice-${invoice.invoiceNumber}.pdf`);
@@ -161,6 +173,8 @@ router.post('/:id/send', authenticate, async (req: Request, res: Response) => {
             invoice.status = 'sent';
             await invoice.save();
         }
+
+        await AuditService.logInvoiceAction('INVOICE_EMAIL', req.params.id, req);
 
         res.json({ message: 'Invoice sent successfully', invoice });
     } catch (error: any) {
