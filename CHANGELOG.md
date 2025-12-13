@@ -5,6 +5,65 @@ This document tracks major updates, feature implementations, and strategic chang
 
 ---
 
+## [2025-12-13] - Portal Backend Implementation
+
+### 🚀 Backend API Complete
+Implemented full Express/Node.js backend with MongoDB, JWT authentication, and role-based access control for the portal system.
+
+**Architecture:**
+- **Stack**: Express.js, MongoDB (Mongoose), TypeScript
+- **Authentication**: JWT with refresh tokens (8h access, 7-day refresh)
+- **Roles**: Admin, Staff, Customer with role-based access control
+- **Security**: Rate limiting, password hashing (bcrypt), data isolation
+
+**Features:**
+- **Multi-Role System**: Admin (full access), Staff (limited), Customer (self-service)
+- **Data Isolation**: Customers cannot see admins/staff (security requirement)
+- **Subscription Management**: Full subscription system with plans (Standard, Plus, Max, Enterprise)
+- **Multi-Subdomain CORS**: Supports multiple frontend subdomains on same Render service
+- **Health Endpoints**: Database and general health checks
+
+**Models Created:**
+- `User` (base model with discriminator pattern)
+- `Admin` (extends User, with permissions)
+- `Staff` (extends User, with assigned customers)
+- `Customer` (extends User, with profile and subscription)
+- `Subscription` (separate collection for subscription management)
+
+**API Endpoints:**
+- `/api/auth/*` - Authentication (register, login, refresh, logout, me)
+- `/api/admin/*` - Admin routes (customers, staff management)
+- `/api/customer/*` - Customer routes (profile, subscription)
+- `/api/subscriptions/*` - Subscription management
+- `/api/health/*` - Health checks
+
+**Security:**
+- Rate limiting: 5 attempts per 15 minutes on auth endpoints
+- JWT token rotation on refresh
+- Password hashing with bcrypt (12 salt rounds)
+- Role-based middleware for access control
+- Data isolation middleware prevents customer access to admin data
+
+**Deployment:**
+- Dockerfile included for containerization
+- Render.com deployment guide created
+- Environment variable template provided
+- CLI script for creating first admin
+
+**Files Created:**
+- `backend/src/server.ts` - Express server with CORS
+- `backend/src/models/*` - All user and subscription models
+- `backend/src/middleware/*` - Auth, roles, data isolation
+- `backend/src/routes/*` - All API route handlers
+- `backend/src/utils/jwt.ts` - JWT utilities
+- `backend/src/scripts/createAdmin.ts` - Admin creation script
+- `backend/README.md` - Complete API documentation
+- `backend/RENDER_DEPLOY.md` - Deployment guide
+
+**Next Phase:** Frontend portal with shadcn/ui components (White Luxury design)
+
+---
+
 ## [2025-12-12] - Logo Consistency Fix
 
 ### 🎨 Branding
