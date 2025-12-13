@@ -50,7 +50,7 @@ async function sendToWeb3Forms(data: any) {
         body: JSON.stringify(payload),
     });
 
-    const result = await response.json();
+    const result = await response.json() as any;
     if (!result.success) {
         throw new Error(result.message || 'Web3Forms API Error');
     }
