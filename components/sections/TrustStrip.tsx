@@ -42,18 +42,18 @@ export default function TrustStrip() {
   ];
 
   return (
-    <section className="py-20 bg-white border-y border-gray-100">
+    <section className="py-24 bg-surface border-y border-gray-100/50">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-16 items-center">
 
           {/* Left: Stats */}
           <div className="w-full">
-            <h2 className="text-2xl font-bold text-gray-900 mb-8 text-center sm:text-left">
-              Reliable wins for boring businesses.
+            <h2 className="text-3xl sm:text-4xl font-bold text-text-primary mb-10 text-center sm:text-left leading-tight">
+              Reliable wins for <span className="text-primary">ambitious</span> businesses.
             </h2>
-            <div className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-2 gap-8">
+            <div className="grid grid-cols-2 sm:grid-cols-4 xl:grid-cols-2 gap-6">
               {stats.map((stat, i) => (
-                <div key={i} className="bg-gray-50/50 p-4 rounded-lg border border-gray-100 hover:border-primary/10 transition-colors">
+                <div key={i} className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100 hover:shadow-luxury hover:-translate-y-1 transition-all duration-300">
                   {stat.value ? (
                     <StatCounter
                       end={stat.value}
@@ -64,11 +64,11 @@ export default function TrustStrip() {
                     />
                   ) : (
                     <div className="text-center sm:text-left">
-                      <p className="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-1 tabular-nums">
+                      <p className="text-3xl sm:text-4xl font-extrabold text-text-primary mb-2 tabular-nums tracking-tight">
                         {stat.staticValue}
                       </p>
-                      <p className="text-sm font-semibold text-gray-700">{stat.label}</p>
-                      <p className="text-xs text-gray-500 mt-1">{stat.sub}</p>
+                      <p className="text-sm font-bold text-text-secondary uppercase tracking-wider text-[11px]">{stat.label}</p>
+                      <p className="text-xs text-text-tertiary mt-1 font-medium">{stat.sub}</p>
                     </div>
                   )}
                 </div>
@@ -77,28 +77,28 @@ export default function TrustStrip() {
           </div>
 
           {/* Right: Mini Cases */}
-          <div className="space-y-4">
+          <div className="space-y-6">
             {miniCases.map((c, i) => (
-              <div key={i} className="flex items-start p-4 bg-gray-50 rounded-lg border border-gray-100 hover:border-primary/20 transition-colors">
-                <div className="bg-white p-2 rounded-full border border-gray-200 mr-4 shadow-sm">
-                  <CheckmarkIcon className="w-4 h-4 text-green-500" />
+              <div key={i} className="flex items-start p-6 bg-white rounded-2xl border border-gray-100 hover:border-primary/20 hover:shadow-luxury transition-all duration-300 group">
+                <div className="bg-surface p-3 rounded-full border border-gray-100 mr-5 shadow-sm group-hover:scale-110 transition-transform">
+                  <CheckmarkIcon className="w-5 h-5 text-primary" />
                 </div>
                 <div>
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="font-bold text-gray-900">{c.company}</span>
-                    <span className="text-[10px] uppercase tracking-wide bg-white border border-gray-200 rounded px-2 text-gray-500">{c.tag}</span>
+                  <div className="flex items-center gap-3 mb-2">
+                    <span className="font-bold text-text-primary text-lg">{c.company}</span>
+                    <span className="text-[10px] uppercase tracking-wide bg-primary/5 text-primary border border-primary/10 rounded-full px-3 py-0.5 font-bold">{c.tag}</span>
                   </div>
-                  <p className="text-gray-600 text-sm">"{c.result}"</p>
+                  <p className="text-text-secondary text-base leading-relaxed">"{c.result}"</p>
                 </div>
               </div>
             ))}
-            <p className="text-xs text-gray-400 text-center mt-2">
-              We're not generalists. We only accept clients where we know we can win.
+            <p className="text-xs text-text-tertiary text-center mt-4 font-medium uppercase tracking-widest opacity-60">
+              Results-Driven • Security-First • Scalable
             </p>
           </div>
         </div>
       </div>
     </section>
   );
-
 }
+
