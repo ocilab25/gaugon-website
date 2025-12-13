@@ -3,6 +3,7 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
+import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -40,16 +41,19 @@ export default function Navbar() {
           </div>
 
           {/* Desktop menu */}
-          <div className="hidden md:flex md:items-center md:space-x-12">
+          <div className="hidden md:flex md:items-center md:space-x-8">
             {["Home", "Services", "About"].map((item) => (
               <Link
                 key={item}
                 href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="text-gray-700 hover:text-primary transition-colors text-sm font-medium tracking-wide"
+                className="text-gray-700 dark:text-gray-200 hover:text-primary transition-colors text-sm font-medium tracking-wide"
               >
                 {item}
               </Link>
             ))}
+
+            <ThemeToggle />
+
             <Link
               href="/contact-us"
               className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5"
@@ -59,7 +63,8 @@ export default function Navbar() {
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-4">
+            <ThemeToggle />
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="text-gray-700 hover:text-primary focus:outline-none"

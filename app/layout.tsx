@@ -5,6 +5,7 @@ import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import CookieConsent from "@/components/CookieConsent";
 import StickyBookCTA from "@/components/ui/StickyBookCTA";
+import { Providers } from "./providers";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -53,7 +54,7 @@ export default function RootLayout({
   };
 
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
       <head>
         {/* Security meta tags (temporary mitigation until Cloudflare Pages migration) */}
         <meta
@@ -74,13 +75,14 @@ export default function RootLayout({
         />
       </head>
       <body className={inter.className}>
-        <Navbar />
-        {children}
-        <Footer />
-        <CookieConsent />
-        <StickyBookCTA />
+        <Providers>
+          <Navbar />
+          {children}
+          <Footer />
+          <CookieConsent />
+          <StickyBookCTA />
+        </Providers>
       </body>
     </html>
   );
 }
-
