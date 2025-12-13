@@ -66,5 +66,7 @@ UserSchema.index({ email: 1 });
 UserSchema.index({ role: 1 });
 UserSchema.index({ isActive: 1 });
 
+// This file exports the base User model.
+// Admin and Customer models are in their own files and should be imported from there.
 export const User = mongoose.model<IUser>('User', UserSchema);
 

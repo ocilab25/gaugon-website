@@ -2,7 +2,9 @@ import express, { Request, Response } from 'express';
 import bcrypt from 'bcryptjs';
 import { authenticate } from '../middleware/auth';
 import { requireRole } from '../middleware/roles';
-import { Customer, Staff, Admin } from '../models/User';
+import { Admin } from '../models/Admin';
+import { Customer } from '../models/Customer';
+import { Staff } from '../models/Staff';
 import { z } from 'zod';
 
 const router = express.Router();

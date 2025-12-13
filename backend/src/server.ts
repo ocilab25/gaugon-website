@@ -17,7 +17,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 
 // CORS configuration for multiple subdomains
-const allowedOrigins = [
+const allowedOrigins: (string | RegExp)[] = [
   process.env.FRONTEND_URL,
   process.env.PORTAL_URL,
   process.env.ADMIN_URL,

@@ -2,7 +2,7 @@ import express, { Request, Response } from 'express';
 import { authenticate } from '../middleware/auth';
 import { requireRole } from '../middleware/roles';
 import { Subscription } from '../models/Subscription';
-import { Customer } from '../models/User';
+import { Customer } from '../models/Customer';
 import { z } from 'zod';
 
 const router = express.Router();
