@@ -5,8 +5,6 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/gaugon-website',
-  assetPrefix: '/gaugon-website/',
 };
 
 export default nextConfig;
