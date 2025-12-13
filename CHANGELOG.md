@@ -206,3 +206,8 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 - **Frontend Dependencies**: Updated `lucide-react` to resolve "Module not found" errors during Render build.
 - **GitHub Actions**: Restored and validated `deploy-marketing.yml` for correct GitHub Pages deployment.
 - **Render Config**: Corrected "Publish Directory" to `out` for Next.js Static Export compatibility.
+
+### 🛡️ Security & Scalability (Track 1)
+- **Hardening**: Implemented strict `Permissions-Policy` header in `layout.tsx` to disable unused browser features (camera, mic, etc.).
+- **CI/CD**: Added automated `npm audit` security scanning to the GitHub Actions deployment workflow.
+- **Documentation**: Created `docs/CLOUDFLARE_MIGRATION.md` with a step-by-step guide for future migration to Cloudflare Pages.
