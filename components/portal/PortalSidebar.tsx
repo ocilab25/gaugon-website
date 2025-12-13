@@ -2,18 +2,19 @@
 
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { 
-  LayoutDashboard, 
-  BarChart3, 
-  Users, 
-  UserCog, 
-  CreditCard, 
+import {
+  LayoutDashboard,
+  BarChart3,
+  Users,
+  UserCog,
+  CreditCard,
   TrendingUp,
   Settings,
   HelpCircle,
   User,
   FileText,
-  HeadphonesIcon
+  HeadphonesIcon,
+  Receipt
 } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { useAuth } from '@/lib/auth';
@@ -31,6 +32,7 @@ const adminNavItems: NavItem[] = [
   { label: 'Dashboard', href: '/portal/admin/dashboard', icon: LayoutDashboard, roles: ['admin'] },
   { label: 'Analytics', href: '/portal/admin/analytics', icon: BarChart3, roles: ['admin'] },
   { label: 'Customers', href: '/portal/admin/customers', icon: Users, roles: ['admin'] },
+  { label: 'Invoices', href: '/portal/admin/invoices', icon: Receipt, roles: ['admin'] },
   { label: 'Staff Management', href: '/portal/admin/staff', icon: UserCog, roles: ['admin'] },
   { label: 'Subscriptions', href: '/portal/admin/subscriptions', icon: CreditCard, roles: ['admin'] },
   { label: 'Revenue', href: '/portal/admin/revenue', icon: TrendingUp, roles: ['admin'] },
@@ -50,6 +52,7 @@ const customerNavItems: NavItem[] = [
   { label: 'Dashboard', href: '/portal/customer/dashboard', icon: LayoutDashboard, roles: ['customer'] },
   { label: 'My Profile', href: '/portal/customer/profile', icon: User, roles: ['customer'] },
   { label: 'My Subscription', href: '/portal/customer/subscription', icon: CreditCard, roles: ['customer'] },
+  { label: 'Invoices', href: '/portal/customer/invoices', icon: Receipt, roles: ['customer'] },
   { label: 'Usage & Analytics', href: '/portal/customer/usage', icon: BarChart3, roles: ['customer'] },
   { label: 'Support', href: '/portal/customer/support', icon: HeadphonesIcon, roles: ['customer'] },
   { label: 'Settings', href: '/portal/customer/settings', icon: Settings, roles: ['customer'] },
@@ -89,7 +92,7 @@ export function PortalSidebar() {
           </div>
           <div className="flex-1 min-w-0">
             <div className="text-white font-medium text-sm truncate">
-              {user.role === 'customer' && (user as any).profile 
+              {user.role === 'customer' && (user as any).profile
                 ? `${(user as any).profile.firstName} ${(user as any).profile.lastName}`
                 : user.email.split('@')[0]}
             </div>
@@ -104,7 +107,7 @@ export function PortalSidebar() {
         {navItems.map((item) => {
           const Icon = item.icon;
           const isActive = pathname === item.href || pathname?.startsWith(item.href + '/');
-          
+
           return (
             <Link
               key={item.href}
