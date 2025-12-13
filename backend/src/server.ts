@@ -11,6 +11,7 @@ import subscriptionRoutes from './routes/subscriptions';
 import healthRoutes from './routes/health';
 import formRoutes from './routes/forms';
 import invoiceRoutes from './routes/invoices';
+import serviceRoutes from './routes/services';
 
 // Load environment variables
 dotenv.config();
@@ -79,6 +80,7 @@ app.use('/api/health', healthRoutes);
 app.use('/api/auth', authRoutes);
 app.use('/api/forms', formRoutes);
 app.use('/api/invoices', invoiceRoutes);
+app.use('/api/services', serviceRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/customer', customerRoutes);
 app.use('/api/subscriptions', subscriptionRoutes);
