@@ -5,7 +5,6 @@ export default function FinalCTA() {
     <section className="py-24 relative overflow-hidden">
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-br from-primary via-primary-dark to-accent -z-20" />
-      <div className="absolute inset-0 bg-[url('/noise.png')] opacity-10 -z-10 mix-blend-overlay" /> {/* Optional Texture */}
 
       {/* Glassy Effect Circles */}
       <div className="absolute top-0 left-0 w-96 h-96 bg-white/10 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />

@@ -120,3 +120,15 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 ### dYZ" Copy: Strategic Alignment
 - **Navbar/Mobile Menu:** Renamed "Book Audit" to "Book Consultation" to align with the new high-end positioning.
 - **Consistency:** Ensured all CTAs reflect the "Consultation" model over the "Free Audit" model.
+
+## [2025-12-13] - Console Cleanup & Sticky CTA
+
+### 🛠️ Console Cleanup
+- **FinalCTA.tsx:** Removed reference to missing `noise.png` texture (was causing 404).
+- **Pricing Page:** Created `app/pricing/page.tsx` placeholder (empty directory was causing 404).
+
+### 🚀 Feature: Sticky "Book Consultation" Widget
+- **New Component:** `StickyBookCTA.tsx`
+- **Behavior:** Floating CTA appears in bottom-right corner after user scrolls 50% of the page.
+- **Style:** Purple button with glassmorphic shadow, calendar icon, and hover animation.
+- **Integration:** Added globally via `app/layout.tsx`.
