@@ -1,43 +1,40 @@
-# General
+﻿# Dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+
+# Production
+/build
+
+# Misc
 .DS_Store
-Thumbs.db
-*.swp
-*.log
+*.pem
 
-# IDEs
-.vscode/
-.idea/
-
-# Environment Variables
-.env
-.env.local
-.env.development.local
-.env.test.local
-.env.production.local
-*.env
-!.env.example
-
-# Node.js / React
-node_modules/
+# Debug
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
-lerna-debug.log*
-.eslintcache
-*.tsbuildinfo
 
-# Next.js Build Output
-.next/
-out/
+# Local env files
+.env*.local
+.env
+
+# Vercel
 .vercel
-build/
 
-# Python / FastAPI (Legacy/Future)
-__pycache__/
-*.py[cod]
-venv/
-.venv/
+# TypeScript
+*.tsbuildinfo
+next-env.d.ts
 
-# Docker
-docker-compose.override.yml
+# IDE
+.idea
+.vscode
+*.swp
+*.swo

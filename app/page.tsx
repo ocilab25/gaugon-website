@@ -1,45 +1,27 @@
-import Hero from "@/components/sections/Hero";
+﻿import Hero from "@/components/sections/Hero";
 import TrustStrip from "@/components/sections/TrustStrip";
-import WhoThisIsFor from "@/components/sections/WhoThisIsFor";
-import WhatYouGet from "@/components/sections/WhatYouGet";
-import RealResults from "@/components/sections/RealResults";
+import WhatWeAutomate from "@/components/sections/WhatWeAutomate";
 import HowItWorks from "@/components/sections/HowItWorks";
+import Outcomes from "@/components/sections/Outcomes";
+import CaseStudyTeaser from "@/components/sections/CaseStudyTeaser";
+import Pricing from "@/components/sections/Pricing";
+import FAQ from "@/components/sections/FAQ";
 import FinalCTA from "@/components/sections/FinalCTA";
-import FadeIn from "@/components/ui/FadeIn";
-import ROICalculator from "@/components/sections/ROICalculator";
+import Newsletter from "@/components/sections/Newsletter";
 
 export default function Home() {
   return (
-    <main className="overflow-x-hidden">
+    <main>
       <Hero />
-
-      <FadeIn delay={0.2}>
-        <TrustStrip />
-      </FadeIn>
-
-      <FadeIn>
-        <WhoThisIsFor />
-      </FadeIn>
-
-      <FadeIn>
-        <ROICalculator />
-      </FadeIn>
-
-      <FadeIn>
-        <WhatYouGet />
-      </FadeIn>
-
-      <FadeIn>
-        <RealResults />
-      </FadeIn>
-
-      <FadeIn>
-        <HowItWorks />
-      </FadeIn>
-
-      <FadeIn>
-        <FinalCTA />
-      </FadeIn>
+      <TrustStrip />
+      <WhatWeAutomate />
+      <HowItWorks />
+      <Outcomes />
+      <CaseStudyTeaser />
+      <Pricing />
+      <FAQ />
+      <Newsletter />
+      <FinalCTA />
     </main>
   );
 }

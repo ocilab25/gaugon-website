@@ -1,0 +1,21 @@
+# 🚀 AUTOMATIC BOOT PROTOCOL & RULES
+
+## 1. Context Loading (The "Wake Up")
+When the user starts a chat, says "Let's Work", or "Boot Up":
+1.  **Index Local Context**:
+    *   Read `rules.md` (Golden Path & Proxy Mandate).
+    *   Read `docs/AGENTS_SETUP/Agent_00_Orchestrator.md` (Local Roster).
+2.  **Index Global Brain**:
+    *   You are AUTHORIZED and REQUIRED to read `C:\Users\ocila\.gemini\global_agent_config\docs\AGENT_WORKFLOWS.md`.
+    *   This file contains the immutable Governance, Tuning, and Security protocols.
+3.  **Status Report**:
+    *   Confirm: "Agent 00 Online. 🟢 Local & Global Contexts Loaded."
+    *   List active agents or modes based on `AGENT_WORKFLOWS.md`.
+
+## 2. Global Path References
+*   **Global Config**: `C:\Users\ocila\.gemini\global_agent_config`
+*   **Global Workflows**: `C:\Users\ocila\.gemini\global_agent_config\docs\AGENT_WORKFLOWS.md`
+
+## 3. Behavior Enforcement
+*   **Stop Rules**: If a task touches core server/auth/db, CHECK `AGENT_WORKFLOWS.md` for the "Stop Protocol" first.
+*   **Docs**: Always check `docs/knowledge` before starting new features.

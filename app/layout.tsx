@@ -1,10 +1,9 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
-import CookieConsent from "@/components/CookieConsent";
-import StickyBookCTA from "@/components/ui/StickyBookCTA";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,15 +12,10 @@ export const metadata: Metadata = {
   description: "Professional AI automation and IT solutions. Automate marketing, customer support, CRM, reporting, and workflows. Trusted by growing businesses.",
   keywords: ["AI automation", "business automation", "IT solutions", "marketing automation", "CRM automation", "workflow automation"],
   authors: [{ name: "Gaugon" }],
-  icons: {
-    icon: "/favicon.png",
-    shortcut: "/favicon.png",
-    apple: "/favicon.png",
-  },
   openGraph: {
     title: "Gaugon | AI Automation & IT Solutions for Business",
     description: "Professional AI automation and IT solutions. Automate marketing, customer support, CRM, reporting, and workflows.",
-    url: "https://app.gaugon.com",
+    url: "https://ocilab25.github.io/gaugon-website",
     siteName: "Gaugon",
     type: "website",
     locale: "en_US",
@@ -47,7 +41,7 @@ export default function RootLayout({
     "@type": "ProfessionalService",
     "name": "Gaugon",
     "description": "AI automation and IT solutions for businesses",
-    "url": "https://app.gaugon.com",
+    "url": "https://ocilab25.github.io/gaugon-website",
     "serviceType": ["AI Automation", "IT Solutions", "Business Automation"],
     "areaServed": "Worldwide",
   };
@@ -55,13 +49,6 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Security meta tags (temporary mitigation until Cloudflare Pages migration) */}
-        <meta
-          httpEquiv="Content-Security-Policy"
-          content="default-src 'self'; script-src 'self' 'unsafe-inline' https://hcaptcha.com https://*.hcaptcha.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com https://hcaptcha.com https://*.hcaptcha.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: blob:; connect-src 'self' https://hcaptcha.com https://*.hcaptcha.com https://api.web3forms.com; frame-src https://hcaptcha.com https://*.hcaptcha.com; frame-ancestors 'none'"
-        />
-        <meta name="referrer" content="strict-origin-when-cross-origin" />
-        <link rel="canonical" href="https://app.gaugon.com" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{
@@ -73,10 +60,8 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Footer />
-        <CookieConsent />
-        <StickyBookCTA />
+        <WhatsAppButton />
       </body>
     </html>
   );
 }
-

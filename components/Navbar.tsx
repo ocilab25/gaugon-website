@@ -1,80 +1,49 @@
-"use client";
+﻿"use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Link from "next/link";
-import Image from "next/image";
 
 export default function Navbar() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setScrolled(window.scrollY > 20);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
 
   return (
-    <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled ? "glass-nav py-4 shadow-luxury" : "bg-transparent py-6"
-        }`}
-    >
+    <nav className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="flex justify-between items-center">
+        <div className="flex justify-between items-center h-20">
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center group">
-              {/* Assuming logo might need a white filter or replacement for dark mode. 
-                  For now, adding a subtle glow effect on hover */}
-              <div className="relative transition-all hover:opacity-80">
-                <Image
-                  src="/logo.png"
-                  alt="Gaugon"
-                  width={220}
-                  height={70}
-                  className="h-14 md:h-16 w-auto"
-                />
-              </div>
+            <Link href="/" className="text-2xl font-bold text-gray-900 tracking-tight">
+              Gaugon
             </Link>
           </div>
-
-          {/* Desktop menu */}
-          <div className="hidden md:flex md:items-center md:space-x-12">
-            {["Home", "Services", "About"].map((item) => (
-              <Link
-                key={item}
-                href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="text-gray-700 hover:text-primary transition-colors text-sm font-medium tracking-wide"
-              >
-                {item}
-              </Link>
-            ))}
+          
+          <div className="hidden md:flex md:items-center md:space-x-10">
+            <Link href="/" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
+              Home
+            </Link>
+            <Link href="/services" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
+              Services
+            </Link>
+            <Link href="/case-studies" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
+              Case Studies
+            </Link>
+            <Link href="/about" className="text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium">
+              About
+            </Link>
             <Link
-              href="/contact-us"
-              className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5"
+              href="/contact"
+              className="bg-primary text-white px-6 py-2.5 rounded-md hover:bg-primary/90 transition-colors text-sm font-semibold"
             >
-              Book Consultation
+              Book Audit
             </Link>
           </div>
 
-          {/* Mobile menu button */}
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-primary focus:outline-none"
+              className="text-gray-700 hover:text-gray-900 focus:outline-none"
               aria-label="Toggle menu"
-              aria-expanded={isMenuOpen}
             >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
-              >
+              <svg className="h-6 w-6" fill="none" strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" viewBox="0 0 24 24" stroke="currentColor">
                 {isMenuOpen ? (
                   <path d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -85,26 +54,13 @@ export default function Navbar() {
           </div>
         </div>
 
-        {/* Mobile menu */}
         {isMenuOpen && (
-          <div className="md:hidden absolute top-full left-0 right-0 glass-nav border-t border-gray-100 p-6 space-y-4 animate-slide-up shadow-luxury">
-            {["Home", "Services", "About"].map((item) => (
-              <Link
-                key={item}
-                href={item === "Home" ? "/" : `/${item.toLowerCase()}`}
-                className="block text-gray-700 hover:text-primary transition-colors text-base font-medium"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {item}
-              </Link>
-            ))}
-            <Link
-              href="/contact-us"
-              className="block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors text-base font-semibold text-center shadow-lg"
-              onClick={() => setIsMenuOpen(false)}
-            >
-              Book Consultation
-            </Link>
+          <div className="md:hidden py-6 space-y-4 border-t border-gray-100 mt-4">
+            <Link href="/" className="block text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Home</Link>
+            <Link href="/services" className="block text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Services</Link>
+            <Link href="/case-studies" className="block text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium" onClick={() => setIsMenuOpen(false)}>Case Studies</Link>
+            <Link href="/about" className="block text-gray-700 hover:text-gray-900 transition-colors text-sm font-medium" onClick={() => setIsMenuOpen(false)}>About</Link>
+            <Link href="/contact" className="block bg-primary text-white px-6 py-2.5 rounded-md hover:bg-primary/90 transition-colors text-sm font-semibold text-center" onClick={() => setIsMenuOpen(false)}>Book Audit</Link>
           </div>
         )}
       </div>
