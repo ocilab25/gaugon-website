@@ -5,6 +5,12 @@ This document tracks major updates, feature implementations, and strategic chang
 
 ---
 
+## [2025-12-12] - Logo Consistency Fix
+
+### 🎨 Branding
+- **Navbar**: Increased logo size from `h-12` to `h-14 md:h-16` for better visual impact.
+- **Footer**: Replaced CSS gradient text with standard `logo.png` image for brand consistency.
+
 ## [2025-12-12] - White Luxury Refactor (Phase 2 & 3)
 
 ### 🎨 Design System: "White Luxury"

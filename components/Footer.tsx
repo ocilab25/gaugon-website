@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 
 export default function Footer() {
   return (
@@ -15,11 +16,15 @@ export default function Footer() {
             </h3>
           </div>
 
-          {/* Right: Large Gaugon Logo */}
+          {/* Right: Standard Gaugon Logo */}
           <div>
-            <h2 className="text-6xl md:text-8xl font-black tracking-tighter text-transparent bg-clip-text bg-gradient-to-br from-primary to-accent opacity-90">
-              Gaugon
-            </h2>
+            <Image
+              src="/logo.png"
+              alt="Gaugon"
+              width={280}
+              height={90}
+              className="h-20 w-auto opacity-90"
+            />
           </div>
         </div>
 

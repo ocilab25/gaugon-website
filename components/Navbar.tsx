@@ -31,9 +31,9 @@ export default function Navbar() {
                 <Image
                   src="/logo.png"
                   alt="Gaugon"
-                  width={180}
-                  height={58}
-                  className="h-12 w-auto"
+                  width={220}
+                  height={70}
+                  className="h-14 md:h-16 w-auto"
                 />
               </div>
             </Link>
