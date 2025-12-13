@@ -59,66 +59,28 @@ export default function Contact() {
     return Object.keys(newErrors).length === 0;
   };
 
-  // Helper: Build Web3Forms FormData with all required fields
-  const buildWeb3FormData = () => {
-    const web3FormData = new FormData();
-    web3FormData.append("access_key", WEB3FORMS_CONFIG.ACCESS_KEY);
-    web3FormData.append("name", `${formData.firstName} ${formData.lastName}`);
-    web3FormData.append("email", formData.workEmail);
-    web3FormData.append("phone", formData.phone);
-    web3FormData.append("message", formData.message);
-    web3FormData.append("h-captcha-response", hcaptchaToken || "");
-    web3FormData.append("subject", `New Contact Form Submission from ${formData.firstName} ${formData.lastName}`);
-
-    return web3FormData;
-  };
-
-  // Helper: Configure auto-reply settings for customer confirmation
-  const configureAutoReply = (web3FormData: FormData) => {
-    web3FormData.append("from_name", "Gaugon Support Team");
-    web3FormData.append("replyto", "support@gaugon.com");
-    web3FormData.append("autoresponse", "true");
-    web3FormData.append("autoresponse_subject", "Thank you for contacting Gaugon! We'll be in touch soon.");
-    web3FormData.append("autoresponse_text", `Hi ${formData.firstName},
-
-Thank you for reaching out to Gaugon! We've received your message and will get back to you within 24 hours.
-
-What happens next:
-• Our team is reviewing your request
-• We'll analyze how AI automation can help your business
-• You'll receive a personalized response from our experts
-
-In the meantime, feel free to:
-• Check out our services: https://app.gaugon.com/services
-• Learn about our approach: https://app.gaugon.com/about
-• Message us on WhatsApp: +1 (407) 668-2684
-
-Looking forward to helping you automate and grow your business!
-
-Best regards,
-The Gaugon Team
-
----
-Gaugon - AI Automation & IT Solutions
-Website: https://app.gaugon.com
-Email: support@gaugon.com
-WhatsApp: +1 (407) 668-2684`);
-  };
-
-  // Helper: Submit form data to Web3Forms API
-  const submitToWeb3Forms = async (web3FormData: FormData) => {
+  // Helper: Submit form data to backend API
+  const submitToBackend = async () => {
     const response = await fetch(WEB3FORMS_CONFIG.API_URL, {
       method: "POST",
-      body: web3FormData
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstName: formData.firstName,
+        lastName: formData.lastName,
+        email: formData.workEmail,
+        phone: formData.phone,
+        message: formData.message,
+        hcaptchaToken: hcaptchaToken,
+      }),
     });
 
-    const data = await response.json();
-
-    if (!data.success) {
+    if (!response.ok) {
       throw new Error("Form submission failed");
     }
 
-    return data;
+    return await response.json();
   };
 
   // Helper: Handle successful form submission
@@ -155,9 +117,7 @@ WhatsApp: +1 (407) 668-2684`);
     setSubmitStatus(null);
 
     try {
-      const web3FormData = buildWeb3FormData();
-      configureAutoReply(web3FormData);
-      await submitToWeb3Forms(web3FormData);
+      await submitToBackend();
       handleSubmitSuccess();
     } catch (error) {
       handleSubmitError(error);

@@ -6,7 +6,7 @@ import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { ArrowLeft, Plus, Trash2, Loader2 } from 'lucide-react';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import { useRouter } from 'next/navigation';
 import Link from 'next/link';
 
@@ -41,15 +41,7 @@ export default function CreateInvoicePage() {
 
     const API_URL = process.env.NEXT_PUBLIC_API_URL || 'https://gaugon-website.onrender.com';
 
-    useEffect(() => {
-        fetchCustomers();
-        // Default due date: 30 days from now
-        const defaultDue = new Date();
-        defaultDue.setDate(defaultDue.getDate() + 30);
-        setDueDate(defaultDue.toISOString().split('T')[0]);
-    }, []);
-
-    const fetchCustomers = async () => {
+    const fetchCustomers = useCallback(async () => {
         try {
             const res = await fetch(`${API_URL}/api/admin/customers`, {
                 headers: { Authorization: `Bearer ${token}` },
@@ -59,7 +51,15 @@ export default function CreateInvoicePage() {
         } catch (error) {
             console.error('Failed to fetch customers:', error);
         }
-    };
+    }, [API_URL, token]);
+
+    useEffect(() => {
+        fetchCustomers();
+        // Default due date: 30 days from now
+        const defaultDue = new Date();
+        defaultDue.setDate(defaultDue.getDate() + 30);
+        setDueDate(defaultDue.toISOString().split('T')[0]);
+    }, [fetchCustomers]);
 
     const addItem = () => {
         setItems([...items, { description: '', quantity: 1, unitPrice: 0, total: 0 }]);
