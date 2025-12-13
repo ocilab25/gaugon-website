@@ -6,6 +6,7 @@ import RealResults from "@/components/sections/RealResults";
 import HowItWorks from "@/components/sections/HowItWorks";
 import FinalCTA from "@/components/sections/FinalCTA";
 import FadeIn from "@/components/ui/FadeIn";
+import ROICalculator from "@/components/sections/ROICalculator";
 
 export default function Home() {
   return (
@@ -18,6 +19,10 @@ export default function Home() {
 
       <FadeIn>
         <WhoThisIsFor />
+      </FadeIn>
+
+      <FadeIn>
+        <ROICalculator />
       </FadeIn>
 
       <FadeIn>

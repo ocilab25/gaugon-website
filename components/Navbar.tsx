@@ -54,7 +54,7 @@ export default function Navbar() {
               href="/contact-us"
               className="bg-primary hover:bg-primary-dark text-white px-6 py-2.5 rounded-full text-sm font-semibold transition-all shadow-lg hover:shadow-primary/30 hover:-translate-y-0.5"
             >
-              Book Audit
+              Book Consultation
             </Link>
           </div>
 
@@ -103,7 +103,7 @@ export default function Navbar() {
               className="block bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-dark transition-colors text-base font-semibold text-center shadow-lg"
               onClick={() => setIsMenuOpen(false)}
             >
-              Book Audit
+              Book Consultation
             </Link>
           </div>
         )}

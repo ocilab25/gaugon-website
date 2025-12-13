@@ -108,3 +108,15 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 - `CHANGELOG.md` (This file)
 - `RECAPTCHA_SETUP.md`
 - `GITHUB_SECRET_SETUP.md`
+
+## [2025-12-13] - ROI Calculator & Conversion Optimization
+
+### dY" Feature: ROI Calculator
+- **New Component:** `ROICalculator.tsx`
+- **Functionality:** Interactive slider (0-40 hours) to visualize "Cost of Inaction".
+- **Design:** White Luxury aesthetics with glassmorphism and counter animations.
+- **Placement:** Integrated into `page.tsx` after the "Who This Is For" section.
+
+### dYZ" Copy: Strategic Alignment
+- **Navbar/Mobile Menu:** Renamed "Book Audit" to "Book Consultation" to align with the new high-end positioning.
+- **Consistency:** Ensured all CTAs reflect the "Consultation" model over the "Free Audit" model.
