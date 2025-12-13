@@ -15,25 +15,26 @@ export default function NewsletterForm() {
 
         setStatus('loading');
 
-        // Simulate API call or use Web3Forms
         try {
-            const response = await fetch('https://api.web3forms.com/submit', {
+            // Updated to point to our secure backend proxy
+            const apiUrl = process.env.NEXT_PUBLIC_API_URL
+                ? `${process.env.NEXT_PUBLIC_API_URL}/api/forms/newsletter`
+                : "https://gaugon-api.onrender.com/api/forms/newsletter";
+
+            const response = await fetch(apiUrl, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     Accept: 'application/json',
                 },
                 body: JSON.stringify({
-                    access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY || 'YOUR_ACCESS_KEY', // Fallback or env
                     email: email,
-                    subject: 'New Newsletter Subscriber',
-                    from_name: 'Gaugon Website',
                 }),
             });
 
             const result = await response.json();
 
-            if (result.success) {
+            if (response.ok && result.success) {
                 setStatus('success');
                 setEmail('');
             } else {

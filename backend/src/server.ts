@@ -9,6 +9,7 @@ import adminRoutes from './routes/admin';
 import customerRoutes from './routes/customer';
 import subscriptionRoutes from './routes/subscriptions';
 import healthRoutes from './routes/health';
+import formRoutes from './routes/forms';
 
 // Load environment variables
 dotenv.config();
@@ -75,6 +76,7 @@ app.use('/api/health', healthRoutes);
 
 // API Routes
 app.use('/api/auth', authRoutes);
+app.use('/api/forms', formRoutes);
 app.use('/api/admin', adminRoutes);
 app.use('/api/customer', customerRoutes);
 app.use('/api/subscriptions', subscriptionRoutes);

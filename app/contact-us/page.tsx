@@ -107,7 +107,7 @@ export default function ContactPage() {
   // Helper: Build Web3Forms FormData with all required fields
   const buildWeb3FormData = () => {
     const web3FormData = new FormData();
-    web3FormData.append("access_key", WEB3FORMS_CONFIG.ACCESS_KEY);
+    // access_key is now handled by the backend
     web3FormData.append("name", `${formData.firstName} ${formData.lastName}`);
     web3FormData.append("email", formData.workEmail);
     web3FormData.append("phone", formData.phone || "Not provided");

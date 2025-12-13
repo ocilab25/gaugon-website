@@ -4,6 +4,8 @@
  */
 
 export const WEB3FORMS_CONFIG = {
-    ACCESS_KEY: "0a70d745-bd5d-41d0-a68f-7b0953cf7012",
-    API_URL: "https://api.web3forms.com/submit",
+    // Moved to Backend for security. This now points to our proxy.
+    API_URL: process.env.NEXT_PUBLIC_API_URL
+        ? `${process.env.NEXT_PUBLIC_API_URL}/api/forms/contact`
+        : "https://gaugon-api.onrender.com/api/forms/contact",
 } as const;
