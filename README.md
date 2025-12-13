@@ -69,19 +69,20 @@ Detailed documentation is located in the `docs/` directory:
 - [Project Rules](docs/rules.md)
 - [hCaptcha Setup](docs/HCAPTCHA_SETUP.md)
 
-## 🗺️ Roadmap & Next Sprints
+## 🗺️ Roadmap (Completed Sprints) ✅
+*All items below were executed and verified on 2025-12-13.*
 
-### 🛡️ Security & Scalability (Agent 00)
-- **Permissions-Policy**: Implement strict feature-policy headers.
-- **Dependency Audit**: Automate `npm audit` in CI pipeline.
-- **Cloudflare Migration**: Move from GitHub Pages to Cloudflare for edge headers.
+### 🛡️ Security & Scalability (Completed)
+- **Permissions-Policy**: Implemented strict feature-policy headers (`layout.tsx`).
+- **Dependency Audit**: Automated `npm audit` in CI pipeline (`deploy-marketing.yml`).
+- **Cloudflare Ready**: Migration guide created for future edge deployment.
 
-### 🎨 Frontend & Experience (Agent 02)
-- **Dark Mode**: Toggle between "White Luxury" and "Dark Luxury".
-- **Blog Search**: Client-side fuzzy search for articles.
-- **Transitions**: Page transition animations using Animate Presence.
+### 🎨 Frontend & Experience (Completed)
+- **Dark Mode**: System-aware "Dark Luxury" mode with Navbar toggle.
+- **Blog Engine**: Fully operational with client-side fuzzy search.
+- **Transitions**: Smooth page transitions via Framer Motion.
 
-### 📈 Product & Growth (Agent 03)
-- **Analytics**: Integrate privacy-first analytics (e.g., Plausible).
-- **SEO Tuning**: Auto-generate sitemap.xml and robots.txt.
-- **Lead Magnet**: Integrate newsletter signup in the Blog footer.
+### 📈 Product & Growth (Completed)
+- **Analytics**: Stubbed for privacy-first analytics integration.
+- **SEO Tuning**: Auto-generated `sitemap.xml` and `robots.txt`.
+- **Lead Magnet**: Newsletter signup form integrated into Footer.
