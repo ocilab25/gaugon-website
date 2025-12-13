@@ -1,0 +1,5 @@
+﻿# https://www.robotstxt.org/robotstxt.html
+User-agent: *
+Allow: /
+
+Sitemap: https://app.gaugon.com/sitemap.xml

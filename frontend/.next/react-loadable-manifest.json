@@ -1,0 +1,14 @@
+{
+  "app/contact-us/page.tsx -> @hcaptcha/react-hcaptcha": {
+    "id": 8970,
+    "files": [
+      "static/chunks/970.2bcd8cc0f7add930.js"
+    ]
+  },
+  "components/CookieConsent.tsx -> ./CookieConsentModal": {
+    "id": 2180,
+    "files": [
+      "static/chunks/180.9690ab4d9c856e40.js"
+    ]
+  }
+}
