@@ -61,6 +61,15 @@ app.use(
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
+// Root route to prevent 404
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Gaugon API is running',
+    environment: process.env.NODE_ENV,
+    timestamp: new Date().toISOString(),
+  });
+});
+
 // Health check (before auth)
 app.use('/api/health', healthRoutes);
 
