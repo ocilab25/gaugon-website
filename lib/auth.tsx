@@ -13,6 +13,7 @@ interface User {
 
 interface AuthContextType {
   user: User | null;
+  token: string | null;
   loading: boolean;
   login: (email: string, password: string) => Promise<{ error?: string }>;
   register: (data: { email: string; password: string; firstName: string; lastName: string }) => Promise<{ error?: string }>;
@@ -64,7 +65,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           localStorage.setItem('refreshToken', response.data.refreshToken);
         }
         setUser(response.data.user);
-        
+
         // Redirect based on role
         if (response.data.user.role === 'admin') {
           router.push('/portal/admin/dashboard');
@@ -73,7 +74,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         } else {
           router.push('/portal/customer/dashboard');
         }
-        
+
         return {};
       } else {
         return { error: response.error || 'Login failed' };
@@ -129,8 +130,10 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     }
   };
 
+  const token = typeof window !== 'undefined' ? localStorage.getItem('token') : null;
+
   return (
-    <AuthContext.Provider value={{ user, loading, login, register, logout, refreshToken }}>
+    <AuthContext.Provider value={{ user, token, loading, login, register, logout, refreshToken }}>
       {children}
     </AuthContext.Provider>
   );
