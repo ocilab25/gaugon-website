@@ -227,3 +227,16 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 - **Backend Proxy**: Implemented `/api/forms/contact` and `/api/forms/newsletter` with strict **Zod** schema validation and rate limiting (5 req/hr).
 - **Static Security**: Added `public/_headers` to enforce CSP, HSTS, X-Frame-Options, and X-Content-Type-Options for static hosting.
 - **Cleanup**: Removed sensitive data from `lib/config.ts` and refactored form components to use the new secure backend API.
+
+## [2025-12-13] - Portal Enhancement: Invoice System (Phase 9)
+
+### 🧾 Invoice System (Ported from EdAndCod)
+- **Backend Model**: Created `Invoice.ts` with auto-incrementing invoice numbers (`GAU-YYYY-0001` format).
+- **Backend API**: Full CRUD routes at `/api/invoices` with Zod validation and auth middleware.
+- **PDF Generation**: Professional invoice PDFs using `pdfkit` with Gaugon branding.
+- **Email Delivery**: Nodemailer integration for sending invoices with PDF attachments.
+- **Admin Portal UI**:
+  - Invoices list page with status badges, actions (Download PDF, Send Email, Mark Paid).
+  - Create Invoice form with dynamic line items, tax calculation, and live totals.
+- **Customer Portal UI**: Invoice history page with download functionality.
+- **Auth Enhancement**: Added `token` to AuthContext for API calls.
