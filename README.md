@@ -3,6 +3,7 @@
 The marketing and lead generation site for **Gaugon**—an AI automation and IT solutions consultancy.
 
 **Live Site:** [app.gaugon.com](https://app.gaugon.com)  
+**Admin Portal:** [app.gaugon.com/portal/login](https://app.gaugon.com/portal/login)  
 
 ---
 

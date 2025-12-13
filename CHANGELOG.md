@@ -191,3 +191,18 @@ Refined messaging to remove "free/audit" language, positioning Gaugon as a premi
 - **Behavior:** Floating CTA appears in bottom-right corner after user scrolls 50% of the page.
 - **Style:** Purple button with glassmorphic shadow, calendar icon, and hover animation.
 - **Integration:** Added globally via `app/layout.tsx`.
+## [2025-12-13] - Portal Deployment & Fixes
+
+### 🚀 Admin Portal & Role-Based Access Live
+- **Deployment**: Successfully deployed Admin and Customer portals to Production (`app.gaugon.com/portal/login`).
+- **Access Control**: Validated role-based separation:
+  - **Admin**: Routes to `/portal/admin/dashboard`
+  - **Staff**: Routes to `/portal/staff/dashboard`
+  - **Customer**: Routes to `/portal/customer/dashboard`
+- **Security**: Redirects unauthorized users and handles "Access Denied" scenarios correctly.
+
+### 🔧 Build & Infrastructure Fixes
+- **Backend Root Route**: Added explicit `/` handler to Backend to prevent 404s on health checks.
+- **Frontend Dependencies**: Updated `lucide-react` to resolve "Module not found" errors during Render build.
+- **GitHub Actions**: Restored and validated `deploy-marketing.yml` for correct GitHub Pages deployment.
+- **Render Config**: Corrected "Publish Directory" to `out` for Next.js Static Export compatibility.
