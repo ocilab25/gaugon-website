@@ -73,6 +73,14 @@ export default function RootLayout({
             __html: JSON.stringify(schema),
           }}
         />
+        {/* Privacy-First Analytics (Stub) */}
+        {process.env.NEXT_PUBLIC_ANALYTICS_ID ? (
+          <script
+            defer
+            data-domain="app.gaugon.com"
+            src="https://plausible.io/js/script.js"
+          />
+        ) : null}
       </head>
       <body className={inter.className}>
         <Providers>
